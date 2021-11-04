@@ -1,0 +1,15 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.container {
+  padding-left: 10px;
+  padding-right: 10px;
+  @include for-tablet {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  @include for-desktop {
+    padding-left: 110px;
+    padding-right: 110px;
+  }
+}
