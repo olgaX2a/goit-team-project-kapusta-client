@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,IAAI,CAAJ,gBAAI;AACJ,IAAI,CAAJ,mBAAI;AAEJ,AAAA,UAAU,CAAA;EACN,MAAM,EAAE,eAAe;EACvB,YAAY,EAAE,IAAI;EAClB,aAAa,EAAE,IAAI;CAStB",
-    "sources": [
-        "Container.module.scss"
-    ],
-    "names": [],
-    "file": "Container.module.css"
-}
