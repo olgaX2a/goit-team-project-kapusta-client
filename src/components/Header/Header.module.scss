@@ -1,0 +1,16 @@
+@use '../shared/variables' as *;
+@use '../shared/mixins' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: $white-color;
+  @include for-tablet {
+    padding: 12px 26px;
+  }
+  @include for-desktop {
+    padding-right: 71px;
+  }
+}
