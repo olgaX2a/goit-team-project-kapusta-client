@@ -1,0 +1,140 @@
+@use '../shared/mixins' as *;
+@use '../shared/variables' as *;
+
+.form {
+  font: $main-font;
+  display: flex;
+  flex-direction: column;
+}
+.discription {
+  width: 280px;
+  // height: 44px;
+  background-color: #f5f6fb;
+  border: 2px solid #ffffff;
+}
+.selectCategory {
+  width: 280px;
+  // height: 44px;
+  background-color: #f5f6fb;
+  border: 2px solid #ffffff;
+}
+.sum {
+  border: none;
+
+  border-radius: 22px 0px 0px 22px;
+  background-color: #f5f6fb;
+}
+.containerSum {
+  margin: auto;
+  border: 2px solid #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 44px;
+  border-radius: 16px;
+}
+.icon {
+  display: inline-block;
+  fill: #52555f;
+}
+.formButton {
+  display: flex;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+  gap: 15px;
+}
+
+.containerDate {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.date {
+  border: none;
+  background-color: #f5f6fb;
+  font: $main-font;
+  width: 80px;
+}
+
+@media screen and (min-width: $mobile) and (max-width: 767px) {
+  .containerDate {
+    margin-bottom: 20px;
+  }
+  .discription {
+    height: 44px;
+    padding-left: 20px;
+    border-radius: 16px 16px 0px 0px;
+  }
+  .selectCategory {
+    height: 44px;
+    padding-left: 20px;
+    border-radius: 0px 0px 16px 16px;
+    margin-bottom: 30px;
+  }
+  .sum {
+    height: 44px;
+    width: 125px;
+    padding-left: 47px;
+    padding-right: 15px;
+  }
+  .containerSum {
+    width: 183px;
+  }
+  .separator {
+    width: 3px;
+    height: 44px;
+    background-color: #ffffff;
+  }
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .inputFild {
+    display: flex;
+    margin-bottom: 30px;
+  }
+  .infoData {
+    display: flex;
+  }
+  .discription {
+    width: 187px;
+    border-radius: 16px 0px 0px 0px;
+    margin: 0;
+  }
+  .selectCategory {
+    // border-radius: 0px 0px 0px 0px;
+    width: 168px;
+    margin: 0;
+  }
+  .containerSum {
+    margin: auto;
+    border: 2px solid #ffffff;
+    padding-right: 20px;
+    padding-left: 30px;
+
+    border-radius: 16px;
+
+    border-radius: 0px 16px 16px 0px;
+  }
+
+  .formButton {
+    margin: auto;
+  }
+  .sum {
+    width: 80px;
+
+    border-radius: 0px 16px 16px 0px;
+  }
+  .separator {
+    display: none;
+  }
+}

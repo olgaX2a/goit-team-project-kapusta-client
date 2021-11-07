@@ -1,0 +1,19 @@
+@use '../shared/mixins' as *;
+@use '../shared/variables' as *;
+
+.section {
+  background-color: #f5f6fb;
+  padding-top: 54px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and (min-width: $tablet) {
+  .section {
+    padding: 28px 30px 40px 30px;
+  }
+
+  .containerDate {
+    margin-right: 30px;
+  }
+}
