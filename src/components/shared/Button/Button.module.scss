@@ -1,0 +1,25 @@
+@import '../variables';
+
+.button {
+  width: 125px;
+  height: 44px;
+  border-radius: 16px;
+  background-color: $kapusta-grey-color;
+  border: 2px solid $light-grey-color;
+  color: $dark-grey-color;
+  text-transform: uppercase;
+  font: $main-font;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 1.17;
+  transition: box-shadow 600ms ease-in-out, background-color 600ms ease-in-out;
+}
+
+.button:hover,
+.button:focus {
+  background-color: $accent-color;
+  border: 2px solid transparent;
+  color: $white-color;
+  box-shadow: 0 0 20px 20px $accent-color inset;
+}
