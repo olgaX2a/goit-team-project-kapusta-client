@@ -1,4 +1,6 @@
 @use '../shared/variables' as *;
+@use '../shared/mixins' as *;
+
 .container {
   display: flex;
   align-items: center;
@@ -21,14 +23,64 @@
   color: $dark-grey-color;
 }
 
-.logOutLink {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
+.userNameText {
+  display: none;
+  @include for-tablet {
+    display: block;
+    margin-left: 10px;
+    font-family: $main-font;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.166;
+    letter-spacing: 0.04em;
+    color: $dark-grey-color;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 10px;
+      margin-left: 20px;
+      width: 1px;
+      height: 36px;
+      background-color: #e0e5eb;
+    }
+  }
+}
+
+.logOutBtn {
+  padding: 0;
+  margin: 0;
+  border: 0;
   margin-left: 15px;
   cursor: pointer;
+  background-color: transparent;
+  fill: $logout-icon-color;
+  color: $dark-grey-color;
+  &:hover,
+  &:focus {
+    fill: $accent-color;
+    color: $accent-color;
+    scroll-behavior: smooth;
+  }
+  @include for-tablet {
+    margin-left: 40px;
+  }
 }
 
 .logOutIcon {
-  fill: $logout-icon-color;
+  @include for-tablet {
+    display: none;
+  }
+}
+
+.logOutText {
+  display: none;
+  @include for-tablet {
+    display: block;
+    font-family: $main-font;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.166;
+    letter-spacing: 0.04em;
+    text-decoration-line: underline;
+  }
 }

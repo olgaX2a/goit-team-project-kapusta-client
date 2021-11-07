@@ -5,7 +5,7 @@ import styles from './Header.module.scss';
 
 function Header() {
   return (
-    <AppBar color="transparent" elevation={0}>
+    <AppBar color="transparent" elevation={0} style={{ height: '56px' }}>
       <div className={styles.header}>
         <Logo />
         <UserMenu />
