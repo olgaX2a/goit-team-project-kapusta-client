@@ -1,36 +1,39 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import expensesReducer from './expenses/expenses-slice';
+// import authReducer from './auth/auth-slice';
 
-// reducer: {
-//   auth: persistReducer(authPersistConfig, authReducer),
-//   expenses: expensesReducer,
-//   incomes: incomsesReduser,
-// },
+const middleware = [
+  ...getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
+  }),
+];
+
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
+
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    // auth: persistReducer(authPersistConfig, authReducer),
+    expenses: expensesReducer,
+  },
+  middleware,
+  devTools: process.env.NODE_ENV === 'development',
 });
 
-// const expensesSlice = createSlice({
-//   name: 'expenses',
-
-//   initialState: {
-//     categories: [],
-//     sum: [],
-//     date: [],
-//     descGoods: [],
-//     filter: '',
-//     isLoading: false,
-//     error: null,
-//   },
-
-// const incomesSlice = createSlice({
-//   name: 'incomes',
-
-//   initialState: {
-//     categories: [],
-//     sum: [],
-//     date: [],
-//     descIncomes: [],
-//     filter: '',
-//     isLoading: false,
-//     error: null,
-//   },
+export const persistor = persistStore(store);
