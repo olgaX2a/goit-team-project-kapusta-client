@@ -1,15 +1,9 @@
 import React from 'react';
 import './App.css';
-import Expenses from './components/Expenses/Expenses';
-import Container from './components/shared/Container/Container';
+import Testing from './components/shared/Testing/Testing';
 
 function App() {
-  return (
-    <Container>
-      <Expenses />
-    </Container>
-  );
-  // return <div className="App">Start!</div>;
+  return <Testing />;
 }
 
 export default App;

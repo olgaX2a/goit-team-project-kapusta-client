@@ -12,8 +12,10 @@
   .section {
     padding: 28px 30px 40px 30px;
   }
+}
 
-  .containerDate {
-    margin-right: 30px;
+@media screen and (min-width: $desktop) {
+  .section {
+    padding: 40px 20px 40px 20px;
   }
 }

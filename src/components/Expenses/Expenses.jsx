@@ -9,7 +9,7 @@ import Table from '../Table/Table';
 import s from './Expenses.module.scss';
 
 const Expenses = () => {
-  const [startDate, setStartDate] = useState(new Date());
+  // const [startDate, setStartDate] = useState(new Date());
 
   return (
     <div className={s.section}>

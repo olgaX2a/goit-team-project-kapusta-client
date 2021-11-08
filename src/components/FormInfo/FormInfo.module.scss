@@ -6,44 +6,44 @@
   display: flex;
   flex-direction: column;
 }
+
 .discription {
-  width: 280px;
-  // height: 44px;
-  background-color: #f5f6fb;
-  border: 2px solid #ffffff;
+  border-radius: 16px 16px 0px 0px;
+  padding-left: 20px;
+  background-color: $main-bg-color;
+  border: 2px solid $white-color;
 }
 .selectCategory {
-  width: 280px;
-  // height: 44px;
-  background-color: #f5f6fb;
-  border: 2px solid #ffffff;
+  border-radius: 0px 0px 16px 16px;
+  margin-bottom: 30px;
+  padding-left: 20px;
+  background-color: $main-bg-color;
+  border: 2px solid $white-color;
 }
 .sum {
   border: none;
-
+  height: 44px;
+  width: 125px;
   border-radius: 22px 0px 0px 22px;
-  background-color: #f5f6fb;
+  background-color: $main-bg-color;
 }
 .containerSum {
-  margin: auto;
-  border: 2px solid #ffffff;
+  margin-left: 30px;
+  border: 2px solid $white-color;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  padding-right: 12px;
+  padding-left: 15px;
   height: 44px;
   border-radius: 16px;
 }
 .icon {
-  display: inline-block;
-  fill: #52555f;
-}
-.formButton {
   display: flex;
-  margin-top: 30px;
-  margin-left: 20px;
-  margin-bottom: 30px;
-  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  display: inline-block;
+  fill: $dark-grey-color;
 }
 
 .containerDate {
@@ -54,46 +54,64 @@
 }
 .date {
   border: none;
-  background-color: #f5f6fb;
+  background-color: $main-bg-color;
   font: $main-font;
   width: 80px;
+  margin-left: 10px;
+}
+.formButton {
+  display: flex;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+  gap: 25px;
+}
+.button {
+  width: 125px;
+  height: 44px;
+  border-radius: 16px;
+  background-color: $kapusta-grey-color;
+  border: 2px solid $light-grey-color;
+  color: $dark-grey-color;
+  text-transform: uppercase;
+  font: $main-font;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 1.17;
+  transition: box-shadow 600ms ease-in-out, background-color 600ms ease-in-out;
+}
+
+.button:hover,
+.button:focus {
+  background-color: $accent-color;
+  border: 2px solid transparent;
+  color: $white-color;
+  box-shadow: 0 0 20px 20px $accent-color inset;
 }
 
 @media screen and (min-width: $mobile) and (max-width: 767px) {
-  .containerDate {
-    margin-bottom: 20px;
-  }
   .discription {
+    width: 254px;
     height: 44px;
-    padding-left: 20px;
-    border-radius: 16px 16px 0px 0px;
+  }
+  .inputFild {
+    display: flex;
+    flex-direction: column;
   }
   .selectCategory {
+    width: 280px;
     height: 44px;
-    padding-left: 20px;
-    border-radius: 0px 0px 16px 16px;
-    margin-bottom: 30px;
   }
-  .sum {
-    height: 44px;
-    width: 125px;
-    padding-left: 47px;
-    padding-right: 15px;
-  }
+
   .containerSum {
     width: 183px;
   }
   .separator {
     width: 3px;
     height: 44px;
-    background-color: #ffffff;
-  }
-  .icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-right: 20px;
-    padding-left: 20px;
+    background-color: $white-color;
+    margin-right: 15px;
   }
 }
 
@@ -105,24 +123,26 @@
   .infoData {
     display: flex;
   }
+  .containerDate {
+    margin-bottom: 70px;
+    margin-right: 35px;
+  }
   .discription {
     width: 187px;
     border-radius: 16px 0px 0px 0px;
     margin: 0;
   }
   .selectCategory {
-    // border-radius: 0px 0px 0px 0px;
     width: 168px;
     margin: 0;
+    border-radius: 0px 0px 0px 0px;
   }
   .containerSum {
     margin: auto;
-    border: 2px solid #ffffff;
+    border: 2px solid $white-color;
     padding-right: 20px;
     padding-left: 30px;
-
     border-radius: 16px;
-
     border-radius: 0px 16px 16px 0px;
   }
 
@@ -131,10 +151,37 @@
   }
   .sum {
     width: 80px;
-
     border-radius: 0px 16px 16px 0px;
   }
   .separator {
     display: none;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .form {
+    flex-direction: row;
+  }
+  .formButton {
+    margin-left: 30px;
+    margin-bottom: 32px;
+  }
+  .infoData {
+    flex-direction: row;
+  }
+  .containerDate {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    margin-right: 25px;
+  }
+  .discription {
+    width: 287px;
+  }
+  .selectCategory {
+    width: 186px;
+  }
+  .containerSum {
+    width: 120px;
   }
 }

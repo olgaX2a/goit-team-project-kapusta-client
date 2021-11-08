@@ -1,6 +1,8 @@
 import { ReactComponent as Calculator } from '../../assets/calculator.svg';
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
+// import Button from '../../components/shared/Button/Button';
+
 import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as Calendar } from '../../assets/calendar.svg';
 import s from './FormInfo.module.scss';
@@ -52,8 +54,12 @@ const FormInfo = () => {
         </div>
 
         <div className={s.formButton}>
-          <button type="submit">Ввод</button>
-          <button type="button">Очистить</button>
+          <button type="submit" className={s.button}>
+            Ввод
+          </button>
+          <button type="button" className={s.button}>
+            Очистить
+          </button>
         </div>
       </form>
     </div>
