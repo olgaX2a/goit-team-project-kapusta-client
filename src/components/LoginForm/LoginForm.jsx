@@ -8,7 +8,7 @@ function LoginForm() {
       <button
         type="button"
         className={styles.googleBtn}
-        onClick={() => console.log('googleLogin function')}
+        // onClick={() => console.log('googleLogin function')}
       >
         <GoogleIcon />
         <span className={styles.googleBtnText}>Google</span>
@@ -25,32 +25,33 @@ function LoginForm() {
             // value={email}
             placeholder="your@email.com"
             className={styles.formInput}
-            onChange={() => console.log('handleChange function')}
+            // onChange={() => console.log('handleChange function')}
           />
         </label>
 
         <label className={styles.formInputLabel}>
           Пароль:
+          <br />
           <input
             type="password"
             name="password"
             // value={password}
             placeholder="Пароль"
             className={styles.formInput}
-            onChange={() => console.log('handleChange function')}
+            // onChange={() => console.log('handleChange function')}
           />
         </label>
         <div className={styles.formButtonsContainer}>
           <button
             type="submit"
-            onSubmit={() => console.log('onSubmitFunction')}
+            // onSubmit={() => console.log('onSubmitFunction')}
             className={styles.loginFormBtn}
           >
             Войти
           </button>
           <button
-            type="submit"
-            onSubmit={() => console.log('onRegisterFunction')}
+            type="button"
+            // onClick={() => console.log('onRegisterFunction')}
             className={styles.registerFormBtn}
           >
             Регистрация
