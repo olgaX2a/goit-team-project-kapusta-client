@@ -1,63 +1,36 @@
-import { useTable } from 'react-table';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { expensesOperations, expensesSelectors } from '../../redux/expenses';
+import s from './Table.module.scss';
+
 const Table = () => {
-  const columns = [
-    {
-      Header: 'Дата',
-      accessor: 'date',
-    },
-    {
-      Header: 'Описание',
-      accessor: 'discription',
-    },
-    {
-      Header: 'Категория',
-      accessor: 'category',
-    },
+  const expenses = useSelector(expensesSelectors.getExpenses);
+  console.log(expenses);
+  // const dispatch = useDispatch();
+  // const onDeleteExpense = id => dispatch(expensesOperations.deleteExpens(id));
 
-    {
-      Header: 'Сумма',
-      accessor: 'sum',
-    },
-  ];
-
-  const data = [
-    {
-      date: '',
-      discription: '',
-      category: '',
-      sum: '',
-    },
-  ];
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
-    columns,
-    data,
-  });
   return (
-    <>
-      <table {...getTableProps()}>
-        <thead>
-          {headerGroups.map(headerGroup => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map(column => (
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {rows.map((row, i) => {
-            prepareRow(row);
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map(cell => {
-                  return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </>
+    <table>
+      <thead>
+        <tr>
+          <th>Дата</th>
+          <th>Описание</th>
+          <th>Категория</th>
+          <th>Сумма</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {expenses.map(({ descriptionGoods, sum, categoriesGoods, startDate }) => (
+          <tr>
+            <td>{startDate}</td>
+            <td>{descriptionGoods}</td>
+            <td>{categoriesGoods}</td>
+            <td>{sum}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 };
 

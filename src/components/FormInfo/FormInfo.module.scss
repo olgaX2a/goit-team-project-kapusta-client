@@ -7,7 +7,7 @@
   flex-direction: column;
 }
 
-.discription {
+.description {
   border-radius: 16px 16px 0px 0px;
   padding-left: 20px;
   background-color: $main-bg-color;
@@ -91,7 +91,7 @@
 }
 
 @media screen and (min-width: $mobile) and (max-width: 767px) {
-  .discription {
+  .description {
     width: 254px;
     height: 44px;
   }
@@ -127,7 +127,7 @@
     margin-bottom: 70px;
     margin-right: 35px;
   }
-  .discription {
+  .description {
     width: 187px;
     border-radius: 16px 0px 0px 0px;
     margin: 0;
@@ -175,7 +175,7 @@
     margin-bottom: 25px;
     margin-right: 25px;
   }
-  .discription {
+  .description {
     width: 287px;
   }
   .selectCategory {

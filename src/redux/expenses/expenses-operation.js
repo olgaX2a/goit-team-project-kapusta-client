@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ExpensesAPI } from 'services/ExpensesAPI';
+import { ExpensesAPI } from '../../servises/expensesApi';
 
 export const fetchExpensesList = createAsyncThunk(
   'expenses/getExpenses',

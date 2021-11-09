@@ -1,36 +1,85 @@
 import { ReactComponent as Calculator } from '../../assets/calculator.svg';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
 // import Button from '../../components/shared/Button/Button';
-
+import { expensesOperations, expensesSelectors } from '../../redux/expenses';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as Calendar } from '../../assets/calendar.svg';
 import s from './FormInfo.module.scss';
 
 const FormInfo = () => {
   const [startDate, setStartDate] = useState(new Date());
-  // const [category, setCategory] = useState('');
-  // const selectCategory = e => {
-  //   // e.persist();
-  //   const { value } = e.target;
-  //   setCategory({ value }, function () {
-  //     console.log(category);
-  //   });
-  // };
+  const [descriptionGoods, setDescriptionGoods] = useState('');
+  const [sum, setSum] = useState('');
+  const [categoriesGoods, setCategoriesGoods] = useState('');
+
+  const dispatch = useDispatch();
+
+  const handleChange = e => {
+    const { name, value } = e.currentTarget;
+
+    switch (name) {
+      case 'descriptionGoods':
+        setDescriptionGoods(value);
+        break;
+
+      case 'categoriesGoods':
+        setCategoriesGoods(value);
+        break;
+
+      case 'sum':
+        setSum(value);
+        break;
+
+      default:
+        return;
+    }
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    dispatch(
+      expensesOperations.createExpens({ descriptionGoods, sum, categoriesGoods, startDate }),
+    );
+    reset();
+
+    // toast.success('Done!');
+  };
+  const reset = () => {
+    setDescriptionGoods('');
+    setSum('');
+    setCategoriesGoods('');
+  };
   return (
     <div className={s.infoData}>
       <div className={s.containerDate}>
         <Calendar className={s.icon} width="20px" height="20px" />
-        <DatePicker selected={startDate} onChange={date => setStartDate(date)} className={s.date} />
+        <DatePicker
+          dateFormat="dd.MM.yyyy"
+          selected={startDate}
+          onChange={date => setStartDate(date)}
+          name="date"
+          value={startDate}
+          className={s.date}
+        />
       </div>
-      <form className={s.form}>
+      <form className={s.form} onSubmit={handleSubmit}>
         <div className={s.inputFild}>
-          <input placeholder="Описание товара" className={s.discription} />
+          <input
+            placeholder="Описание товара"
+            className={s.description}
+            type="text"
+            name="descriptionGoods"
+            value={descriptionGoods}
+            onChange={handleChange}
+          />
           <select
             className={s.selectCategory}
             name="categoriesGoods"
-            // onChange={selectCategory}
-            // value={category}
+            onChange={handleChange}
+            value={categoriesGoods}
           >
             <option value="">Категория товара</option>
             <option value="Транспорт">Транспорт</option>
@@ -47,7 +96,14 @@ const FormInfo = () => {
           </select>
 
           <div className={s.containerSum}>
-            <input placeholder="00.00 UAH" className={s.sum} />
+            <input
+              placeholder="00.00 UAH"
+              className={s.sum}
+              type="number"
+              name="sum"
+              value={sum}
+              onChange={handleChange}
+            />
             <span className={s.separator}></span>
             <Calculator className={s.icon} width="20px" height="20px" />
           </div>
@@ -57,6 +113,7 @@ const FormInfo = () => {
           <button type="submit" className={s.button}>
             Ввод
           </button>
+
           <button type="button" className={s.button}>
             Очистить
           </button>
