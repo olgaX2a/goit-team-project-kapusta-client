@@ -1,11 +1,9 @@
 import { BarChart, Bar, Cell, XAxis } from 'recharts';
 import styles from './Chart.module.scss';
 
-const DesktopChart = ({ data }) => {
+const DesktopCharts = ({ data }) => {
   const renderCustomizedLabel = props => {
     const { x, y, width, value } = props;
-    console.log(props);
-
     return (
       <text
         x={x + width / 2}
@@ -13,7 +11,7 @@ const DesktopChart = ({ data }) => {
         dy={-10}
         textAnchor="middle"
         fontSize={12}
-      >{`${value}грн`}</text>
+      >{`${value} грн`}</text>
     );
   };
 
@@ -37,4 +35,4 @@ const DesktopChart = ({ data }) => {
   );
 };
 
-export default DesktopChart;
+export default DesktopCharts;

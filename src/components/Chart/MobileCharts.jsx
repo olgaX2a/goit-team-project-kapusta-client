@@ -2,7 +2,6 @@ import { BarChart, Bar, Cell, XAxis, YAxis, ResponsiveContainer, LabelList } fro
 import styles from './Chart.module.scss';
 
 const MobileCharts = ({ data }) => {
-  console.log(data);
   const MobileBarLabel = ({ x, y, width, value }) => (
     <text x={x + width / 1.1} y={y} textAnchor="middle" fontSize={10} dy={-10}>
       {value ? `${value} грн` : ''}
