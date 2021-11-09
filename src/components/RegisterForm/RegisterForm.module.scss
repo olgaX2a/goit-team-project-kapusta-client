@@ -140,7 +140,7 @@
   margin-top: 10px;
 }
 
-.loginFormBtn {
+.registerFormBtn {
   width: 125px;
   height: 44px;
   border-radius: 16px;
@@ -161,14 +161,14 @@
   transition: box-shadow 600ms ease-in-out, background-color 600ms ease-in-out;
 }
 
-.loginFormBtn:hover,
-.loginFormBtn:focus {
+.registerFormBtn:hover,
+.registerFormBtn:focus {
   background-color: $accent-color;
   color: $white-color;
   box-shadow: 0 0 20px 20px $accent-color inset;
 }
 
-.registerFormBtn {
-  @extend .loginFormBtn;
+.loginFormBtn {
+  @extend .registerFormBtn;
   margin-right: 0;
 }

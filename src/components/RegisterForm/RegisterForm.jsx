@@ -1,6 +1,8 @@
 import { ReactComponent as GoogleIcon } from '../../assets/google-icon.svg';
 import styles from './RegisterForm.module.scss';
 
+//https://goit-kapusta.herokuapp.com/api/users
+
 function RegisterForm() {
   return (
     <div className={styles.formContainer}>
@@ -55,18 +57,18 @@ function RegisterForm() {
         </label>
         <div className={styles.formButtonsContainer}>
           <button
-            type="submit"
-            // onSubmit={() => console.log('onSubmitFunction')}
-            className={styles.loginFormBtn}
-          >
-            Войти
-          </button>
-          <button
             type="button"
             // onClick={() => console.log('onRegisterFunction')}
             className={styles.registerFormBtn}
           >
             Регистрация
+          </button>
+          <button
+            type="submit"
+            // onSubmit={() => console.log('onSubmitFunction')}
+            className={styles.loginFormBtn}
+          >
+            Войти
           </button>
         </div>
       </form>
