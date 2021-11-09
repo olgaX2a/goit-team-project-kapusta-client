@@ -1,39 +1,46 @@
-import React from 'react';
-import { Bar } from 'react-chartjs-2';
+import { useState, useEffect } from 'react';
+import { useMediaQuery } from './useMediaQuery';
+
+import DesktopChart from './DesktopChart';
+import MobileCharts from './MobileCharts';
+
 import styles from './Chart.module.scss';
 
-const data = {
-  labels: ['Korovka', 'eda', 'noski', 'kot', 'other'],
-  datasets: [
-    {
-      label: 'nothing',
-      data: [50, 60, 70, 80, 90],
-      borderWidth: 1,
-    },
-  ],
+const Chart = () => {
+  // const [data, setData] = useState([]);
+  const isMatches = useMediaQuery('(min-width: 768px)');
+
+  const dataChart = [
+    { descriprion: 'Свинина', total: 5000 },
+    { descriprion: 'Говядина', total: 4500 },
+    { descriprion: 'Курица', total: 3200 },
+    { descriprion: 'Рыба', total: 2100 },
+    { descriprion: 'Панини', total: 1800 },
+    { descriprion: 'Кофе', total: 1700 },
+    { descriprion: 'Спагетти', total: 1500 },
+    { descriprion: 'Шоколад', total: 800 },
+    { descriprion: 'Маслины', total: 500 },
+    { descriprion: 'Зелень', total: 300 },
+  ];
+  return isMatches ? (
+    <div className={`${styles.container} ${styles.charts}`}>
+      <DesktopChart data={dataChart} />
+    </div>
+  ) : (
+    <div className={styles.mobileContainer}>
+      <MobileCharts data={dataChart} />
+    </div>
+  );
 };
 
-const options = {
-  indexAxis: 'y',
-  elements: {
-    bar: {
-      borderWidth: 2,
-    },
-  },
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'right',
-    },
-    title: {
-      display: true,
-      text: 'Chart.js Horizontal Bar Chart',
-    },
-  },
-};
-
-export default function Chart() {
-  return <Bar data={data} options={options} />;
-}
-// borderRadius: { topLeft: 10, topRight: 10, },
-//             maxBarThickness:15,
+export default Chart;
+// {descriprion:"Свинина",total:"5000", },
+// {descriprion:"Говядина",total:"4500",},
+// {descriprion:"Курица",total:"3200",},
+// {descriprion:"Рыба",total:"2100",},
+// {descriprion:"Панини",total:"1800", },
+// {descriprion:"Кофе",total:"1700",},
+// {descriprion:"Спагетти",total:"1500",},
+// {descriprion:"Шоколад",total:"800", },
+// {descriprion:"Маслины",total:"500",},
+// {descriprion:"Зелень",total:"300", },
