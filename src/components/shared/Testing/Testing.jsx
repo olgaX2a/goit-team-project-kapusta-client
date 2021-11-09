@@ -3,6 +3,7 @@ import styles from './Testing.module.scss';
 import Header from '../../Header/Header';
 import Button from '../Button/Button';
 import ToReports from '../../ToReports/ToReports';
+import LoginForm from '../../LoginForm/LoginForm';
 
 function Testing() {
   return (
@@ -15,6 +16,7 @@ function Testing() {
         </div>
         <div className={styles.personalBlock}>
           <p>Tetiana Parkhoniuk</p>
+          <LoginForm />
         </div>
         <div className={styles.personalBlock}>
           <p>Vladyslav Shumkov</p>
