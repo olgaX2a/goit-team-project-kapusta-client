@@ -4,6 +4,7 @@ import Header from '../../Header/Header';
 import Button from '../Button/Button';
 import ToReports from '../../ToReports/ToReports';
 import LoginForm from '../../LoginForm/LoginForm';
+import RegisterForm from '../../RegisterForm/RegisterForm';
 
 function Testing() {
   return (
@@ -17,6 +18,7 @@ function Testing() {
         <div className={styles.personalBlock}>
           <p>Tetiana Parkhoniuk</p>
           <LoginForm />
+          <RegisterForm />
         </div>
         <div className={styles.personalBlock}>
           <p>Vladyslav Shumkov</p>
