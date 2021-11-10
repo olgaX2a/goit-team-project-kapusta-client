@@ -4,8 +4,12 @@ import Header from '../../Header/Header';
 import Button from '../Button/Button';
 import ToReports from '../../ToReports/ToReports';
 import Chart from '../../Chart/Chart';
+import CategoryIcon from '../CategoryIcon/CategoryIcon';
+import { incomeCategory } from '../../../utils/incomeCategories';
+import { expenseCategory } from '../../../utils/expenseCategories';
 
 function Testing() {
+  console.log('incomeCategory :>> ', incomeCategory);
   return (
     <div className={styles.testingContainer}>
       <Header />
@@ -26,6 +30,16 @@ function Testing() {
         <div className={styles.personalBlock}>
           <p>Olga Sekretaryova</p>
           <ToReports />
+          <div>
+            {incomeCategory.map(el => (
+              <CategoryIcon category={el} />
+            ))}
+          </div>
+          <div>
+            {expenseCategory.map(el => (
+              <CategoryIcon category={el} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

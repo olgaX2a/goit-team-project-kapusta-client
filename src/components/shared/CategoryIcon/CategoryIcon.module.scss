@@ -1,0 +1,18 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.container {
+  height: 56px;
+  width: fit-content;
+}
+
+.roundedRectangle {
+  width: 59px;
+  height: 46px;
+  background-color: $main-bg-color;
+  border-radius: 20px;
+  fill: $icon-dark-color;
+}
+.icon {
+  height: 100%;
+}
