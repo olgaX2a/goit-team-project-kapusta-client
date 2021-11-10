@@ -10,7 +10,7 @@ src/components/UserMenu/*.jsx
 
 
 # Vladyslav Shumkov
-src/components/Chart/*.jsx
+# src/components/Chart/*.jsx
 
 # Olga Sekretaryova
 src/components/shared/Testing/*.jsx
