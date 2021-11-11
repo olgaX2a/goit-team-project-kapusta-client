@@ -1,24 +1,24 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { TransactionAPI } from '../../servises/transactionsAPI';
 
-export const fetchExpensesList = createAsyncThunk(
-  'expenses/getExpenses',
+export const fetchIncomesList = createAsyncThunk(
+  'incomes/getIncomes',
   async (_, { rejectWithValue }) => {
     try {
-      const expenses = await TransactionAPI.fetchTransactionList();
+      const incomes = await TransactionAPI.fetchTransactionList();
 
-      return expenses;
+      return incomes;
     } catch (error) {
       return rejectWithValue(error.message);
     }
   },
 );
 
-export const createExpense = createAsyncThunk(
-  'expenses/createExpense',
-  async (expense, { rejectWithValue }) => {
+export const createIncome = createAsyncThunk(
+  'incomes/createIncome',
+  async (income, { rejectWithValue }) => {
     try {
-      const data = await TransactionAPI.createTransaction(expense);
+      const data = await TransactionAPI.createTransaction(income);
 
       return data;
     } catch (error) {
@@ -27,8 +27,8 @@ export const createExpense = createAsyncThunk(
   },
 );
 
-export const deleteExpense = createAsyncThunk(
-  'expenses/deleteExpense',
+export const deleteIncome = createAsyncThunk(
+  'incomes/deleteIncome',
   async (id, { rejectWithValue }) => {
     try {
       await TransactionAPI.deleteTransaction(id);
@@ -40,8 +40,8 @@ export const deleteExpense = createAsyncThunk(
   },
 );
 
-export const patchExpense = createAsyncThunk(
-  'expenses/patchExpense',
+export const patchIncome = createAsyncThunk(
+  'incomes/patchIncome',
   async (id, { rejectWithValue }) => {
     try {
       const data = await TransactionAPI.patchTransaction(id);

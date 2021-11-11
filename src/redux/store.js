@@ -11,6 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import expensesReducer from './expenses/expenses-slice';
+import incomesReducer from './incomes/incomes-slice';
 // import authReducer from './auth/auth-slice';
 
 const middleware = [
@@ -31,6 +32,7 @@ export const store = configureStore({
   reducer: {
     // auth: persistReducer(authPersistConfig, authReducer),
     expenses: expensesReducer,
+    incomes: incomesReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',

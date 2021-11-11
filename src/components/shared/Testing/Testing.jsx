@@ -3,6 +3,8 @@ import styles from './Testing.module.scss';
 import Header from '../../Header/Header';
 import Button from '../Button/Button';
 import ToReports from '../../ToReports/ToReports';
+import Chart from '../../Chart/Chart';
+
 import Expenses from '../../Expenses/Expenses';
 
 function Testing() {
@@ -18,7 +20,7 @@ function Testing() {
           <p>Tetiana Parkhoniuk</p>
         </div>
         <div className={styles.personalBlock}>
-          <p>Vladyslav Shumkov</p>
+          <Chart />
         </div>
         <div className={styles.personalBlock}>
           <p>Tatyana Tupalo </p>

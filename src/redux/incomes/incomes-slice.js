@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchExpensesList, createExpense, deleteExpense } from './expenses-operation';
+import { fetchIncomesList, createIncome, deleteIncome } from './incomes-operation';
 
-const expensesSlice = createSlice({
-  name: 'expenses',
+const incomesSlice = createSlice({
+  name: 'incomes',
 
   initialState: {
     items: [],
-    type: 'expense',
+    type: 'income',
     // filter: '',
     isLoading: false,
     error: null,
@@ -17,36 +17,36 @@ const expensesSlice = createSlice({
   //     },
   //   },
   extraReducers: {
-    [fetchExpensesList.fulfilled]: (state, action) => {
+    [fetchIncomesList.fulfilled]: (state, action) => {
       state.items = action.payload;
       state.isLoading = false;
       state.error = null;
     },
-    [fetchExpensesList.pending]: (state, action) => {
+    [fetchIncomesList.pending]: (state, action) => {
       state.isLoading = true;
     },
-    [fetchExpensesList.rejected]: (state, action) => {
+    [fetchIncomesList.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = 'Error';
     },
 
-    [createExpense.fulfilled]: (state, action) => {
+    [createIncome.fulfilled]: (state, action) => {
       state.items = [...state.items, action.payload];
       state.isLoading = false;
       state.error = null;
     },
-    [createExpense.pending]: (state, action) => {
+    [createIncome.pending]: (state, action) => {
       state.isLoading = true;
       state.error = null;
     },
-    [createExpense.rejected]: (state, action) => {
+    [createIncome.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = 'Error';
     },
-    [deleteExpense.fulfilled]: (state, action) => {
-      state.items = state.items.filter(expens => expens.id !== action.payload);
+    [deleteIncome.fulfilled]: (state, action) => {
+      state.items = state.items.filter(income => income.id !== action.payload);
     },
   },
 });
 // export const { changeFilter } = ExpensSlice.actions;
-export default expensesSlice.reducer;
+export default incomesSlice.reducer;

@@ -4,28 +4,34 @@ import { useDispatch, useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
 // import Button from '../../components/shared/Button/Button';
 import { expensesOperations, expensesSelectors } from '../../redux/expenses';
+import { incomesOperations, incomesSelectors } from '../../redux/incomes';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as Calendar } from '../../assets/calendar.svg';
 import s from './FormInfo.module.scss';
 
-const FormInfo = () => {
+const FormInfo = ({ category, transType }) => {
   const [startDate, setStartDate] = useState(new Date());
-  const [descriptionGoods, setDescriptionGoods] = useState('');
+  const [description, setDescription] = useState('');
   const [sum, setSum] = useState('');
-  const [categoriesGoods, setCategoriesGoods] = useState('');
+  const [categories, setCategories] = useState('');
 
   const dispatch = useDispatch();
+
+  const day = startDate.getDate();
+  const month = startDate.getMonth();
+  const year = startDate.getFullYear();
+  const formatDate = `${day}.${month}.${year}`;
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
 
     switch (name) {
-      case 'descriptionGoods':
-        setDescriptionGoods(value);
+      case 'description':
+        setDescription(value);
         break;
 
-      case 'categoriesGoods':
-        setCategoriesGoods(value);
+      case 'categories':
+        setCategories(value);
         break;
 
       case 'sum':
@@ -39,18 +45,23 @@ const FormInfo = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (transType === 'expense') {
+      dispatch(
+        expensesOperations.createExpense({ description, sum, categories, month, day, year }),
+      );
+    }
+    if (transType === 'income') {
+      dispatch(incomesOperations.createIncome({ description, sum, categories, month, day, year }));
+    }
 
-    dispatch(
-      expensesOperations.createExpens({ descriptionGoods, sum, categoriesGoods, startDate }),
-    );
     reset();
 
     // toast.success('Done!');
   };
   const reset = () => {
-    setDescriptionGoods('');
+    setDescription('');
     setSum('');
-    setCategoriesGoods('');
+    setCategories('');
   };
   return (
     <div className={s.infoData}>
@@ -61,7 +72,7 @@ const FormInfo = () => {
           selected={startDate}
           onChange={date => setStartDate(date)}
           name="date"
-          value={startDate}
+          value={formatDate}
           className={s.date}
         />
       </div>
@@ -71,28 +82,21 @@ const FormInfo = () => {
             placeholder="Описание товара"
             className={s.description}
             type="text"
-            name="descriptionGoods"
-            value={descriptionGoods}
+            name="description"
+            value={description}
             onChange={handleChange}
           />
           <select
             className={s.selectCategory}
-            name="categoriesGoods"
+            name="categories"
             onChange={handleChange}
-            value={categoriesGoods}
+            value={categories}
           >
-            <option value="">Категория товара</option>
-            <option value="Транспорт">Транспорт</option>
-            <option value="Продукты">Продукты</option>
-            <option value="Здоровье">Здоровье</option>
-            <option value="Алкоголь">Алкоголь</option>
-            <option value="Развлечения">Развлечения</option>
-            <option value="Все для дома">Все для дома</option>
-            <option value="Техника">Техника</option>
-            <option value="Комуналка, связь">Комуналка, связь</option>
-            <option value="Спорт, хобби">Спорт, хобби</option>
-            <option value="Образование">Образование</option>
-            <option value="Прочее">Прочее</option>
+            {category.map(({ name, id }) => (
+              <option key={id} value={name}>
+                {name}
+              </option>
+            ))}
           </select>
 
           <div className={s.containerSum}>
@@ -114,7 +118,7 @@ const FormInfo = () => {
             Ввод
           </button>
 
-          <button type="button" className={s.button}>
+          <button type="button" className={s.button} onClick={reset}>
             Очистить
           </button>
         </div>
