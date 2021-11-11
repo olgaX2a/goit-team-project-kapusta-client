@@ -27,7 +27,7 @@ function Testing() {
         </div>
         <div className={styles.personalBlock}>
           <p>Olga Sekretaryova</p>
-          <ToReports />
+          <ToReports onClick={() => console.log('to reports 🚀')} />
         </div>
       </div>
     </div>
