@@ -1,0 +1,54 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.notification::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border: 19px solid transparent;
+  border-bottom-color: #152958;
+  border-top: 0;
+  margin-left: -96px;
+  margin-top: -17px;
+  @include for-mobile {
+    left: 45%;
+  }
+}
+
+.notification {
+  position: absolute;
+  padding: 30px 25px 31px 25px;
+  width: 100%;
+  transform: translate(5%, 5%);
+  height: auto;
+  font: $main-font;
+  line-height: 20px;
+  font-weight: normal;
+  line-height: 1.43;
+  color: #ffffff;
+  background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);
+  border-radius: 30px;
+  top: 110%;
+  z-index: 99;
+  cursor: pointer;
+  @include for-mobile {
+    width: 232px;
+  }
+  @include for-desktop {
+    width: 292px;
+  }
+}
+
+.notification_header {
+  margin-top: 0px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.43;
+}
+
+.notification_text {
+  margin: 0px;
+  font-size: 12px;
+  line-height: 1.33;
+}
