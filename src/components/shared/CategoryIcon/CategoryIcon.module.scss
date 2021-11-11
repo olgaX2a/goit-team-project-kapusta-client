@@ -1,18 +1,27 @@
 @use '../mixins' as *;
 @use '../variables' as *;
 
-.container {
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
   height: 56px;
-  width: fit-content;
+  width: 59px;
+  fill: $icon-dark-color;
+  position: relative;
+
+  svg {
+    z-index: 10;
+    max-height: 56px;
+    max-width: 56px;
+  }
 }
 
 .roundedRectangle {
+  position: absolute;
+  bottom: 0;
   width: 59px;
   height: 46px;
   background-color: $main-bg-color;
   border-radius: 20px;
-  fill: $icon-dark-color;
-}
-.icon {
-  height: 100%;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ReactComponent as EducationIcon } from '../../../assets/book.svg';
 import { ReactComponent as AlcoholIcon } from '../../../assets/drinks.svg';
 import { ReactComponent as HealthIcon } from '../../../assets/health.svg';
@@ -18,15 +19,15 @@ import styles from './CategoryIcon.module.scss';
 
 function CategoryIcon({ category }) {
   return (
-    <div className={styles.container}>
+    <div className={styles.iconWrapper}>
       <div className={styles.roundedRectangle} />
       {(() => {
         switch (category) {
           case income.EXTRA:
-            return <ExtraIcon className={styles.icon} />;
+            return <ExtraIcon />;
 
           case income.SALARY:
-            return <SalaryIcon className={styles.icon} />;
+            return <SalaryIcon />;
 
           case expense.EDUCATION:
             return <EducationIcon />;
@@ -70,3 +71,7 @@ function CategoryIcon({ category }) {
 }
 
 export default CategoryIcon;
+
+CategoryIcon.propTypes = {
+  category: PropTypes.string.isRequired,
+};
