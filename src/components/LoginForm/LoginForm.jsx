@@ -1,31 +1,30 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import { authOperations } from '../../redux/auth';
 import { ReactComponent as GoogleIcon } from '../../assets/google-icon.svg';
+import { useDispatch } from 'react-redux';
 import styles from './LoginForm.module.scss';
 
 function LoginForm() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleChange = ({ target: { name, value } }) => {
-    switch (name) {
-      case 'email':
-        return setEmail(value);
-      case 'password':
-        return setPassword(value);
-      default:
-        return;
-    }
-  };
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    dispatch(authOperations.login({ email, password }));
-    setEmail('');
-    setPassword('');
-  };
+  const formik = useFormik({
+    initialValues: { email: '', password: '' },
+    validationSchema: Yup.object({
+      email: Yup.string().email('Invalid email address').required('Email is required'),
+      password: Yup.string()
+        .min(6, 'Password must be at least 6 characters.')
+        .required('Password is required'),
+    }),
+    onSubmit: (values, { resetForm }) => {
+      dispatch(
+        authOperations.login({
+          email: values.email,
+          password: values.password,
+        }),
+      );
+      resetForm({ values: '' });
+    },
+  });
 
   return (
     <div className={styles.formContainer}>
@@ -33,7 +32,7 @@ function LoginForm() {
       <button
         type="button"
         className={styles.googleBtn}
-        // onClick={() => console.log('googleLogin function')}
+        onClick={() => console.log('googleLogin function')}
       >
         <GoogleIcon />
         <span className={styles.googleBtnText}>Google</span>
@@ -41,38 +40,50 @@ function LoginForm() {
       <p className={styles.formUsualLoginText}>
         Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
       </p>
-      <form onSubmit={handleSubmit} className={styles.form} autoComplete="off">
-        <label className={styles.formInputLabel}>
-          Электронная почта:
+      <form onSubmit={formik.handleSubmit} className={styles.form}>
+        <div className={styles.formInputContainer}>
+          <label htmlFor="email" className={styles.formInputLabel}>
+            Электронная почта:
+          </label>
           <input
-            type="email"
+            id="email"
             name="email"
-            value={email}
+            type="email"
             placeholder="your@email.com"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
             className={styles.formInput}
-            onChange={handleChange}
           />
-        </label>
-
-        <label className={styles.formInputLabel}>
-          Пароль:
-          <br />
+        </div>
+        {formik.touched.email && formik.errors.email ? (
+          <div className={styles.inputErrorText}>{formik.errors.email}</div>
+        ) : null}
+        <div className={styles.formInputContainer}>
+          <label htmlFor="password" className={styles.formInputLabel}>
+            Пароль:
+          </label>
           <input
-            type="password"
+            id="password"
             name="password"
-            value={password}
+            type="password"
             placeholder="Пароль"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.password}
             className={styles.formInput}
-            onChange={handleChange}
           />
-        </label>
+        </div>
+        {formik.touched.password && formik.errors.password ? (
+          <div className={styles.inputErrorText}>{formik.errors.password}</div>
+        ) : null}
         <div className={styles.formButtonsContainer}>
           <button type="submit" className={styles.loginFormBtn}>
             Войти
           </button>
           <button
             type="button"
-            // onClick={() => console.log('onRegisterFunction')}
+            onClick={() => console.log('onClickFunction')}
             className={styles.registerFormBtn}
           >
             Регистрация

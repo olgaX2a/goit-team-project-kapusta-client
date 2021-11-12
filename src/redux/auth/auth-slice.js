@@ -16,12 +16,10 @@ const authSlice = createSlice({
     [authOperations.register.fulfilled](state, { payload }) {
       state.name = payload.data.name;
       state.email = payload.data.email;
-      // state.token = payload.data.verifyToken;
-      // state.isLoggedIn = true;
     },
     [authOperations.login.fulfilled](state, { payload }) {
-      state.name = payload.data.name;
-      state.email = payload.data.email;
+      state.name = payload.data.userName;
+      state.email = payload.data.userEmail;
       state.token = payload.data.token;
       state.isLoggedIn = true;
     },
