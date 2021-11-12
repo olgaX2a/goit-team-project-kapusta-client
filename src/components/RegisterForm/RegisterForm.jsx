@@ -1,5 +1,6 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { NavLink } from 'react-router-dom';
 import { authOperations } from '../../redux/auth';
 import { ReactComponent as GoogleIcon } from '../../assets/google-icon.svg';
 import { useDispatch } from 'react-redux';
@@ -106,13 +107,9 @@ function RegisterForm() {
           <button type="submit" className={styles.registerFormBtn}>
             Регистрация
           </button>
-          <button
-            type="button"
-            onClick={() => console.log('onClickFunction')}
-            className={styles.loginFormBtn}
-          >
+          <NavLink to="/login" className={styles.loginFormBtn}>
             Войти
-          </button>
+          </NavLink>
         </div>
       </form>
     </div>
