@@ -21,6 +21,7 @@ export const register = createAsyncThunk(
       return data;
     } catch (error) {
       console.log(error);
+      // TODO: Add toast about error
       return rejectWithValue(error.message);
     }
   },
@@ -33,6 +34,7 @@ export const login = createAsyncThunk('auth/login', async (credentials, { reject
     return data;
   } catch (error) {
     console.log(error);
+    // TODO: Add toast about error
     return rejectWithValue(error.message);
   }
 });
@@ -43,25 +45,28 @@ export const logout = createAsyncThunk('auth/logout', async (_, { rejectWithValu
     token.unset();
   } catch (error) {
     console.log(error);
+    // TODO: Add toast about error
     return rejectWithValue(error.message);
   }
 });
 
-export const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
-  const state = thunkAPI.getState();
-  const persistedToken = state.auth.token;
+//WAITING FOR ENDPOINT FROM BACKEND
 
-  if (persistedToken === null) {
-    return thunkAPI.rejectWithValue();
-  }
+// export const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
+//   const state = thunkAPI.getState();
+//   const persistedToken = state.auth.token;
 
-  token.set(persistedToken);
+//   if (persistedToken === null) {
+//     return thunkAPI.rejectWithValue();
+//   }
 
-  try {
-    const { data } = await authAPI.fetchCurrentUser();
-    console.log(data);
-    return data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
-  }
-});
+//   token.set(persistedToken);
+
+//   try {
+//     const { data } = await authAPI.fetchCurrentUser();
+//     console.log(data);
+//     return data;
+//   } catch (error) {
+//     return thunkAPI.rejectWithValue(error.message);
+//   }
+// });

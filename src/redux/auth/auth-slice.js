@@ -28,11 +28,12 @@ const authSlice = createSlice({
       state.token = null;
       state.isLoggedIn = false;
     },
-    [authOperations.fetchCurrentUser.fulfilled](state, { payload }) {
-      state.name = payload.data.name;
-      state.email = payload.data.email;
-      state.isLoggedIn = true;
-    },
+    //WAITING FOR ENDPOINT FROM BACKEND
+    // [authOperations.fetchCurrentUser.fulfilled](state, { payload }) {
+    //   state.name = payload.data.name;
+    //   state.email = payload.data.email;
+    //   state.isLoggedIn = true;
+    // },
   },
 });
 

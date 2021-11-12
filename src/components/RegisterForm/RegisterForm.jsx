@@ -28,9 +28,9 @@ function RegisterForm() {
         }),
       );
       resetForm({ values: '' });
-      // ======== TODO: 1) add notification that Verification email
-      // was send to your mailbox, please verify your email and login;
-      // 2) and add forwarding to Login Page
+      // ======== TODO: 1) show a modal window with info that Verification email
+      // was send to your mailbox, please verify your email and NavLink to login;
+      // 2) and add forwarding to Login Page (NavLink to login);
     },
   });
 
@@ -107,7 +107,7 @@ function RegisterForm() {
           <button type="submit" className={styles.registerFormBtn}>
             Регистрация
           </button>
-          <NavLink to="/login" className={styles.loginFormBtn}>
+          <NavLink exact="true" to="/login" className={styles.loginFormBtn}>
             Войти
           </NavLink>
         </div>

@@ -2,8 +2,6 @@
 @use '../shared/mixins' as *;
 
 .formContainer {
-  // TODO: delete margin-top
-  margin-top: 100px;
   display: flex;
   flex-direction: column;
   padding-top: 30px;
