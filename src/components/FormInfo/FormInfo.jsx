@@ -1,21 +1,16 @@
-import { ReactComponent as Calculator } from '../../assets/calculator.svg';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
 import DatePicker from 'react-datepicker';
-// import Button from '../../components/shared/Button/Button';
-import { expensesOperations, expensesSelectors } from '../../redux/expenses';
-import { incomesOperations, incomesSelectors } from '../../redux/incomes';
 import 'react-datepicker/dist/react-datepicker.css';
+import { ReactComponent as Calculator } from '../../assets/calculator.svg';
 import { ReactComponent as Calendar } from '../../assets/calendar.svg';
 import s from './FormInfo.module.scss';
 
-const FormInfo = ({ category, transType }) => {
+const FormInfo = ({ category, onSubmit }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [description, setDescription] = useState('');
   const [sum, setSum] = useState('');
   const [categories, setCategories] = useState('');
-
-  const dispatch = useDispatch();
 
   const day = startDate.getDate();
   const month = startDate.getMonth();
@@ -45,15 +40,7 @@ const FormInfo = ({ category, transType }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (transType === 'expense') {
-      dispatch(
-        expensesOperations.createExpense({ description, sum, categories, month, day, year }),
-      );
-    }
-    if (transType === 'income') {
-      dispatch(incomesOperations.createIncome({ description, sum, categories, month, day, year }));
-    }
-
+    onSubmit({ description, sum, categories, month, day, year });
     reset();
 
     // toast.success('Done!');
