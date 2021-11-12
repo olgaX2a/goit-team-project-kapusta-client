@@ -24,7 +24,7 @@ function Testing() {
           <RegisterForm />
         </div>
         <div className={styles.personalBlock}>
-          <Chart />
+          <Chart arrData={[]} />
         </div>
         <div className={styles.personalBlock}>
           <p>Tatyana Tupalo </p>
