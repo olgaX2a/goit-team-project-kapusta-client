@@ -4,8 +4,7 @@ import Header from '../../Header/Header';
 import Button from '../Button/Button';
 import ToReports from '../../ToReports/ToReports';
 import Chart from '../../Chart/Chart';
-
-import Expenses from '../../Expenses/Expenses';
+import Transactions from '../../Transactions/Transactions';
 
 function Testing() {
   return (
@@ -24,7 +23,7 @@ function Testing() {
         </div>
         <div className={styles.personalBlock}>
           <p>Tatyana Tupalo </p>
-          <Expenses />
+          <Transactions />
         </div>
         <div className={styles.personalBlock}>
           <p>Olga Sekretaryova</p>

@@ -1,11 +1,12 @@
-import { useState } from 'react';
-
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as Calculator } from '../../assets/calculator.svg';
 import { ReactComponent as Calendar } from '../../assets/calendar.svg';
 import s from './FormInfo.module.scss';
 
+// eslint-disable-next-line react/prop-types
 const FormInfo = ({ category, onSubmit }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [description, setDescription] = useState('');
@@ -34,10 +35,14 @@ const FormInfo = ({ category, onSubmit }) => {
         break;
 
       default:
-        return;
+        throw new Error('Unknown state!');
     }
   };
-
+  const reset = () => {
+    setDescription('');
+    setSum('');
+    setCategories('');
+  };
   const handleSubmit = e => {
     e.preventDefault();
     onSubmit({ description, sum, categories, month, day, year });
@@ -45,11 +50,7 @@ const FormInfo = ({ category, onSubmit }) => {
 
     // toast.success('Done!');
   };
-  const reset = () => {
-    setDescription('');
-    setSum('');
-    setCategories('');
-  };
+
   return (
     <div className={s.infoData}>
       <div className={s.containerDate}>
@@ -95,7 +96,7 @@ const FormInfo = ({ category, onSubmit }) => {
               value={sum}
               onChange={handleChange}
             />
-            <span className={s.separator}></span>
+            <span className={s.separator} />
             <Calculator className={s.icon} width="20px" height="20px" />
           </div>
         </div>
@@ -112,6 +113,13 @@ const FormInfo = ({ category, onSubmit }) => {
       </form>
     </div>
   );
+};
+
+FormInfo.propType = {
+  onSubmit: PropTypes.func.isRequired,
+  category: PropTypes.node.isRequired,
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default FormInfo;
