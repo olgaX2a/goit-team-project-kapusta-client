@@ -20,6 +20,8 @@ const Chart = () => {
     { description: 'Kobs', total: 1700 },
     { description: 'Careen', total: 1500 },
     { description: 'Wovoka', total: 800 },
+    { description: 'Milk', total: 600 },
+    { description: 'Understand', total: 500 },
   ];
 
   const sortBy = field => (a, b) => a[field] < b[field] ? 1 : -1;
