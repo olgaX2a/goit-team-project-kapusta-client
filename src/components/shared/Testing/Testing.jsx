@@ -4,6 +4,8 @@ import Header from '../../Header/Header';
 import Button from '../Button/Button';
 import Balance from '../../Balance/Balance';
 import ToReports from '../../ToReports/ToReports';
+import LoginForm from '../../LoginForm/LoginForm';
+import RegisterForm from '../../RegisterForm/RegisterForm';
 import Chart from '../../Chart/Chart';
 
 function Testing() {
@@ -18,6 +20,8 @@ function Testing() {
         </div>
         <div className={styles.personalBlock}>
           <p>Tetiana Parkhoniuk</p>
+          <LoginForm />
+          <RegisterForm />
         </div>
         <div className={styles.personalBlock}>
           <Chart />
