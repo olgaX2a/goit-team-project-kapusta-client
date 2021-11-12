@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { authSelectors, authOperations } from '../../redux/auth';
 import Avatar from 'react-avatar';
 import { ReactComponent as LogOutIcon } from '../../assets/logout.svg';
 import Modal from '../shared/Modal/Modal';
@@ -6,7 +9,16 @@ import Modal from '../shared/Modal/Modal';
 import styles from './UserMenu.module.scss';
 
 const UserMenu = () => {
+  // const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    console.log('Дописать позже');
+    // dispatch(logout());
+  };
+
   const [isModalOpen, setModalOpen] = useState(false);
+  const dispatch = useDispatch();
+  const name = useSelector(authSelectors.getUserName);
 
   const toggleModal = e => {
     setModalOpen(!isModalOpen);
@@ -14,8 +26,8 @@ const UserMenu = () => {
 
   return (
     <div className={styles.container}>
-      <Avatar name="Test User" unstyled={true} className={styles.avatar} />
-      <span className={styles.userNameText}>Test User</span>
+      <Avatar name={name} unstyled={true} className={styles.avatar} />
+      <span className={styles.userNameText}>{name}</span>
       <button type="button" className={styles.logOutBtn} onClick={toggleModal}>
         <LogOutIcon className={styles.logOutIcon} />
         <p className={styles.logOutText}>Выйти</p>
@@ -24,39 +36,11 @@ const UserMenu = () => {
         <Modal
           title={'Вы действительно хотите выйти?'}
           onNo={toggleModal}
-          onYes={() => console.log('Написать маршрут после разлогинизации')}
+          onYes={() => dispatch(authOperations.logout())}
         />
       )}
     </div>
   );
-}
+};
 
 export default UserMenu;
-
-//TO BE ADDED (when auth store and reducer is ready):
-
-// import { useDispatch, useSelector } from 'react-redux';
-// import { authSelectors, authOperations } from '../../redux/auth';
-// import Avatar from 'react-avatar';
-// import { ReactComponent as LogOutIcon } from '../../assets/logout.svg';
-// import styles from './UserMenu.module.scss';
-
-// function UserMenu() {
-//   const dispatch = useDispatch();
-//   const name = useSelector(authSelectors.getUsername);
-
-//   return (
-//     <div className={styles.container}>
-//       <Avatar name={name} unstyled={true} className={styles.avatar} />
-//       <span className={styles.userNameText}>{name}</span>
-//       <button
-//         type="button"
-//         onClick={() => dispatch(authOperations.logout())}
-//         className={styles.logOutBtn}
-//       >
-//         <LogOutIcon className={styles.logOutIcon} />
-//         <span className={styles.logOutText}>Выйти</span>
-//       </button>
-//     </div>
-//   );
-// }

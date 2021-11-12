@@ -23,7 +23,8 @@
     "react-dom": "^17.0.2",
     "react-ellipsis-text": "^1.2.1",
     "react-google-login": "^5.2.2",
-    "react-redux": "^7.2.3",
+    "react-is": "^17.0.2",
+    "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.0",
     "react-scripts": "4.0.3",
     "react-table": "^7.7.0",
@@ -31,7 +32,10 @@
     "recharts": "^2.1.6",
     "redux": "^4.1.2",
     "redux-logger": "^3.0.6",
-    "sass": "^1.43.4"
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.4.0",
+    "sass": "^1.43.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
