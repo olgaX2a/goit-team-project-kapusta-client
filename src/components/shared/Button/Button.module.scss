@@ -4,8 +4,8 @@
   width: 125px;
   height: 44px;
   border-radius: 16px;
+  border: none;
   background-color: $kapusta-grey-color;
-  border: 2px solid $light-grey-color;
   color: $dark-grey-color;
   text-transform: uppercase;
   font: $main-font;
@@ -19,7 +19,6 @@
 .button:hover,
 .button:focus {
   background-color: $accent-color;
-  border: 2px solid transparent;
   color: $white-color;
   box-shadow: 0 0 20px 20px $accent-color inset;
 }

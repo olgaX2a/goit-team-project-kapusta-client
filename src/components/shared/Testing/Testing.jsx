@@ -2,9 +2,11 @@ import React from 'react';
 import styles from './Testing.module.scss';
 import Header from '../../Header/Header';
 import Button from '../Button/Button';
+import Balance from '../../Balance/Balance';
 import ToReports from '../../ToReports/ToReports';
 import LoginForm from '../../LoginForm/LoginForm';
 import RegisterForm from '../../RegisterForm/RegisterForm';
+import Chart from '../../Chart/Chart';
 
 function Testing() {
   return (
@@ -13,7 +15,8 @@ function Testing() {
       <div className={styles.underHeader}>
         <div className={styles.personalBlock}>
           <p>Kokorovets Tatiana</p>
-          <Button text="click" btnAction={() => console.log('click')} />
+          <Button text="Click on me" btnAction={() => console.log('hi')} />
+          <Balance />
         </div>
         <div className={styles.personalBlock}>
           <p>Tetiana Parkhoniuk</p>
@@ -21,7 +24,7 @@ function Testing() {
           <RegisterForm />
         </div>
         <div className={styles.personalBlock}>
-          <p>Vladyslav Shumkov</p>
+          <Chart />
         </div>
         <div className={styles.personalBlock}>
           <p>Tatyana Tupalo </p>
