@@ -4,7 +4,6 @@ import { authOperations } from '.';
 const initialState = {
   name: null,
   email: null,
-  // user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
 };
@@ -14,8 +13,8 @@ const authSlice = createSlice({
   initialState,
   extraReducers: {
     [authOperations.register.fulfilled](state, { payload }) {
-      state.name = payload.data.name;
-      state.email = payload.data.email;
+      state.name = payload.data.userName;
+      state.email = payload.data.userEmail;
     },
     [authOperations.login.fulfilled](state, { payload }) {
       state.name = payload.data.userName;
