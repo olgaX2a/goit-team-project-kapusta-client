@@ -7,6 +7,7 @@ import ToReports from '../../ToReports/ToReports';
 import LoginForm from '../../LoginForm/LoginForm';
 import RegisterForm from '../../RegisterForm/RegisterForm';
 import Chart from '../../Chart/Chart';
+import Transactions from '../../Transactions/Transactions';
 import Summary from '../../Summary/Summary';
 
 const testSummary = [
@@ -39,6 +40,7 @@ function Testing() {
         </div>
         <div className={styles.personalBlock}>
           <p>Tatyana Tupalo </p>
+          <Transactions />
         </div>
         <div className={styles.personalBlock}>
           <p>Olga Sekretaryova</p>
