@@ -21,12 +21,22 @@ const Transactions = () => {
         </TabList>
 
         <TabPanel>
-          <FormInfo category={categoryGoods} onSubmit={onSubmit} text="Категория товара" />
+          <FormInfo
+            category={categoryGoods}
+            onSubmit={onSubmit}
+            text="Категория товара"
+            type="expense"
+          />
           <TableTransactions transactions={expenses} />
         </TabPanel>
 
         <TabPanel>
-          <FormInfo category={categoryIncomes} onSubmit={onSubmit} text="Категория дохода" />
+          <FormInfo
+            category={categoryIncomes}
+            onSubmit={onSubmit}
+            text="Категория дохода"
+            type="income"
+          />
           {/* позже здесь будут доходы, а пока просто для вида */}
           <TableTransactions transactions={expenses} />
         </TabPanel>

@@ -7,7 +7,7 @@ import { ReactComponent as Calendar } from '../../assets/calendar.svg';
 import s from './FormInfo.module.scss';
 
 // eslint-disable-next-line react/prop-types
-const FormInfo = ({ category, onSubmit, text }) => {
+const FormInfo = ({ category, onSubmit, text, type }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [description, setDescription] = useState('');
   const [sum, setSum] = useState('');
@@ -45,7 +45,7 @@ const FormInfo = ({ category, onSubmit, text }) => {
   };
   const handleSubmit = e => {
     e.preventDefault();
-    onSubmit({ description, sum, categories, month, day, year });
+    onSubmit({ description, sum, categories, month, day, year, type });
     reset();
   };
 
