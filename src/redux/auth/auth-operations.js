@@ -5,8 +5,8 @@ import * as authAPI from '../../services/authAPI';
 axios.defaults.baseURL = 'https://goit-kapusta.herokuapp.com/api';
 
 const token = {
-  set(token) {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  set(bearerToken) {
+    axios.defaults.headers.common.Authorization = `Bearer ${bearerToken}`;
   },
   unset() {
     axios.defaults.headers.common.Authorization = '';
@@ -43,6 +43,8 @@ export const logout = createAsyncThunk('auth/logout', async (_, { rejectWithValu
   try {
     await authAPI.logout();
     token.unset();
+    // Check what logout returns from back.
+    return 'Logout was successful';
   } catch (error) {
     console.log(error);
     // TODO: Add toast about error
@@ -50,7 +52,7 @@ export const logout = createAsyncThunk('auth/logout', async (_, { rejectWithValu
   }
 });
 
-//WAITING FOR ENDPOINT FROM BACKEND
+// WAITING FOR ENDPOINT FROM BACKEND
 
 // export const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
 //   const state = thunkAPI.getState();

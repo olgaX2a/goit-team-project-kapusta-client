@@ -22,13 +22,13 @@ const authSlice = createSlice({
       state.token = payload.data.token;
       state.isLoggedIn = true;
     },
-    [authOperations.logout.fulfilled](state, action) {
+    [authOperations.logout.fulfilled](state) {
       state.name = null;
       state.email = null;
       state.token = null;
       state.isLoggedIn = false;
     },
-    //WAITING FOR ENDPOINT FROM BACKEND
+    // WAITING FOR ENDPOINT FROM BACKEND
     // [authOperations.fetchCurrentUser.fulfilled](state, { payload }) {
     //   state.name = payload.data.name;
     //   state.email = payload.data.email;
@@ -37,4 +37,6 @@ const authSlice = createSlice({
   },
 });
 
-export default authSlice.reducer;
+const authReducer = authSlice.reducer;
+
+export default authReducer;

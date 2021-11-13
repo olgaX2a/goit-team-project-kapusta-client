@@ -1,9 +1,10 @@
+import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { authOperations } from '../../redux/auth';
 import { ReactComponent as GoogleIcon } from '../../assets/google-icon.svg';
-import { useDispatch } from 'react-redux';
 import styles from './LoginForm.module.scss';
 
 function LoginForm() {
@@ -45,17 +46,17 @@ function LoginForm() {
         <div className={styles.formInputContainer}>
           <label htmlFor="email" className={styles.formInputLabel}>
             Электронная почта:
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="your@email.com"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+              className={styles.formInput}
+            />
           </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="your@email.com"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.email}
-            className={styles.formInput}
-          />
         </div>
         {formik.touched.email && formik.errors.email ? (
           <div className={styles.inputErrorText}>{formik.errors.email}</div>
@@ -63,17 +64,18 @@ function LoginForm() {
         <div className={styles.formInputContainer}>
           <label htmlFor="password" className={styles.formInputLabel}>
             Пароль:
+            <br />
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Пароль"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.password}
+              className={styles.formInput}
+            />
           </label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            placeholder="Пароль"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.password}
-            className={styles.formInput}
-          />
         </div>
         {formik.touched.password && formik.errors.password ? (
           <div className={styles.inputErrorText}>{formik.errors.password}</div>

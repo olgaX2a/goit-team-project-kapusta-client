@@ -16,7 +16,7 @@ export const logout = async () => {
   await axios.get('/users/logout');
 };
 
-//WAITING FOR ENDPOINT FROM BACKEND
+// WAITING FOR ENDPOINT FROM BACKEND
 
 // export const fetchCurrentUser = async (_, thunkAPI) => {
 //   const response = axios.get('/users/current');
