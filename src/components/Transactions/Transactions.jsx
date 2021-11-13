@@ -11,7 +11,7 @@ import s from './Transactions.module.scss';
 const Transactions = () => {
   const expenses = data;
   const onSubmit = e => {
-    e.preventDefault();
+    console.log(e);
   };
   return (
     <div className={s.tabsContainer}>
