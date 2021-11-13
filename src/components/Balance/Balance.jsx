@@ -5,11 +5,12 @@ import Notification from '../shared/Notification/Notification';
 
 const Balance = () => {
   // поменять значение баланса, когда будет путь суммы с бэка
-  const balance = 10;
+  const balance = 0;
 
-  const [NotificationOpen, setNotificationOpen] = useState(true);
+  const [notificationOpen, setNotificationOpen] = useState(true);
 
-  const onHandleChange = () => {
+  const onSubmit = e => {
+    e.preventDefault();
     console.log('Дописать функцию обновления баланса');
   };
 
@@ -24,7 +25,7 @@ const Balance = () => {
         <div className={styles.buttonsGroup}>
           {balance === 0 ? (
             <>
-              {NotificationOpen && <Notification onClick={removeNotification} />}
+              {notificationOpen && <Notification onClick={removeNotification} />}
               <input
                 type="number"
                 step="0.01"
@@ -35,7 +36,7 @@ const Balance = () => {
                 className={styles.balanceInput}
                 autoComplete="off"
               />
-              <button className={styles.balanceButton} type="submit" onClick={onHandleChange}>
+              <button className={styles.balanceButton} type="submit" onClick={onSubmit}>
                 подтвердить
               </button>
             </>

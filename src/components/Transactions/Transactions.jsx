@@ -4,7 +4,6 @@ import 'react-tabs/style/react-tabs.css';
 import { categoryGoods, categoryIncomes } from '../FormInfo/categoryForSelect';
 import FormInfo from '../FormInfo/FormInfo';
 import TableTransactions from '../TableTransactions/TableTransactions';
-// import TableTransactions from '../TableTransactions/TableTransactions';
 import data from './data.json';
 import s from './Transactions.module.scss';
 
