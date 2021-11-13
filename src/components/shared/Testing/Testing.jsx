@@ -7,6 +7,16 @@ import ToReports from '../../ToReports/ToReports';
 import LoginForm from '../../LoginForm/LoginForm';
 import RegisterForm from '../../RegisterForm/RegisterForm';
 import Chart from '../../Chart/Chart';
+import Summary from '../../Summary/Summary';
+
+const testSummary = [
+  { key: 1, month: 'january', sum: 20475 },
+  { key: 2, month: 'february', sum: 48567 },
+  { key: 3, month: 'march', sum: 34665 },
+  { key: 4, month: 'april', sum: 9635 },
+  { key: 5, month: 'may', sum: 788366 },
+  { key: 6, month: 'june', sum: 34569 },
+];
 
 function Testing() {
   return (
@@ -17,6 +27,7 @@ function Testing() {
           <p>Kokorovets Tatiana</p>
           <Button text="Click on me" btnAction={() => console.log('hi')} />
           <Balance />
+          <Summary summaryData={testSummary} />
         </div>
         <div className={styles.personalBlock}>
           <p>Tetiana Parkhoniuk</p>
