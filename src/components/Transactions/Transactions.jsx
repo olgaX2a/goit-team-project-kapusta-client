@@ -14,24 +14,24 @@ const Transactions = () => {
     e.preventDefault();
   };
   return (
-    <div className={s.section}>
+    <>
       <Tabs className={s.tabsList}>
         <TabList>
           <Tab>Расходы</Tab>
           <Tab>Доходы</Tab>
         </TabList>
 
-        <TabPanel>
-          <FormInfo category={categoryGoods} onSubmit={onSubmit} />
+        <TabPanel className={s.panel}>
+          <FormInfo category={categoryGoods} onSubmit={onSubmit} text="Категория товара" />
           <TableTransactions transactions={expenses} />
         </TabPanel>
         <TabPanel>
-          <FormInfo category={categoryIncomes} />
+          <FormInfo category={categoryIncomes} text="Категория дохода" />
           {/* позже здесь будут доходы, а пока просто для вида */}
           <TableTransactions transactions={expenses} />
         </TabPanel>
       </Tabs>
-    </div>
+    </>
   );
 };
 

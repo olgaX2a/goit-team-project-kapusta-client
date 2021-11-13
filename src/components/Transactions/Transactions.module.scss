@@ -1,19 +1,24 @@
 @use '../shared/mixins' as *;
 @use '../shared/variables' as *;
 
-.section {
+// .section {
+//   padding-top: 54px;
+//   padding-left: 20px;
+//   padding-right: 20px;
+// }
+.panel {
+  background-color: $white-color;
   padding-top: 54px;
   padding-left: 20px;
   padding-right: 20px;
 }
-
-@media screen and (min-width: $tablet) {
-  .section {
-    padding: 58px 20px 20px 20px;
-  }
-}
-@media screen and (min-width: $desktop) {
-  .section {
-    padding: 9px 20px 40px 20px;
-  }
-}
+// @media screen and (min-width: $tablet) {
+//   .section {
+//     padding: 58px 20px 20px 20px;
+//   }
+// }
+// @media screen and (min-width: $desktop) {
+//   .section {
+//     padding: 9px 20px 40px 20px;
+//   }
+// }

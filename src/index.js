@@ -9,6 +9,7 @@ import App from './App';
 import { store, persistor } from './redux/store';
 
 ReactDOM.render(
+  // eslint-disable-next-line react/jsx-filename-extension
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>

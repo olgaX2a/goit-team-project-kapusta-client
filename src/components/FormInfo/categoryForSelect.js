@@ -1,5 +1,4 @@
 export const categoryGoods = [
-  { id: 1, name: 'Категория товара' },
   { id: 2, name: 'Транспорт' },
   { id: 3, name: 'Продукты' },
   { id: 4, name: 'Здоровье' },
@@ -12,7 +11,6 @@ export const categoryGoods = [
   { id: 11, name: 'Прочее' },
 ];
 export const categoryIncomes = [
-  { id: 20, name: 'Категория дохода' },
   { id: 21, name: 'ЗП' },
   { id: 22, name: 'Дополнительный доход' },
 ];

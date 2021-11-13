@@ -2,41 +2,39 @@
 @use '../shared/variables' as *;
 
 @media screen and (min-width: $tablet) {
-  .scrollTtableBody {
-    height: 300px;
-    overflow-x: auto;
-    // overflow: scroll;
-    margin-top: 0px;
-    margin-bottom: 20px;
-  }
-  .scrollTable {
+  .table {
     width: 690px;
     font-family: $main-font;
     margin-top: 48px;
     background-color: $white-color;
     border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid $main-bg-color;
   }
-  .scrollTable table {
-    width: 100%;
-    table-layout: fixed;
-    border-radius: 20px;
+  .tableBody {
+    height: 300px;
+    overflow: scroll;
+    margin-top: 0px;
   }
-  .scrollTable thead th {
+
+  .table th {
     font-weight: 700;
     text-align: left;
-    // border: none;
-    padding: 10px 15px;
+    text-transform: uppercase;
     background: $main-bg-color;
     font-size: 14px;
   }
+  .table thead th {
+    padding: 10px 15px;
+  }
 
-  .scrollTable tbody td {
+  .table td {
     color: $dark-grey-color;
     text-align: left;
     border-bottom: 3px solid $main-bg-color;
     padding: 8px 10px;
     font-size: 12px;
-    vertical-align: top;
+    vertical-align: baseline;
   }
   .date {
     width: 84px;
@@ -54,6 +52,7 @@
     border: none;
     background-color: $white-color;
     margin-left: 40px;
+    padding: 0;
   }
   .buttonIcon {
     fill: $dark-grey-color;

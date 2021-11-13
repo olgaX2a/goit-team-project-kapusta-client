@@ -7,14 +7,14 @@ import { ReactComponent as Calendar } from '../../assets/calendar.svg';
 import s from './FormInfo.module.scss';
 
 // eslint-disable-next-line react/prop-types
-const FormInfo = ({ category, onSubmit }) => {
+const FormInfo = ({ category, onSubmit, text }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [description, setDescription] = useState('');
   const [sum, setSum] = useState('');
   const [categories, setCategories] = useState('');
 
   const day = startDate.getDate();
-  const month = startDate.getMonth();
+  const month = startDate.getMonth() + 1;
   const year = startDate.getFullYear();
   const formatDate = `${day}.${month}.${year}`;
 
@@ -80,6 +80,7 @@ const FormInfo = ({ category, onSubmit }) => {
             onChange={handleChange}
             value={categories}
           >
+            <option>{text}</option>
             {category.map(({ name, id }) => (
               <option key={id} value={name}>
                 {name}
@@ -117,9 +118,8 @@ const FormInfo = ({ category, onSubmit }) => {
 
 FormInfo.propType = {
   onSubmit: PropTypes.func.isRequired,
-  category: PropTypes.node.isRequired,
-  id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
+  category: PropTypes.arrayOf(PropTypes.object).isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default FormInfo;
