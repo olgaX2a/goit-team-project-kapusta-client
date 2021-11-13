@@ -7,7 +7,7 @@ import ToReports from '../../ToReports/ToReports';
 import LoginForm from '../../LoginForm/LoginForm';
 import RegisterForm from '../../RegisterForm/RegisterForm';
 import Chart from '../../Chart/Chart';
-import CategoryIcon from '../CategoryIcon/CategoryIcon';
+import CategoryCard from '../../CategoryCard';
 import { incomeCategory } from '../../../utils/incomeCategories';
 import { expenseCategory } from '../../../utils/expenseCategories';
 import Summary from '../../Summary/Summary';
@@ -22,6 +22,9 @@ const testSummary = [
 ];
 
 function Testing() {
+  const cardClick = () => {
+    console.log('clicked on category 🎃 ');
+  };
   console.log('incomeCategory :>> ', incomeCategory);
   return (
     <div className={styles.testingContainer}>
@@ -49,12 +52,12 @@ function Testing() {
           <ToReports />
           <div>
             {incomeCategory.map(el => (
-              <CategoryIcon category={el} />
+              <CategoryCard category={el} onClick={cardClick} sum={150} />
             ))}
           </div>
           <div>
             {expenseCategory.map(el => (
-              <CategoryIcon category={el} />
+              <CategoryCard category={el} onClick={cardClick} sum={150} />
             ))}
           </div>
         </div>
