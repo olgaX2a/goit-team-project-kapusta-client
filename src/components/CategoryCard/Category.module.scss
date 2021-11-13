@@ -3,28 +3,57 @@
 
 .card {
   background-color: transparent;
+  padding: 0;
   border: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 84px;
-  height: 106px;
-  p {
-    margin: 0 auto;
-    // text-align: center;
-    height: 20px;
-    text-transform: uppercase;
+  min-width: 84px;
+  max-width: 102px;
+  min-height: 106px;
+  fill: $icon-dark-color;
+  &:hover,
+  &:focus,
+  &:active {
+    fill: $accent-color;
+    .roundedRectangle {
+      background-color: $light-accent-color;
+    }
   }
+
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    min-height: 20px;
+    max-height: 36px;
+    text-transform: uppercase;
+    font-family: $main-font;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: $dark-grey-color;
+  }
+}
+.sum {
+  margin: 0 auto;
+  letter-spacing: 0.04em;
+}
+
+.category {
+  margin: 5px auto 0 auto;
+  letter-spacing: 0.02em;
 }
 
 .iconWrapper {
   display: flex;
   justify-content: center;
-  border: 1px solid black;
   height: 56px;
   width: 59px;
-  fill: $icon-dark-color;
   position: relative;
 
   svg {
