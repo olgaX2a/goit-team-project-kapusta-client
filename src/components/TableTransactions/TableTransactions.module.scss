@@ -57,6 +57,9 @@
   .buttonIcon {
     fill: $dark-grey-color;
   }
+  .buttonIcon:hover {
+    fill: $accent-color;
+  }
   .empty {
     height: 15px;
   }
@@ -73,7 +76,7 @@
   // }
 }
 @media screen and (min-width: $desktop) {
-  .scrollTable {
+  .table {
     width: 810px;
   }
   .buttonDelete {

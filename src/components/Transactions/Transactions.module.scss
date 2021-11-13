@@ -1,24 +1,45 @@
 @use '../shared/mixins' as *;
 @use '../shared/variables' as *;
 
-// .section {
-//   padding-top: 54px;
-//   padding-left: 20px;
-//   padding-right: 20px;
-// }
-.panel {
-  background-color: $white-color;
-  padding-top: 54px;
-  padding-left: 20px;
-  padding-right: 20px;
+.tabsContainer {
+  display: none;
 }
-// @media screen and (min-width: $tablet) {
-//   .section {
-//     padding: 58px 20px 20px 20px;
-//   }
-// }
-// @media screen and (min-width: $desktop) {
-//   .section {
-//     padding: 9px 20px 40px 20px;
-//   }
-// }
+
+@media screen and (min-width: $tablet) {
+  .tabsContainer {
+    display: block;
+  }
+
+  .tabsContainer :global .react-tabs__tab-list {
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+
+  .tabsContainer :global .react-tabs__tab {
+    border-radius: 20px 20px 0 0;
+    font-family: $main-font;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    padding: 10px 20px 10px 20px;
+  }
+
+  .tabsContainer :global .react-tabs__tab--selected {
+    color: $accent-color;
+  }
+  .tabsContainer :global .react-tabs__tab-panel {
+    background-color: $active-tab-color;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 28px;
+  }
+}
+@media screen and (min-width: $desktop) {
+  .tabsContainer :global .react-tabs__tab-panel {
+    padding-top: 33px;
+  }
+}
