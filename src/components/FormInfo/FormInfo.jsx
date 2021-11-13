@@ -47,8 +47,6 @@ const FormInfo = ({ category, onSubmit, text }) => {
     e.preventDefault();
     onSubmit({ description, sum, categories, month, day, year });
     reset();
-
-    // toast.success('Done!');
   };
 
   return (
