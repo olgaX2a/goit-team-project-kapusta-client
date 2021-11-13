@@ -13,6 +13,7 @@
   max-width: 102px;
   min-height: 106px;
   fill: $icon-dark-color;
+  transition: fill $duration $timing;
   &:hover,
   &:focus,
   &:active {
@@ -70,4 +71,5 @@
   height: 46px;
   background-color: $main-bg-color;
   border-radius: 20px;
+  transition: background-color $duration $timing;
 }

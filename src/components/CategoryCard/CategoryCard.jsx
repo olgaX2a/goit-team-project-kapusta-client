@@ -4,21 +4,24 @@ import CategoryIcon from './CategoryIcon';
 import styles from './Category.module.scss';
 import expense from '../../utils/expenseTypes';
 
-function CategoryCard({ category, sum, onClick }) {
+function CategoryCard({ category, sum, onSelect }) {
   const handleKeyDown = event => {
     if (event.keyCode === 13 || event.keyCode === 32) {
-      console.log('clicked ✔ ');
+      onSelect(category);
     }
   };
 
+  const handleClick = () => {
+    onSelect(category);
+  };
+
   return (
-    // eslint-disable-next-line jsx-a11y/interactive-supports-focus
     <div
       className={styles.card}
       role="button"
       aria-label={`Отобразить подробный график по категории ${category}`}
       tabIndex={0}
-      onClick={onClick}
+      onClick={handleClick}
       onKeyDown={handleKeyDown}
     >
       <p className={styles.sum}>{sum}</p>
@@ -40,5 +43,5 @@ export default CategoryCard;
 CategoryCard.propTypes = {
   category: PropTypes.string.isRequired,
   sum: PropTypes.number.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onSelect: PropTypes.func.isRequired,
 };

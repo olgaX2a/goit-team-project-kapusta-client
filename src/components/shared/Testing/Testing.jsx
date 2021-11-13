@@ -23,8 +23,8 @@ const testSummary = [
 ];
 
 function Testing() {
-  const cardClick = () => {
-    console.log('clicked on category 🎃 ');
+  const cardClick = selected => {
+    console.log(`clicked on ${selected} category in testing 🎃 `);
   };
   console.log('incomeCategory :>> ', incomeCategory);
   return (
@@ -54,12 +54,12 @@ function Testing() {
           <ToReports />
           <div>
             {incomeCategory.map(el => (
-              <CategoryCard category={el} onClick={cardClick} sum={150} />
+              <CategoryCard category={el} onSelect={cardClick} sum={150} />
             ))}
           </div>
           <div>
             {expenseCategory.map(el => (
-              <CategoryCard category={el} onClick={cardClick} sum={150} />
+              <CategoryCard category={el} onSelect={cardClick} sum={150} />
             ))}
           </div>
         </div>
