@@ -3,6 +3,7 @@ import './App.css';
 import Testing from './components/shared/Testing/Testing';
 
 function App() {
+  // eslint-disable-next-line react/jsx-filename-extension
   return <Testing />;
 }
 

@@ -1,0 +1,90 @@
+@use '../shared/mixins' as *;
+@use '../shared/variables' as *;
+
+@media screen and (min-width: $tablet) {
+  .table {
+    width: 690px;
+    font-family: $main-font;
+    margin-top: 48px;
+    background-color: $white-color;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid $main-bg-color;
+  }
+  .tableBody {
+    height: 300px;
+    overflow: scroll;
+    margin-top: 0px;
+  }
+
+  .table th {
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+    background: $main-bg-color;
+    font-size: 14px;
+  }
+  .table thead th {
+    padding: 10px 15px;
+  }
+
+  .table td {
+    color: $dark-grey-color;
+    text-align: left;
+    border-bottom: 3px solid $main-bg-color;
+    padding: 8px 10px;
+    font-size: 12px;
+    vertical-align: baseline;
+  }
+  .date {
+    width: 84px;
+  }
+  .description {
+    width: 168px;
+  }
+  .category {
+    width: 124px;
+  }
+  .sum {
+    width: 104px;
+  }
+  .buttonDelete {
+    border: none;
+    background-color: $white-color;
+    margin-left: 40px;
+    padding: 0;
+  }
+  .buttonIcon {
+    fill: $dark-grey-color;
+  }
+  .buttonIcon:hover {
+    fill: $accent-color;
+  }
+  .empty {
+    height: 15px;
+  }
+
+  // /* Стили для скролла */
+  // ::-webkit-scrollbar {
+  //   width: 6px;
+  // }
+  // ::-webkit-scrollbar-track {
+  //   box-shadow: inset 0 0 6px $accent-color;
+  // }
+  // ::-webkit-scrollbar-thumb {
+  //   box-shadow: inset 0 0 6px $accent-color;
+  // }
+}
+@media screen and (min-width: $desktop) {
+  .table {
+    width: 810px;
+  }
+  .buttonDelete {
+    border: none;
+    margin-left: 60px;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    background-color: #f5f6fb;
+  }
+}

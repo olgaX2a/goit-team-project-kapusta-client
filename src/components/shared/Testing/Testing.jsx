@@ -10,6 +10,7 @@ import Chart from '../../Chart/Chart';
 import CategoryCard from '../../CategoryCard';
 import { incomeCategory } from '../../../utils/incomeCategories';
 import { expenseCategory } from '../../../utils/expenseCategories';
+import Transactions from '../../Transactions/Transactions';
 import Summary from '../../Summary/Summary';
 
 const testSummary = [
@@ -46,6 +47,7 @@ function Testing() {
         </div>
         <div className={styles.personalBlock}>
           <p>Tatyana Tupalo </p>
+          <Transactions />
         </div>
         <div className={styles.personalBlock}>
           <p>Olga Sekretaryova</p>
