@@ -5,7 +5,9 @@ src/components/shared/Modal/*.jsx
 # Tetiana Parkhoniuk
 src/components/Header/*.jsx
 src/components/UserMenu/*.jsx
-
+src/components/LoginForm/*.jsx
+src/components/RegisterForm/*.jsx
+src/redux/auth/
 # Tatyana Tupalo
 
 
@@ -14,3 +16,4 @@ src/components/Chart/*.jsx
 
 # Olga Sekretaryova
 src/components/shared/Testing/*.jsx
+
