@@ -1,0 +1,59 @@
+@use '../shared/variables' as *;
+@use '../shared/mixins' as *;
+
+.summaryWrapper {
+  width: 230px;
+  font-family: $main-font;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 1.17;
+  text-transform: uppercase;
+}
+
+.summaryTitle {
+  background-color: $light-grey-color;
+  height: 26px;
+  border-radius: 20px 20px 0px 0px;
+  margin-top: 0;
+  margin-bottom: 2px;
+  text-align: center;
+  justify-content: center;
+  vertical-align: middle;
+  padding-top: 12px;
+  color: $black-color;
+  font-weight: 700;
+}
+
+.summaryList {
+  background-color: $light-grey-color;
+  margin-top: 0;
+  padding-left: 22px;
+  padding-right: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.summaryItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 38px;
+  padding-left: 22px;
+  padding-right: 20px;
+  font-weight: 400;
+  color: $dark-grey-color;
+  &:not(:last-child) {
+    border-bottom: 2px solid $white-color;
+  }
+}
+
+.summaryList:last-child {
+  margin-bottom: 0;
+  border-radius: 0px 0px 20px 0px;
+}
+
+.summaryMonth,
+.summarySum {
+  font-weight: 400px;
+}
