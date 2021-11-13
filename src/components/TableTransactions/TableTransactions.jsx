@@ -29,7 +29,11 @@ const TableTransactions = ({ transactions }) => {
             <td className={s.category}>{category}</td>
             <td className={s.sum}>
               {sum}
-              <button type="button" className={s.buttonDelete}>
+              <button
+                type="button"
+                className={s.buttonDelete}
+                onClick={() => console.log('need delete transaction')}
+              >
                 <Delete width="18px" height="18px" className={s.buttonIcon} />
               </button>
             </td>
