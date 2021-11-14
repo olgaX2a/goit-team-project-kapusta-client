@@ -38,5 +38,13 @@
         "description": "Моя ЗП",
         "category": "ЗП",
         "sum": 20000
+    },
+    {
+        "id": 5,
+        "transactionType": "income",
+        "date": "22.11.2021",
+        "description": "Счастье привалило",
+        "category": "Доп. доход",
+        "sum": 10000
     }
 ]
