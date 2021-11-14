@@ -9,6 +9,8 @@ import Transactions from '../../Transactions/Transactions';
 import Paper from '../Paper/Paper';
 import MainPageMarkUp from '../../../pages/MainPage/MainPage';
 import HomePageMarkUp from '../../../pages/HomePage/HomePage';
+import Container from '../Container/Container';
+
 
 // function Testing() {
 //   return (
@@ -41,9 +43,11 @@ function Testing() {
         </div>
         <div className={styles.personalBlock}>
           <p>Olga Sekretaryova</p>
-          <Paper>
-            <ToReports />
-          </Paper>
+          <Container>
+            <Paper>
+              <ToReports />
+            </Paper>
+          </Container>
         </div>
       </div>
     </div>
