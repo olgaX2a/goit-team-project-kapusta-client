@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 import * as authAPI from '../../services/authAPI';
 
 axios.defaults.baseURL = 'https://goit-kapusta.herokuapp.com/api';
@@ -20,8 +21,7 @@ export const register = createAsyncThunk(
       const { data } = await authAPI.register(credentials);
       return data;
     } catch (error) {
-      console.log(error);
-      // TODO: Add toast about error
+      toast.error('Пожалуйста, проверьте, возможно, вы уже зарегистрированы.');
       return rejectWithValue(error.message);
     }
   },
@@ -33,8 +33,7 @@ export const login = createAsyncThunk('auth/login', async (credentials, { reject
     token.set(data.data.token);
     return data;
   } catch (error) {
-    console.log(error);
-    // TODO: Add toast about error
+    toast.error('Пожалуйста, проверьте свои данные для входа и попробуйте еще раз.');
     return rejectWithValue(error.message);
   }
 });
@@ -43,11 +42,10 @@ export const logout = createAsyncThunk('auth/logout', async (_, { rejectWithValu
   try {
     await authAPI.logout();
     token.unset();
-    // Check what logout returns from back.
     return 'Logout was successful';
   } catch (error) {
     console.log(error);
-    // TODO: Add toast about error
+    toast.error('Что-то пошло не так. Попробуйте выйти еще раз.');
     return rejectWithValue(error.message);
   }
 });
