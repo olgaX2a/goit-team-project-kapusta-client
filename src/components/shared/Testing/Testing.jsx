@@ -11,6 +11,7 @@ import Transactions from '../../Transactions/Transactions';
 import Summary from '../../Summary/Summary';
 import Paper from '../Paper/Paper';
 import MobileTable from '../../MobileTable/MobileTable';
+import transactions from '../../MobileTable/data.json';
 
 const testSummary = [
   { key: 1, month: 'january', sum: 20475 },
@@ -43,7 +44,8 @@ function Testing() {
         <div className={styles.personalBlock}>
           <p>Tatyana Tupalo </p>
           <Transactions />
-          <MobileTable />
+
+          <MobileTable transactions={transactions} />
         </div>
         <div className={styles.personalBlock}>
           <p>Olga Sekretaryova</p>

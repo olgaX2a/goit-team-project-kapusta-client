@@ -1,10 +1,14 @@
 @use '../shared/mixins' as *;
 @use '../shared/variables' as *;
 
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 .list {
   list-style: none;
-  padding-right: 20px;
-  padding-left: 20px;
   background-color: #fff;
   font-family: $main-font;
   letter-spacing: 0.04em;
@@ -20,6 +24,8 @@
   font-size: 12px;
   line-height: 14px;
   color: #52555f;
+  margin-bottom: 3px;
+  margin-top: 5px;
 }
 .descContainer {
   margin-right: auto;
@@ -29,38 +35,41 @@
   font-size: 8px;
   line-height: 9px;
   color: #52555f;
+  margin-bottom: 10px;
 }
 .date {
   margin-right: 20px;
 }
-.sum {
+.sumContainer {
   font-weight: 700;
   font-size: 12px;
   line-height: 14px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.expense {
-  color: red;
-  font-size: 12px;
-  line-height: 14px;
-}
-.income {
-  color: green;
-  font-size: 12px;
-  line-height: 14px;
-}
+// для добавления класса при +/-
+// .expense {
+//   color: red;
+//   font-size: 12px;
+//   line-height: 14px;
+// }
+// .income {
+//   color: green;
+//   font-size: 12px;
+//   line-height: 14px;
+// }
 .buttonDelete {
   border: none;
   background-color: $white-color;
   margin-left: 20px;
-  padding: 0;
-}
-.buttonIcon {
   fill: $dark-grey-color;
+  &:hover,
+  &:focus {
+    fill: $accent-color;
+  }
 }
-.buttonIcon:hover {
-  fill: $accent-color;
-}
+
 @media screen and (min-width: $tablet) {
   .list {
     display: none;
