@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../../redux/auth';
 import { ReactComponent as GoogleIcon } from '../../assets/google-icon.svg';
+import RegisterModal from '../RegisterModal/RegisterModal';
 import styles from './RegisterForm.module.scss';
 
 function RegisterForm() {
   const dispatch = useDispatch();
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setModalOpen(!isModalOpen);
+  };
+
   const formik = useFormik({
     initialValues: { name: '', email: '', password: '' },
     validationSchema: Yup.object({
@@ -29,9 +36,7 @@ function RegisterForm() {
         }),
       );
       resetForm({ values: '' });
-      // ======== TODO: 1) show a modal window with info that Verification email
-      // was send to your mailbox, please verify your email and NavLink to login;
-      // 2) and add forwarding to Login Page (NavLink to login);
+      toggleModal();
     },
   });
 
@@ -115,6 +120,7 @@ function RegisterForm() {
           </NavLink>
         </div>
       </form>
+      {isModalOpen && <RegisterModal onModalClose={toggleModal} />}
     </div>
   );
 }
