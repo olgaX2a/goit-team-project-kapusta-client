@@ -9,6 +9,7 @@ import RegisterForm from '../../RegisterForm/RegisterForm';
 import Chart from '../../Chart/Chart';
 import CategoryCard from '../../CategoryCard';
 import CategoryCollection from '../../CategoryCard/CategoryCollection';
+import CategoryTitle from '../../CategoryCard/CategoryTitle';
 import { incomeCategory } from '../../../utils/incomeCategories';
 import { expenseCategory } from '../../../utils/expenseCategories';
 import Transactions from '../../Transactions/Transactions';
@@ -64,8 +65,8 @@ function Testing() {
         <div className={styles.personalBlock}>
           <p>Olga Sekretaryova</p>
           <ToReports />
-
           <Paper>
+            <CategoryTitle title={'Доходы'} />
             <CategoryCollection collection={testCategories} onSelection={cardClick} />
           </Paper>
           <div>

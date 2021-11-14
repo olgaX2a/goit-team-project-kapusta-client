@@ -96,3 +96,19 @@
     margin-bottom: -32px;
   }
 }
+
+.title {
+  margin: 0;
+  width: 96px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $main-font;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: $black-color;
+}
