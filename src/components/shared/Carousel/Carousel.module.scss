@@ -21,29 +21,30 @@
 
 .carousel {
   height: 20px;
-  width: 96px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  p {
+    height: 100%;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: $black-color;
+  }
 }
 
 .arrowBtn {
   background-color: transparent;
-  fill: $accent-color;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  border: none;
+  color: $accent-color;
+
   svg {
     width: 4px;
     height: 10px;
+    fill: $accent-color;
   }
-}
-
-.text {
-  width: 96px !important;
-  height: 100%;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: $black-color;
 }
 
 .title {

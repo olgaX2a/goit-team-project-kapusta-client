@@ -22,6 +22,10 @@ const testSummary = [
   { key: 6, month: 'june', sum: 34569 },
 ];
 
+const testOnShow = current => {
+  console.log('current ✔ ', current);
+};
+
 function Testing() {
   return (
     <div className={styles.testingContainer}>
@@ -50,7 +54,7 @@ function Testing() {
           <Paper>
             <ToReports />
           </Paper>
-          <Carousel title={'Carousel title'} data={TRANS_TYPES} />
+          <Carousel title={'Carousel title'} data={TRANS_TYPES} onShow={testOnShow} />
         </div>
       </div>
     </div>
