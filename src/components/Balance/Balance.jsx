@@ -5,7 +5,7 @@ import Notification from '../shared/Notification/Notification';
 
 const Balance = () => {
   // поменять значение баланса, когда будет путь суммы с бэка
-  const balance = 0;
+  const balance = 10;
 
   const [notificationOpen, setNotificationOpen] = useState(true);
 
