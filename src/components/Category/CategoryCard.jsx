@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import CategoryIcon from './CategoryIcon';
 import styles from './Category.module.scss';
 import expense from '../../utils/expenseTypes';
+import { normalizeSum } from '../../utils/normalize';
 
 function CategoryCard({ category, sum, onSelect }) {
   const handleKeyDown = event => {
