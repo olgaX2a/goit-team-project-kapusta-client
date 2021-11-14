@@ -9,6 +9,7 @@ import RegisterForm from '../../RegisterForm/RegisterForm';
 import Chart from '../../Chart/Chart';
 import Transactions from '../../Transactions/Transactions';
 import Summary from '../../Summary/Summary';
+import Paper from '../Paper/Paper';
 
 const testSummary = [
   { key: 1, month: 'january', sum: 20475 },
@@ -44,7 +45,9 @@ function Testing() {
         </div>
         <div className={styles.personalBlock}>
           <p>Olga Sekretaryova</p>
-          <ToReports />
+          <Paper>
+            <ToReports />
+          </Paper>
         </div>
       </div>
     </div>
