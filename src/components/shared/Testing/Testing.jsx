@@ -64,15 +64,15 @@ function Testing() {
         <div className={styles.personalBlock}>
           <p>Olga Sekretaryova</p>
           <ToReports />
+
+          <Paper>
+            <CategoryCollection collection={testCategories} onSelection={cardClick} />
+          </Paper>
           <div>
             {incomeCategory.map(el => (
               <CategoryCard category={el} onSelect={cardClick} sum={150} />
             ))}
           </div>
-          <CategoryCollection collection={testCategories} onSelection={cardClick} />
-          <Paper>
-            <ToReports />
-          </Paper>
         </div>
       </div>
     </div>
