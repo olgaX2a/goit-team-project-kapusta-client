@@ -8,6 +8,7 @@ import LoginForm from '../../LoginForm/LoginForm';
 import RegisterForm from '../../RegisterForm/RegisterForm';
 import Chart from '../../Chart/Chart';
 import CategoryCard from '../../CategoryCard';
+import CategoryCollection from '../../CategoryCard/CategoryCollection';
 import { incomeCategory } from '../../../utils/incomeCategories';
 import { expenseCategory } from '../../../utils/expenseCategories';
 import Transactions from '../../Transactions/Transactions';
@@ -22,11 +23,21 @@ const testSummary = [
   { key: 6, month: 'june', sum: 34569 },
 ];
 
+const testCategories = [
+  { category: expenseCategory[0], sum: 20475 },
+  { category: expenseCategory[1], sum: 0 },
+  { category: expenseCategory[7], sum: 158 },
+  { category: expenseCategory[3], sum: 9635 },
+  { category: expenseCategory[8], sum: 1250 },
+  { category: expenseCategory[6], sum: 34569 },
+];
+
 function Testing() {
   const cardClick = selected => {
     console.log(`clicked on ${selected} category in testing 🎃 `);
   };
   console.log('incomeCategory :>> ', incomeCategory);
+  console.log('expenseCategory[4] :>> ', expenseCategory[4]);
   return (
     <div className={styles.testingContainer}>
       <Header />
@@ -57,11 +68,7 @@ function Testing() {
               <CategoryCard category={el} onSelect={cardClick} sum={150} />
             ))}
           </div>
-          <div>
-            {expenseCategory.map(el => (
-              <CategoryCard category={el} onSelect={cardClick} sum={150} />
-            ))}
-          </div>
+          <CategoryCollection collection={testCategories} onSelection={cardClick} />
         </div>
       </div>
     </div>

@@ -3,17 +3,22 @@
 
 .card {
   background-color: transparent;
+  margin-bottom: 40px;
   padding: 0;
-  border: none;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   min-width: 84px;
   max-width: 102px;
   min-height: 106px;
   fill: $icon-dark-color;
   transition: fill $duration $timing;
+  @include for-mobile-only {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e5eb;
+  }
   &:hover,
   &:focus,
   &:active {
@@ -24,9 +29,9 @@
   }
 
   p {
+    margin: 0 auto;
     display: flex;
     justify-content: center;
-    align-items: center;
     width: 100%;
     text-align: center;
     vertical-align: middle;
@@ -41,16 +46,17 @@
   }
 }
 .sum {
-  margin: 0 auto;
   letter-spacing: 0.04em;
+  align-items: center;
 }
 
 .category {
-  margin: 5px auto 0 auto;
   letter-spacing: 0.02em;
+  align-items: top;
 }
 
 .iconWrapper {
+  margin: 5px auto;
   display: flex;
   justify-content: center;
   height: 56px;
@@ -72,4 +78,22 @@
   background-color: $main-bg-color;
   border-radius: 20px;
   transition: background-color $duration $timing;
+}
+
+.cardContainer {
+  width: 100%;
+  border: 1px solid black;
+  margin-bottom: -40px;
+  display: flex;
+  flex-basis: 94px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  @include for-desktop {
+    flex-basis: 102px;
+  }
+  @include for-mobile-only {
+    margin-bottom: -32px;
+  }
 }
