@@ -50,4 +50,38 @@ function Testing() {
   );
 }
 
+// function Testing() {
+//   return (
+//     <div className={styles.testingContainer}>
+//       <Header />
+//       <div className={styles.underHeader}>
+//         <div className={styles.personalBlock}>
+//           <p>Kokorovets Tatiana</p>
+//           <Button text="Click on me" btnAction={() => console.log('hi')} />
+//           <Balance />
+//           <Summary summaryData={testSummary} />
+//         </div>
+//         <div className={styles.personalBlock}>
+//           <p>Tetiana Parkhoniuk</p>
+//           <LoginForm />
+//           <RegisterForm />
+//         </div>
+//         <div className={styles.personalBlock}>
+//           <Chart arrData={[]} />
+//         </div>
+//         <div className={styles.personalBlock}>
+//           <p>Tatyana Tupalo </p>
+//           <Transactions />
+//         </div>
+//         <div className={styles.personalBlock}>
+//           <p>Olga Sekretaryova</p>
+//           <Paper>
+//             <ToReports />
+//           </Paper>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
 export default Testing;
