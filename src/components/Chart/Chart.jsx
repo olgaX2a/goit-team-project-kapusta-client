@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useMediaQuery } from './useMediaQuery';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 import DesktopCharts from './DesktopCharts';
 import MobileCharts from './MobileCharts';

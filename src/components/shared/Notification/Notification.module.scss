@@ -12,7 +12,7 @@
   margin-left: -96px;
   margin-top: -17px;
   @include for-mobile {
-    left: 45%;
+    left: 59%;
   }
 }
 
@@ -20,23 +20,24 @@
   position: absolute;
   padding: 30px 25px 31px 25px;
   width: 100%;
-  transform: translate(5%, 5%);
   height: auto;
   font: $main-font;
   line-height: 20px;
   font-weight: normal;
   line-height: 1.43;
-  color: #ffffff;
+  color: $white-color;
   background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);
   border-radius: 30px;
   top: 110%;
-  z-index: 99;
+  z-index: 3;
   cursor: pointer;
   @include for-mobile {
     width: 232px;
+    top: 115%;
   }
   @include for-desktop {
     width: 292px;
+    top: 120%;
   }
 }
 
