@@ -1,0 +1,68 @@
+@use '../shared/mixins' as *;
+@use '../shared/variables' as *;
+
+.list {
+  list-style: none;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color: #fff;
+  font-family: $main-font;
+  letter-spacing: 0.04em;
+}
+.item {
+  display: flex;
+  border-bottom: 1px solid #f5f6fb;
+  justify-content: start;
+  align-items: center;
+}
+.description {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  color: #52555f;
+}
+.descContainer {
+  margin-right: auto;
+}
+.categoryContainer {
+  display: flex;
+  font-size: 8px;
+  line-height: 9px;
+  color: #52555f;
+}
+.date {
+  margin-right: 20px;
+}
+.sum {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+}
+.expense {
+  color: red;
+  font-size: 12px;
+  line-height: 14px;
+}
+.income {
+  color: green;
+  font-size: 12px;
+  line-height: 14px;
+}
+.buttonDelete {
+  border: none;
+  background-color: $white-color;
+  margin-left: 20px;
+  padding: 0;
+}
+.buttonIcon {
+  fill: $dark-grey-color;
+}
+.buttonIcon:hover {
+  fill: $accent-color;
+}
+@media screen and (min-width: $tablet) {
+  .list {
+    display: none;
+  }
+}

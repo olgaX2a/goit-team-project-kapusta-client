@@ -10,6 +10,7 @@ import Chart from '../../Chart/Chart';
 import Transactions from '../../Transactions/Transactions';
 import Summary from '../../Summary/Summary';
 import Paper from '../Paper/Paper';
+import MobileTable from '../../MobileTable/MobileTable';
 
 const testSummary = [
   { key: 1, month: 'january', sum: 20475 },
@@ -42,6 +43,7 @@ function Testing() {
         <div className={styles.personalBlock}>
           <p>Tatyana Tupalo </p>
           <Transactions />
+          <MobileTable />
         </div>
         <div className={styles.personalBlock}>
           <p>Olga Sekretaryova</p>
