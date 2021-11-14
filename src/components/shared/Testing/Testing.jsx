@@ -7,10 +7,11 @@ import RegisterForm from '../../RegisterForm/RegisterForm';
 import Chart from '../../Chart/Chart';
 import Transactions from '../../Transactions/Transactions';
 import Paper from '../Paper/Paper';
+import Carousel from '../Carousel/Carousel';
+import { TRANS_TYPES } from '../../../utils/transTypes';
 import MainPageMarkUp from '../../../pages/MainPage/MainPage';
 import HomePageMarkUp from '../../../pages/HomePage/HomePage';
 import Container from '../Container/Container';
-
 
 // function Testing() {
 //   return (
@@ -20,6 +21,10 @@ import Container from '../Container/Container';
 //     </div>
 //   );
 // }
+
+const testOnShow = current => {
+  console.log('current ✔ ', current);
+};
 
 function Testing() {
   return (
@@ -34,20 +39,19 @@ function Testing() {
           <LoginForm />
           <RegisterForm />
         </div>
-        <div className={styles.personalBlock}>
+        {/* <div className={styles.personalBlock}>
           <Chart arrData={[]} />
-        </div>
+        </div> */}
         <div className={styles.personalBlock}>
           <p>Tatyana Tupalo </p>
           <Transactions />
         </div>
         <div className={styles.personalBlock}>
           <p>Olga Sekretaryova</p>
-          <Container>
-            <Paper>
-              <ToReports />
-            </Paper>
-          </Container>
+          <Paper>
+            <ToReports />
+          </Paper>
+          <Carousel title="Carousel title" data={TRANS_TYPES} onShow={testOnShow} />
         </div>
       </div>
     </div>
