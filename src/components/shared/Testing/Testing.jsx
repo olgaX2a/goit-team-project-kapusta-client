@@ -13,6 +13,7 @@ import { incomeCategory } from '../../../utils/incomeCategories';
 import { expenseCategory } from '../../../utils/expenseCategories';
 import Transactions from '../../Transactions/Transactions';
 import Summary from '../../Summary/Summary';
+import Paper from '../Paper/Paper';
 
 const testSummary = [
   { key: 1, month: 'january', sum: 20475 },
@@ -69,6 +70,9 @@ function Testing() {
             ))}
           </div>
           <CategoryCollection collection={testCategories} onSelection={cardClick} />
+          <Paper>
+            <ToReports />
+          </Paper>
         </div>
       </div>
     </div>
