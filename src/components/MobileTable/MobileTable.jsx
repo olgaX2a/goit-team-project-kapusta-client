@@ -3,6 +3,7 @@ import EllipsisText from 'react-ellipsis-text';
 import PropTypes from 'prop-types';
 import { ReactComponent as Delete } from '../../assets/delete.svg';
 import Container from '../shared/Container/Container';
+import { INCOME } from '../../utils/transTypes';
 import s from './MobileTable.module.scss';
 
 // eslint-disable-next-line arrow-body-style
@@ -10,7 +11,7 @@ const MobileTable = ({ transactions }) => {
   return (
     <Container>
       <ul className={s.list}>
-        {transactions.map(({ description, sum, category, date, id }) => (
+        {transactions.map(({ description, sum, category, date, id, transactionType }) => (
           <li key={id} className={s.item}>
             <div className={s.descContainer}>
               <p className={s.description}>
@@ -23,7 +24,12 @@ const MobileTable = ({ transactions }) => {
             </div>
 
             <p className={s.sumContainer}>
-              {sum.toLocaleString('ru')} грн.
+              {transactionType === INCOME ? (
+                <span className={s.income}> {sum.toLocaleString('ru')} грн.</span>
+              ) : (
+                <span className={s.expense}>-{sum.toLocaleString('ru')} грн.</span>
+              )}
+
               <button
                 type="button"
                 className={s.buttonDelete}

@@ -48,17 +48,13 @@ ul {
   justify-content: center;
   align-items: center;
 }
-// для добавления класса при +/-
-// .expense {
-//   color: red;
-//   font-size: 12px;
-//   line-height: 14px;
-// }
-// .income {
-//   color: green;
-//   font-size: 12px;
-//   line-height: 14px;
-// }
+
+.expense {
+  color: red;
+}
+.income {
+  color: green;
+}
 .buttonDelete {
   border: none;
   background-color: $white-color;
