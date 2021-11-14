@@ -10,6 +10,8 @@ import Chart from '../../Chart/Chart';
 import Transactions from '../../Transactions/Transactions';
 import Summary from '../../Summary/Summary';
 import Paper from '../Paper/Paper';
+import Carousel from '../Carousel/Carousel';
+import { TRANS_TYPES } from '../../../utils/transTypes';
 
 const testSummary = [
   { key: 1, month: 'january', sum: 20475 },
@@ -48,6 +50,7 @@ function Testing() {
           <Paper>
             <ToReports />
           </Paper>
+          <Carousel title={'Carousel title'} data={TRANS_TYPES} />
         </div>
       </div>
     </div>
