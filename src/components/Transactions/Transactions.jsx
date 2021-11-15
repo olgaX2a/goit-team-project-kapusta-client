@@ -9,9 +9,7 @@ import s from './Transactions.module.scss';
 
 const Transactions = () => {
   const expenses = data;
-  const onSubmit = e => {
-    console.log(e);
-  };
+
   return (
     <div className={s.tabsContainer}>
       <Tabs>
@@ -21,22 +19,12 @@ const Transactions = () => {
         </TabList>
 
         <TabPanel>
-          <FormInfo
-            category={categoryGoods}
-            onSubmit={onSubmit}
-            text="Категория товара"
-            type="expense"
-          />
+          <FormInfo category={categoryGoods} text="Категория товара" type="expense" />
           <TableTransactions transactions={expenses} />
         </TabPanel>
 
         <TabPanel>
-          <FormInfo
-            category={categoryIncomes}
-            onSubmit={onSubmit}
-            text="Категория дохода"
-            type="income"
-          />
+          <FormInfo category={categoryIncomes} text="Категория дохода" type="income" />
           {/* позже здесь будут доходы, а пока просто для вида */}
           <TableTransactions transactions={expenses} />
         </TabPanel>

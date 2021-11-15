@@ -54,6 +54,19 @@ const transactionsSlice = createSlice({
       state.isLoading = false;
       state.error = 'Error';
     },
+    [transactionOperations.createTransaction.fulfilled]: (state, action) => {
+      state.items = [...state.items, action.payload];
+      state.isLoading = false;
+      state.error = null;
+    },
+    [transactionOperations.createTransaction.pending]: (state, action) => {
+      state.isLoading = true;
+      state.error = null;
+    },
+    [transactionOperations.createTransaction.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = 'Error';
+    },
 
     // [createIncome.fulfilled]: (state, action) => {
     //   state.items = [...state.items, action.payload];

@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { transactionOperations } from '../../redux/transactions';
 import { ReactComponent as Calculator } from '../../assets/calculator.svg';
 import { ReactComponent as Calendar } from '../../assets/calendar.svg';
 import s from './FormInfo.module.scss';
 
 // eslint-disable-next-line react/prop-types
-const FormInfo = ({ category, onSubmit, text, type }) => {
+const FormInfo = ({ category, text, type }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [description, setDescription] = useState('');
   const [sum, setSum] = useState('');
   const [categories, setCategories] = useState('');
+
+  const dispatch = useDispatch();
 
   const day = startDate.getDate();
   const month = startDate.getMonth() + 1;
@@ -45,7 +49,17 @@ const FormInfo = ({ category, onSubmit, text, type }) => {
   };
   const handleSubmit = e => {
     e.preventDefault();
-    onSubmit({ description, sum, categories, month, day, year, type });
+    dispatch(
+      transactionOperations.createTransaction({
+        description,
+        sum,
+        categories,
+        month,
+        day,
+        year,
+        type,
+      }),
+    );
     reset();
   };
 
@@ -115,7 +129,6 @@ const FormInfo = ({ category, onSubmit, text, type }) => {
 };
 
 FormInfo.propType = {
-  onSubmit: PropTypes.func.isRequired,
   category: PropTypes.arrayOf(PropTypes.object).isRequired,
   text: PropTypes.string.isRequired,
 };
