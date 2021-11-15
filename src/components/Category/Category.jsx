@@ -28,7 +28,10 @@ function Category() {
 
   return (
     <Paper extraStyles={styles.block}>
-      <Carousel data={TRANS_NAMES} onShow={handleTypeChange} />
+      <div className={styles.carouselWrapper}>
+        <Carousel data={TRANS_NAMES} onShow={handleTypeChange} />
+      </div>
+
       <CategoryCollection collection={testCategories} onSelection={handleCategorySelection} />
     </Paper>
   );
