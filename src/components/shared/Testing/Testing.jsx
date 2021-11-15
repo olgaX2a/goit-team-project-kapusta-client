@@ -5,7 +5,7 @@ import ToReports from '../../ToReports/ToReports';
 import LoginForm from '../../LoginForm/LoginForm';
 import RegisterForm from '../../RegisterForm/RegisterForm';
 import Chart from '../../Chart/Chart';
-import Category from '../../Category';
+import Category from '../../Category/Category';
 import { incomeCategory } from '../../../utils/incomeCategories';
 import { expenseCategory } from '../../../utils/expenseCategories';
 import Transactions from '../../Transactions/Transactions';

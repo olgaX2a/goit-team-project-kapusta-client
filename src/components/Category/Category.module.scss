@@ -1,6 +1,14 @@
 @use '../shared/mixins' as *;
 @use '../shared/variables' as *;
 
+.block {
+  padding-top: 20px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .card {
   background-color: transparent;
   margin-bottom: 40px;

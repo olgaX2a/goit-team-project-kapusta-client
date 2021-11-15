@@ -25,7 +25,7 @@ function CategoryCard({ category, sum, onSelect }) {
       onClick={handleClick}
       onKeyDown={handleKeyDown}
     >
-      <p className={styles.sum}>{sum}</p>
+      <p className={styles.sum}>{normalizeSum(sum)}</p>
 
       <CategoryIcon category={category} />
 

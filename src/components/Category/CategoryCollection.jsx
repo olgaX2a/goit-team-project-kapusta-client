@@ -4,6 +4,7 @@ import CategoryCard from './CategoryCard';
 import styles from './Category.module.scss';
 
 function CategoryCollection({ collection, onSelection }) {
+  console.log('collection :>> ', collection);
   return (
     <div className={styles.cardContainer}>
       {collection.map(el => {

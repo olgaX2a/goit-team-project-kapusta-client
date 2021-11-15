@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import CategoryCollection from './CategoryCollection';
 import Carousel from '../shared/Carousel/Carousel';
 import Paper from '../shared/Paper/Paper';
-import { TRANS_TYPES } from '../../utils/transTypes';
+import { TRANS_NAMES, TRANS_MAP } from '../../utils/transTypes';
 import { expenseCategory } from '../../utils/expenseCategories';
+import { getKeyByValue } from '../../utils/helpers';
+import styles from './Category.module.scss';
 
 const testCategories = [
   { category: expenseCategory[0], sum: 20475 },
@@ -15,9 +17,9 @@ const testCategories = [
 ];
 
 function Category() {
-  console.log('testCategories :>> ', testCategories);
   const handleTypeChange = transType => {
-    console.log('transType :>> ', transType);
+    const type = getKeyByValue(TRANS_MAP, transType);
+    console.log('type :>> ', type);
   };
 
   const handleCategorySelection = category => {
@@ -25,9 +27,9 @@ function Category() {
   };
 
   return (
-    <Paper>
-      <Carousel data={TRANS_TYPES} onShow={handleTypeChange} />
-      <CategoryCollection data={testCategories} onSelection={handleCategorySelection} />
+    <Paper extraStyles={styles.block}>
+      <Carousel data={TRANS_NAMES} onShow={handleTypeChange} />
+      <CategoryCollection collection={testCategories} onSelection={handleCategorySelection} />
     </Paper>
   );
 }
