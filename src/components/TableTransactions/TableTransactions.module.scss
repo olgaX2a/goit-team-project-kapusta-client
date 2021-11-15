@@ -48,6 +48,14 @@
   .sum {
     width: 104px;
   }
+  .sumContainer {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .expense {
     color: red;
   }
@@ -69,17 +77,6 @@
   .empty {
     height: 15px;
   }
-
-  // /* Стили для скролла */
-  // ::-webkit-scrollbar {
-  //   width: 6px;
-  // }
-  // ::-webkit-scrollbar-track {
-  //   box-shadow: inset 0 0 6px $accent-color;
-  // }
-  // ::-webkit-scrollbar-thumb {
-  //   box-shadow: inset 0 0 6px $accent-color;
-  // }
 }
 @media screen and (min-width: $desktop) {
   .table {

@@ -28,7 +28,7 @@ const TableTransactions = ({ transactions }) => {
               <EllipsisText text={description} length={30} />
             </td>
             <td className={s.category}>{category}</td>
-            <td className={s.sum}>
+            <td className={s.sumContainer}>
               {transactionType === INCOME ? (
                 <span className={s.income}> {sum.toLocaleString('ru')} грн.</span>
               ) : (
