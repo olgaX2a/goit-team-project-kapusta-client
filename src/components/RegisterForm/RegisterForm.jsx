@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { NavLink } from 'react-router-dom';
@@ -18,25 +18,14 @@ function RegisterForm() {
   };
 
   const showModalIfRegistered = () => {
-    console.log(isRegistered);
     if (isRegistered) {
       toggleModal();
     }
   };
 
-  // const showModalIfRegistered = status => {
-  //   console.log(status);
-  //   if (status) {
-  //     toggleModal();
-  //   }
-  // };
-
-  // const showModalIfRegistered = async status => {
-  //   console.log(status);
-  //   if (status) {
-  //     await toggleModal();
-  //   }
-  // };
+  useEffect(() => {
+    showModalIfRegistered();
+  }, [isRegistered]);
 
   const formik = useFormik({
     initialValues: { name: '', email: '', password: '' },
@@ -58,8 +47,6 @@ function RegisterForm() {
         }),
       );
       resetForm({ values: '' });
-      setTimeout(showModalIfRegistered, 3000);
-      // setTimeout(showModalIfRegistered(isRegistered), 3000);
     },
   });
 
