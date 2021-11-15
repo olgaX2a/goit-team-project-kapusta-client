@@ -55,23 +55,20 @@ export const logout = createAsyncThunk('auth/logout', async (_, { rejectWithValu
   }
 });
 
-// WAITING FOR ENDPOINT FROM BACKEND
+export const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
+  const state = thunkAPI.getState();
+  const persistedToken = state.auth.token;
 
-// export const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
-//   const state = thunkAPI.getState();
-//   const persistedToken = state.auth.token;
+  if (persistedToken === null) {
+    return thunkAPI.rejectWithValue();
+  }
 
-//   if (persistedToken === null) {
-//     return thunkAPI.rejectWithValue();
-//   }
+  token.set(persistedToken);
 
-//   token.set(persistedToken);
-
-//   try {
-//     const { data } = await authAPI.fetchCurrentUser();
-//     console.log(data);
-//     return data;
-//   } catch (error) {
-//     return thunkAPI.rejectWithValue(error.message);
-//   }
-// });
+  try {
+    const { data } = await authAPI.fetchCurrentUser();
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
