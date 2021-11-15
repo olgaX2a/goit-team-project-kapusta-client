@@ -7,6 +7,7 @@ import ToReports from '../../components/ToReports/ToReports';
 import Balance from '../../components/Balance/Balance';
 import Transactions from '../../components/Transactions/Transactions';
 import Summary from '../../components/Summary/Summary';
+import MobileBtnCont from '../../components/shared/MobileBtnCont/MobileBtnCont';
 // import Container from '../../components/shared/Container/Container';
 
 const testSummary = [
@@ -36,37 +37,10 @@ function HomePageMarkUp() {
           </div>
         </section>
       </main>
-      <footer className={styles.homePageFooter} />
+      <footer className={styles.homePageFooter}>
+        <MobileBtnCont />
+      </footer>
     </>
-
-    // <ul className={styles.tabCont}>
-    //         <li className={styles.tab}>
-    //           <Link to="/" className={styles.expences}>
-    //             Расход
-    //           </Link>
-    //         </li>
-    //         <li className={styles.tab}>
-    //           <Link to="/" className={styles.income}>
-    //             Доход
-    //           </Link>
-    //         </li>
-    //       </ul>
-    // other code
-    // <div className={styles.mainPageBgr}>
-    //   <header className={styles.logoCont}>
-    //     <Logo className={styles.logoCont} />
-    //   </header>
-    //   <main className={styles.mainPageTitleCont}>
-    //     <h1 className={styles.mainPageTitle}>
-    //       Kapu<span className={styles.dollar}>s</span>ta
-    //     </h1>
-    //     <p className={styles.mainPageTitleText}> Smart finance</p>
-    //   </main>
-    //   <footer className={styles.mainPageFooter} />
-    //   <div className={styles.mainPageAuth}>
-    //     <LoginForm />
-    //   </div>
-    // </div>
   );
 }
 
