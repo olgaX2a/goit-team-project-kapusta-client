@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import EllipsisText from 'react-ellipsis-text';
 import { ReactComponent as Delete } from '../../assets/delete.svg';
+import { INCOME } from '../../utils/transTypes';
 import EmptyRow from './emptyRow';
 
 import s from './TableTransactions.module.scss';
@@ -20,15 +21,19 @@ const TableTransactions = ({ transactions }) => {
       </thead>
 
       <tbody className={s.tableBody}>
-        {transactions.map(({ description, sum, category, date, id }) => (
+        {transactions.map(({ description, sum, category, date, id, transactionType }) => (
           <tr key={id} className={s.row}>
             <td className={s.date}>{date}</td>
             <td className={s.description}>
               <EllipsisText text={description} length={30} />
             </td>
             <td className={s.category}>{category}</td>
-            <td className={s.sum}>
-              {sum}
+            <td className={s.sumContainer}>
+              {transactionType === INCOME ? (
+                <span className={s.income}> {sum.toLocaleString('ru')} грн.</span>
+              ) : (
+                <span className={s.expense}>-{sum.toLocaleString('ru')} грн.</span>
+              )}
               <button
                 type="button"
                 className={s.buttonDelete}

@@ -13,12 +13,10 @@ export const login = async credentials => {
 };
 
 export const logout = async () => {
-  await axios.get('/users/logout');
+  await axios.post('/users/logout');
 };
 
-// WAITING FOR ENDPOINT FROM BACKEND
-
-// export const fetchCurrentUser = async (_, thunkAPI) => {
-//   const response = axios.get('/users/current');
-//   return response;
-// };
+export const fetchCurrentUser = async () => {
+  const response = axios.get('/users/current');
+  return response;
+};

@@ -10,16 +10,20 @@ import { incomeCategory } from '../../../utils/incomeCategories';
 import { expenseCategory } from '../../../utils/expenseCategories';
 import Transactions from '../../Transactions/Transactions';
 import Paper from '../Paper/Paper';
+import MobileTable from '../../MobileTable/MobileTable';
+import transactions from '../../MobileTable/data.json';
 import { TRANS_TYPES } from '../../../utils/transTypes';
 import MainPageMarkUp from '../../../pages/MainPage/MainPage';
 import HomePageMarkUp from '../../../pages/HomePage/HomePage';
 import Container from '../Container/Container';
+import ArrowToGoBack from '../ArrowToGoBack/ArrowToGoBack';
 
 // function Testing() {
 //   return (
 //     <div className={styles.testingContainer}>
 //       {/* <MainPageMarkUp /> */}
-//       <HomePageMarkUp />
+//       <ArrowToGoBack />
+//       {/* <HomePageMarkUp /> */}
 //     </div>
 //   );
 // }
@@ -43,6 +47,8 @@ function Testing() {
         <div className={styles.personalBlock}>
           <p>Tatyana Tupalo </p>
           <Transactions />
+
+          <MobileTable transactions={transactions} />
         </div>
         <div className={styles.personalBlock}>
           <p>Olga Sekretaryova</p>
