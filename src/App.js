@@ -12,14 +12,15 @@
 // ===TO TEST Register and Login Routes use this code ===///
 // ===If it's not needed just remove it ===//
 // Tо test Toastify notifications
+// To test fetchCurrentUser
 
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
-// import { authOperations } from './redux/auth';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { authOperations } from './redux/auth';
 import './App.css';
 import Testing from './components/shared/Testing/Testing';
 import Container from './components/shared/Container/Container';
@@ -28,11 +29,11 @@ import RegisterForm from './components/RegisterForm/RegisterForm';
 import LoginForm from './components/LoginForm/LoginForm';
 
 function App() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(authOperations.fetchCurrentUser());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
 
   return (
     <Container>

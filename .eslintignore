@@ -16,4 +16,6 @@ src/redux/auth/index.js
 # Vladyslav Shumkov
 src/components/Chart/*.jsx
 
+src/components/shared/Testing/*.jsx
+
 

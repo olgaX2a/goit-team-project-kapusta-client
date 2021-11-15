@@ -19,7 +19,7 @@ const UserMenu = () => {
 
   return (
     <div className={styles.container}>
-      <Avatar name={name} unstyled="true" className={styles.avatar} />
+      <Avatar name={name} unstyled className={styles.avatar} />
       <span className={styles.userNameText}>{name}</span>
       <button type="button" className={styles.logOutBtn} onClick={toggleModal}>
         <LogOutIcon className={styles.logOutIcon} />
