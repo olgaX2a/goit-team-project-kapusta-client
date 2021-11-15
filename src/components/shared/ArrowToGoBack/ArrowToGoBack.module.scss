@@ -1,0 +1,33 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.toGoBackCont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.link {
+  display: flex;
+  font-family: $main-font;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: $dark-grey-color;
+  align-items: center;
+}
+@media screen and (max-width: 1279px) {
+  .toGoBack {
+    margin-right: auto;
+  }
+}
+
+.arrowText {
+  margin-left: 18px;
+  opacity: 0;
+  @include for-tablet {
+    opacity: 1;
+  }
+}
