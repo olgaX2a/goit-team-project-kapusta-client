@@ -2,19 +2,41 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { authOperations } from '../../redux/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { authOperations, authSelectors } from '../../redux/auth';
 import { ReactComponent as GoogleIcon } from '../../assets/google-icon.svg';
 import RegisterModal from '../RegisterModal/RegisterModal';
 import styles from './RegisterForm.module.scss';
 
 function RegisterForm() {
   const dispatch = useDispatch();
+  const isRegistered = useSelector(authSelectors.getIsRegistered);
   const [isModalOpen, setModalOpen] = useState(false);
 
   const toggleModal = () => {
     setModalOpen(!isModalOpen);
   };
+
+  const showModalIfRegistered = () => {
+    console.log(isRegistered);
+    if (isRegistered) {
+      toggleModal();
+    }
+  };
+
+  // const showModalIfRegistered = status => {
+  //   console.log(status);
+  //   if (status) {
+  //     toggleModal();
+  //   }
+  // };
+
+  // const showModalIfRegistered = async status => {
+  //   console.log(status);
+  //   if (status) {
+  //     await toggleModal();
+  //   }
+  // };
 
   const formik = useFormik({
     initialValues: { name: '', email: '', password: '' },
@@ -36,7 +58,8 @@ function RegisterForm() {
         }),
       );
       resetForm({ values: '' });
-      toggleModal();
+      setTimeout(showModalIfRegistered, 3000);
+      // setTimeout(showModalIfRegistered(isRegistered), 3000);
     },
   });
 
@@ -126,5 +149,3 @@ function RegisterForm() {
 }
 
 export default RegisterForm;
-
-// test
