@@ -14,4 +14,6 @@ src/components/shared/Modal/*.jsx
 # Vladyslav Shumkov
 src/components/Chart/*.jsx
 
+src/components/shared/Testing/*.jsx
+
 
