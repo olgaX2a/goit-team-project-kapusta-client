@@ -33,7 +33,13 @@ export const login = createAsyncThunk('auth/login', async (credentials, { reject
     token.set(data.data.token);
     return data;
   } catch (error) {
-    toast.error('Пожалуйста, проверьте свои данные для входа и попробуйте еще раз.');
+    if (error.response.data.message === 'Invalid password') {
+      toast.error('Неверный пароль. Пожалуйста, попробуйте еще раз.');
+    } else if (error.response.data.message === 'Email not verify') {
+      toast.error('Ваш имейл не верифицырован.');
+    } else {
+      toast.error('Пожалуйста, проверьте свои данные для входа и попробуйте еще раз.');
+    }
     return rejectWithValue(error.message);
   }
 });
@@ -44,7 +50,6 @@ export const logout = createAsyncThunk('auth/logout', async (_, { rejectWithValu
     token.unset();
     return 'Logout was successful';
   } catch (error) {
-    console.log(error);
     toast.error('Что-то пошло не так. Попробуйте выйти еще раз.');
     return rejectWithValue(error.message);
   }
