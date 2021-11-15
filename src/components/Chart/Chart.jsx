@@ -28,8 +28,12 @@ const Chart = ({ arrData }) => {
   useEffect(() => {
     if (!arrData) {
       setData(dataSchema);
+      // eslint-disable-next-line react/prop-types
+    } else if (arrData.length === 0) {
+      setData(dataSchema);
+    } else {
+      setData(arrData);
     }
-    setData(arrData);
   }, {});
 
   const sortBy = field => (a, b) => a[field] < b[field] ? 1 : -1;
@@ -68,6 +72,7 @@ Chart.propType = {
     PropTypes.shape({
       description: PropTypes.string,
       total: PropTypes.number,
+      length: PropTypes.number,
     }).isRequired,
   ),
 };
