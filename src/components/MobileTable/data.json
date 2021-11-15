@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "transactionType": "expense",
+        "date": "22.11.2021",
+        "description": "Картофель",
+        "category": "Продукты",
+        "sum": 100
+    },
+    {
+        "id": 2,
+        "transactionType": "expense",
+        "date": "22.11.2021",
+        "description": "Конфеты",
+        "category": "Продукты",
+        "sum": 100
+    },
+    {
+        "id": 3,
+        "transactionType": "expense",
+        "date": "22.11.2021",
+        "description": "Хлеб",
+        "category": "Продукты",
+        "sum": 100
+    },
+    {
+        "id": 4,
+        "transactionType": "expense",
+        "date": "22.11.2021",
+        "description": "Гречка",
+        "category": "Продукты",
+        "sum": 100
+    },
+    {
+        "id": 5,
+        "transactionType": "income",
+        "date": "22.11.2021",
+        "description": "Моя ЗП",
+        "category": "ЗП",
+        "sum": 20000
+    },
+    {
+        "id": 5,
+        "transactionType": "income",
+        "date": "22.11.2021",
+        "description": "Счастье привалило",
+        "category": "Доп. доход",
+        "sum": 10000
+    }
+]

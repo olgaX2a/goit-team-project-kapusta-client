@@ -10,6 +10,8 @@ import { incomeCategory } from '../../../utils/incomeCategories';
 import { expenseCategory } from '../../../utils/expenseCategories';
 import Transactions from '../../Transactions/Transactions';
 import Paper from '../Paper/Paper';
+import MobileTable from '../../MobileTable/MobileTable';
+import transactions from '../../MobileTable/data.json';
 import { TRANS_TYPES } from '../../../utils/transTypes';
 import MainPageMarkUp from '../../../pages/MainPage/MainPage';
 import HomePageMarkUp from '../../../pages/HomePage/HomePage';
@@ -43,6 +45,8 @@ function Testing() {
         <div className={styles.personalBlock}>
           <p>Tatyana Tupalo </p>
           <Transactions />
+
+          <MobileTable transactions={transactions} />
         </div>
         <div className={styles.personalBlock}>
           <p>Olga Sekretaryova</p>
