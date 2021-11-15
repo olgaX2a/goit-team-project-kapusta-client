@@ -2,16 +2,18 @@
 src/components/shared/Button/*.jsx
 src/components/shared/Modal/*.jsx
 
+src/components/RegisterModal/RegisterModal.jsx
 # Tetiana Parkhoniuk
-src/components/Header/*.jsx
-src/components/UserMenu/*.jsx
-src/components/LoginForm/*.jsx
-src/components/RegisterForm/*.jsx
-src/redux/auth/
+# src/components/Header/*.jsx
+# src/components/UserMenu/*.jsx
+# src/components/LoginForm/*.jsx
+# src/components/RegisterForm/*.jsx
+# src/redux/auth/
+src/redux/auth/index.js
 # Tatyana Tupalo
 
 
 # Vladyslav Shumkov
-# src/components/Chart/*.jsx
+src/components/Chart/*.jsx
 
 

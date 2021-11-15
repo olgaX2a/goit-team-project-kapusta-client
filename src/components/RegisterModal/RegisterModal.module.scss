@@ -1,0 +1,117 @@
+@import '../shared/variables';
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modalContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 50px 40px 50px 40px;
+  background-color: $white-color;
+  border-radius: 30px;
+  box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.closeModalBtn {
+  position: relative;
+  top: -20px;
+  right: -91%;
+  width: 15px;
+  height: 15px;
+  border: transparent;
+  border-radius: 50%;
+  background-color: transparent;
+  background-image: url(../../assets/close.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background-color 600ms ease-in-out;
+}
+
+.closeModalBtn:hover {
+  background-color: $accent-color;
+}
+
+.modalText {
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: $dark-grey-color;
+  display: block;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: $tablet) {
+  .modalContent {
+    height: 300px;
+    width: 350px;
+    padding: 0px 60px 0px 60px;
+  }
+
+  .closeModalBtn {
+    top: -25px;
+    right: -110%;
+  }
+}
+
+.emailIcon {
+  margin: 0 auto;
+  fill: $accent-color;
+}
+
+.loginLinkWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 125px;
+  height: 44px;
+  border-radius: 16px;
+  padding: 0;
+  border: none;
+  background-color: $accent-color;
+  font: $main-font;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 1.166;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-align: center;
+  color: $white-color;
+  filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
+  transition: box-shadow 600ms ease-in-out, background-color 600ms ease-in-out;
+}
+
+.loginBtn:hover,
+.loginBtn:focus {
+  background-color: $main-bg-color;
+  color: $accent-color;
+  box-shadow: 0 0 20px 20px $accent-color inset;
+}

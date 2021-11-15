@@ -1,32 +1,25 @@
 import React, { useState } from 'react';
-
-import { useDispatch, useSelector } from 'react-redux';
-import { authSelectors, authOperations } from '../../redux/auth';
 import Avatar from 'react-avatar';
+import { useDispatch, useSelector } from 'react-redux';
+// eslint-disable-next-line import/named
+import { authSelectors, authOperations } from '../../redux/auth';
 import { ReactComponent as LogOutIcon } from '../../assets/logout.svg';
 import Modal from '../shared/Modal/Modal';
 
 import styles from './UserMenu.module.scss';
 
 const UserMenu = () => {
-  // const dispatch = useDispatch();
-
-  const handleLogout = () => {
-    console.log('Дописать позже');
-    // dispatch(logout());
-  };
-
-  const [isModalOpen, setModalOpen] = useState(false);
   const dispatch = useDispatch();
+  const [isModalOpen, setModalOpen] = useState(false);
   const name = useSelector(authSelectors.getUserName);
 
-  const toggleModal = e => {
+  const toggleModal = () => {
     setModalOpen(!isModalOpen);
   };
 
   return (
     <div className={styles.container}>
-      <Avatar name={name} unstyled={true} className={styles.avatar} />
+      <Avatar name={name} unstyled="true" className={styles.avatar} />
       <span className={styles.userNameText}>{name}</span>
       <button type="button" className={styles.logOutBtn} onClick={toggleModal}>
         <LogOutIcon className={styles.logOutIcon} />
@@ -34,7 +27,7 @@ const UserMenu = () => {
       </button>
       {isModalOpen && (
         <Modal
-          title={'Вы действительно хотите выйти?'}
+          title="Вы действительно хотите выйти?"
           onNo={toggleModal}
           onYes={() => dispatch(authOperations.logout())}
         />

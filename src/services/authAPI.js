@@ -13,7 +13,7 @@ export const login = async credentials => {
 };
 
 export const logout = async () => {
-  await axios.get('/users/logout');
+  await axios.post('/users/logout');
 };
 
 // WAITING FOR ENDPOINT FROM BACKEND

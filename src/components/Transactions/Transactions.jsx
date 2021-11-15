@@ -19,12 +19,12 @@ const Transactions = () => {
         </TabList>
 
         <TabPanel>
-          <FormInfo category={categoryGoods} text="Категория товара" type="expense" />
+          <FormInfo category={categoryGoods} text="Категория товара" transactionType="expense" />
           <TableTransactions transactions={expenses} />
         </TabPanel>
 
         <TabPanel>
-          <FormInfo category={categoryIncomes} text="Категория дохода" type="income" />
+          <FormInfo category={categoryIncomes} text="Категория дохода" transactionType="income" />
           {/* позже здесь будут доходы, а пока просто для вида */}
           <TableTransactions transactions={expenses} />
         </TabPanel>

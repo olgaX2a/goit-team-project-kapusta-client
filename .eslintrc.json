@@ -22,6 +22,12 @@
     "react/react-in-jsx-scope": "warn",
     "react/no-array-index-key": "warn",
     "react/jsx-boolean-value": "warn",
-    "react/self-closing-comp": "warn"
+    "react/self-closing-comp": "warn",
+    "no-param-reassign": ["error", {
+      "props": true,
+      "ignorePropertyModificationsFor": [
+        "state"]
+      }
+    ]
   }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -9,7 +10,7 @@ import { ReactComponent as Calendar } from '../../assets/calendar.svg';
 import s from './FormInfo.module.scss';
 
 // eslint-disable-next-line react/prop-types
-const FormInfo = ({ category, text, type }) => {
+const FormInfo = ({ category, text, transactionType }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [description, setDescription] = useState('');
   const [sum, setSum] = useState('');
@@ -49,6 +50,7 @@ const FormInfo = ({ category, text, type }) => {
   };
   const handleSubmit = e => {
     e.preventDefault();
+
     dispatch(
       transactionOperations.createTransaction({
         description,
@@ -57,9 +59,10 @@ const FormInfo = ({ category, text, type }) => {
         month,
         day,
         year,
-        type,
+        transactionType,
       }),
     );
+
     reset();
   };
 

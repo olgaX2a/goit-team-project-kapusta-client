@@ -1,12 +1,13 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 import * as authAPI from '../../services/authAPI';
 
 axios.defaults.baseURL = 'https://goit-kapusta.herokuapp.com/api';
 
 const token = {
-  set(token) {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  set(bearerToken) {
+    axios.defaults.headers.common.Authorization = `Bearer ${bearerToken}`;
   },
   unset() {
     axios.defaults.headers.common.Authorization = '';
@@ -20,8 +21,7 @@ export const register = createAsyncThunk(
       const { data } = await authAPI.register(credentials);
       return data;
     } catch (error) {
-      console.log(error);
-      // TODO: Add toast about error
+      toast.error('Пожалуйста, проверьте, возможно, вы уже зарегистрированы.');
       return rejectWithValue(error.message);
     }
   },
@@ -33,8 +33,13 @@ export const login = createAsyncThunk('auth/login', async (credentials, { reject
     token.set(data.data.token);
     return data;
   } catch (error) {
-    console.log(error);
-    // TODO: Add toast about error
+    if (error.response.data.message === 'Invalid password') {
+      toast.error('Неверный пароль. Пожалуйста, попробуйте еще раз.');
+    } else if (error.response.data.message === 'Email not verify') {
+      toast.error('Ваш имейл не верифицырован.');
+    } else {
+      toast.error('Пожалуйста, проверьте свои данные для входа и попробуйте еще раз.');
+    }
     return rejectWithValue(error.message);
   }
 });
@@ -43,14 +48,14 @@ export const logout = createAsyncThunk('auth/logout', async (_, { rejectWithValu
   try {
     await authAPI.logout();
     token.unset();
+    return 'Logout was successful';
   } catch (error) {
-    console.log(error);
-    // TODO: Add toast about error
+    toast.error('Что-то пошло не так. Попробуйте выйти еще раз.');
     return rejectWithValue(error.message);
   }
 });
 
-//WAITING FOR ENDPOINT FROM BACKEND
+// WAITING FOR ENDPOINT FROM BACKEND
 
 // export const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
 //   const state = thunkAPI.getState();

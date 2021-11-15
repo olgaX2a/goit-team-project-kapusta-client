@@ -1,13 +1,33 @@
+import React, { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { NavLink } from 'react-router-dom';
-import { authOperations } from '../../redux/auth';
+import { useDispatch, useSelector } from 'react-redux';
+// eslint-disable-next-line import/named
+import { authOperations, authSelectors } from '../../redux/auth';
 import { ReactComponent as GoogleIcon } from '../../assets/google-icon.svg';
-import { useDispatch } from 'react-redux';
+import RegisterModal from '../RegisterModal/RegisterModal';
 import styles from './RegisterForm.module.scss';
 
 function RegisterForm() {
   const dispatch = useDispatch();
+  const isRegistered = useSelector(authSelectors.getIsRegistered);
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setModalOpen(!isModalOpen);
+  };
+
+  const showModalIfRegistered = () => {
+    if (isRegistered) {
+      toggleModal();
+    }
+  };
+
+  useEffect(() => {
+    showModalIfRegistered();
+  }, [isRegistered]);
+
   const formik = useFormik({
     initialValues: { name: '', email: '', password: '' },
     validationSchema: Yup.object({
@@ -28,9 +48,6 @@ function RegisterForm() {
         }),
       );
       resetForm({ values: '' });
-      // ======== TODO: 1) show a modal window with info that Verification email
-      // was send to your mailbox, please verify your email and NavLink to login;
-      // 2) and add forwarding to Login Page (NavLink to login);
     },
   });
 
@@ -52,17 +69,18 @@ function RegisterForm() {
         <div className={styles.formInputContainer}>
           <label htmlFor="email" className={styles.formInputLabel}>
             Имя:
+            <br />
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Имя Фамилия"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.name}
+              className={styles.formInput}
+            />
           </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            placeholder="Имя Фамилия"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.name}
-            className={styles.formInput}
-          />
         </div>
         {formik.touched.name && formik.errors.name ? (
           <div className={styles.inputErrorText}>{formik.errors.name}</div>
@@ -70,17 +88,17 @@ function RegisterForm() {
         <div className={styles.formInputContainer}>
           <label htmlFor="email" className={styles.formInputLabel}>
             Электронная почта:
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="your@email.com"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+              className={styles.formInput}
+            />
           </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="your@email.com"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.email}
-            className={styles.formInput}
-          />
         </div>
         {formik.touched.email && formik.errors.email ? (
           <div className={styles.inputErrorText}>{formik.errors.email}</div>
@@ -88,17 +106,18 @@ function RegisterForm() {
         <div className={styles.formInputContainer}>
           <label htmlFor="password" className={styles.formInputLabel}>
             Пароль:
+            <br />
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Пароль"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.password}
+              className={styles.formInput}
+            />
           </label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            placeholder="Пароль"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.password}
-            className={styles.formInput}
-          />
         </div>
         {formik.touched.password && formik.errors.password ? (
           <div className={styles.inputErrorText}>{formik.errors.password}</div>
@@ -112,6 +131,7 @@ function RegisterForm() {
           </NavLink>
         </div>
       </form>
+      {isModalOpen && <RegisterModal onModalClose={toggleModal} />}
     </div>
   );
 }
