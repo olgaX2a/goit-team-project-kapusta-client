@@ -5,9 +5,11 @@ import ToReports from '../../ToReports/ToReports';
 import LoginForm from '../../LoginForm/LoginForm';
 import RegisterForm from '../../RegisterForm/RegisterForm';
 import Chart from '../../Chart/Chart';
+import Category from '../../Category';
+import { incomeCategory } from '../../../utils/incomeCategories';
+import { expenseCategory } from '../../../utils/expenseCategories';
 import Transactions from '../../Transactions/Transactions';
 import Paper from '../Paper/Paper';
-import Carousel from '../Carousel/Carousel';
 import { TRANS_TYPES } from '../../../utils/transTypes';
 import MainPageMarkUp from '../../../pages/MainPage/MainPage';
 import HomePageMarkUp from '../../../pages/HomePage/HomePage';
@@ -21,10 +23,6 @@ import Container from '../Container/Container';
 //     </div>
 //   );
 // }
-
-const testOnShow = current => {
-  console.log('current ✔ ', current);
-};
 
 function Testing() {
   return (
@@ -48,10 +46,8 @@ function Testing() {
         </div>
         <div className={styles.personalBlock}>
           <p>Olga Sekretaryova</p>
-          <Paper>
-            <ToReports />
-          </Paper>
-          <Carousel title="Carousel title" data={TRANS_TYPES} onShow={testOnShow} />
+          <ToReports />
+          <Category />
         </div>
       </div>
     </div>
