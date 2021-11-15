@@ -1,11 +1,14 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import styles from './Testing.module.scss';
 import Header from '../../Header/Header';
 import ToReports from '../../ToReports/ToReports';
 import LoginForm from '../../LoginForm/LoginForm';
 import RegisterForm from '../../RegisterForm/RegisterForm';
+// eslint-disable-next-line no-unused-vars
 import Chart from '../../Chart/Chart';
 import Category from '../../Category';
+// eslint-disable-next-line no-unused-vars
 import { incomeCategory } from '../../../utils/incomeCategories';
 import { expenseCategory } from '../../../utils/expenseCategories';
 import Transactions from '../../Transactions/Transactions';
