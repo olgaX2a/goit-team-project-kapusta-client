@@ -40,9 +40,9 @@ function Testing() {
           <LoginForm />
           <RegisterForm />
         </div>
-        {/* <div className={styles.personalBlock}>
+        <div className={styles.personalBlock}>
           <Chart arrData={[]} />
-        </div> */}
+        </div>
         <div className={styles.personalBlock}>
           <p>Tatyana Tupalo </p>
           <Transactions />
