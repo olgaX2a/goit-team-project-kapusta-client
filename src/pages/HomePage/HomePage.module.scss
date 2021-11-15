@@ -1,0 +1,145 @@
+@use '../../components/shared/mixins' as *;
+@use '../../components/shared/variables' as *;
+
+.homePageCont {
+  padding-top: 100px;
+  background-color: $main-bg-color;
+  border-radius: 0px 0px 0px 100px;
+  width: 100%;
+  height: 286px;
+  @include for-tablet {
+    max-width: 100%;
+    height: 526px;
+  }
+  @include for-desktop {
+    padding-top: 60px;
+  }
+}
+
+.homePageMenu {
+  width: 248px;
+  margin: 0 auto;
+  padding-top: 40px;
+  @include for-tablet {
+    margin-left: 130px;
+  }
+  @include for-desktop {
+    margin-left: 442px;
+  }
+}
+
+.homePageToReports {
+  position: absolute;
+  left: 30%;
+  top: 93px;
+  text-decoration: none;
+  @include for-tablet {
+    top: 145px;
+    left: 75%;
+  }
+  @include for-desktop {
+    top: 110px;
+    left: 75%;
+  }
+}
+
+.homePageTransactCont {
+  position: absolute;
+  opacity: 0;
+  @include for-tablet {
+    opacity: 1;
+    top: 20%;
+    left: 2%;
+    transform: translate(20% 2%);
+  }
+  @include for-desktop {
+    display: flex;
+    left: 0%;
+    top: 15%;
+    width: 1060px;
+  }
+}
+
+.homePageTransactCont > div {
+  margin-bottom: 40px;
+  @include for-desktop {
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+}
+
+.homePageSummary {
+  @include for-desktop {
+    position: absolute;
+    left: 73%;
+    top: 24%;
+  }
+}
+
+.homePageFooter {
+  height: 172px;
+  @include for-tablet {
+    height: 757px;
+    background-image: url('../../assets/kapusta-double.svg');
+    background-repeat: no-repeat;
+    background-size: 190px;
+    background-position-y: 570px;
+    background-position-x: 410px;
+  }
+  @include for-desktop {
+    height: 600px;
+    background-image: url('../../assets/kapusta-bg.svg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position-y: 350px;
+    background-position-x: 0px;
+  }
+}
+
+// .homePageTransactCont div:last-of-type {
+//   @include for-desktop {
+//     // position: absolute;
+//     left: -130%;
+//     padding: 0
+//   }
+// }
+// .tabCont {
+//   position: absolute;
+//   opacity: 0;
+//   // padding: 0;
+//   display: flex;
+//   @include for-tablet {
+//     opacity: 1;
+//     height: 705px;
+//     width: 626px;
+//     background-color: $white-color;
+//   }
+// }
+
+// .tab {
+//   list-style: none;
+//   background-color: $tab-color;
+//   height: 40px;
+//   align-items: center;
+// }
+
+//from other page styles
+
+.mainPageFooter {
+  height: 600px;
+  background-color: $white-color;
+  background-image: url('../../assets/kapusta.svg');
+  background-repeat: no-repeat;
+  background-position-x: 20%;
+  background-position-y: 95%;
+  background-size: 99px;
+  @include for-tablet {
+    height: 448px;
+    background-image: url('../../assets/kapusta-double-with-fill.svg');
+    background-size: 189px 143px;
+    background-position-y: 85%;
+  }
+  @include for-desktop {
+    height: 268px;
+  }
+}

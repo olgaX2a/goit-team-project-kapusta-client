@@ -4,6 +4,7 @@ export function useMediaQuery(query) {
   const [matches, setMatches] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line no-undef
     const media = window.matchMedia(query);
     if (media.matches !== matches) {
       setMatches(media.matches);

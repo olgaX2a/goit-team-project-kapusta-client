@@ -1,0 +1,126 @@
+@use '../shared/mixins' as *;
+@use '../shared/variables' as *;
+
+.block {
+  padding-top: 20px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carouselWrapper {
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: transparent;
+  margin-bottom: 40px;
+  padding: 0;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+  min-width: 84px;
+  max-width: 102px;
+  min-height: 106px;
+  fill: $icon-dark-color;
+  transition: fill $duration $timing;
+  @include for-mobile-only {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e5eb;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    fill: $accent-color;
+    .roundedRectangle {
+      background-color: $light-accent-color;
+    }
+  }
+
+  p {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    min-height: 20px;
+    max-height: 36px;
+    text-transform: uppercase;
+    font-family: $main-font;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: $dark-grey-color;
+  }
+}
+.sum {
+  letter-spacing: 0.04em;
+  align-items: center;
+}
+
+.category {
+  letter-spacing: 0.02em;
+  align-items: top;
+}
+
+.iconWrapper {
+  margin: 5px auto;
+  display: flex;
+  justify-content: center;
+  height: 56px;
+  width: 59px;
+  position: relative;
+
+  svg {
+    z-index: 10;
+    max-height: 56px;
+    max-width: 56px;
+  }
+}
+
+.roundedRectangle {
+  position: absolute;
+  bottom: 0;
+  width: 59px;
+  height: 46px;
+  background-color: $main-bg-color;
+  border-radius: 20px;
+  transition: background-color $duration $timing;
+}
+
+.cardContainer {
+  width: 100%;
+  margin-bottom: -40px;
+  display: flex;
+  flex-basis: 94px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  @include for-desktop {
+    flex-basis: 102px;
+  }
+  @include for-mobile-only {
+    margin-bottom: -32px;
+  }
+}
+
+.title {
+  margin: 0;
+  width: 96px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $main-font;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: $black-color;
+}
