@@ -5,7 +5,7 @@ import styles from './Logo.module.scss';
 
 function Logo() {
   return (
-    <NavLink exact="true" to="/" className={styles.logoLink}>
+    <NavLink exact to="/" className={styles.logoLink}>
       <LogoIcon className={styles.logoIcon} />
     </NavLink>
   );
