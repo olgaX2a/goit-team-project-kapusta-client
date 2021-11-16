@@ -84,7 +84,7 @@ function LoginForm() {
           <button type="submit" className={styles.loginFormBtn}>
             Войти
           </button>
-          <NavLink exact="true" to="/register" className={styles.registerFormBtn}>
+          <NavLink exact to="/register" className={styles.registerFormBtn}>
             Регистрация
           </NavLink>
         </div>

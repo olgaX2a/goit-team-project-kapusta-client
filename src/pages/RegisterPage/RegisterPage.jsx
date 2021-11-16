@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './MainPage.module.scss';
+import styles from './RegisterPage.module.scss';
 import Header from '../../components/Header/Header';
-import LoginForm from '../../components/LoginForm/LoginForm';
+import RegisterForm from '../../components/RegisterForm/RegisterForm';
 // import Container from '../../components/shared/Container/Container';
 
-function MainPageMarkUp() {
+function RegisterPageMarkUp() {
   return (
     <>
       <Header />
@@ -14,7 +14,7 @@ function MainPageMarkUp() {
         </h1>
         <p className={styles.mainPageTitleText}> Smart finance</p>
         <div className={styles.mainPageAuth}>
-          <LoginForm />
+          <RegisterForm />
         </div>
       </main>
       <footer className={styles.mainPageFooter} />
@@ -22,4 +22,4 @@ function MainPageMarkUp() {
   );
 }
 
-export default MainPageMarkUp;
+export default RegisterPageMarkUp;
