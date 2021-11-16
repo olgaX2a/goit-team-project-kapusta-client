@@ -1,0 +1,54 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.btnCont {
+  max-width: 320px;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  @include for-mobile {
+    max-width: 100%;
+  }
+  @include for-tablet {
+    display: none;
+  }
+}
+
+.btnItem:first-child {
+  margin-right: 2px;
+}
+.btnItem {
+  width: 159px;
+  height: 53px;
+  background-color: $main-bg-color;
+  text-align: center;
+  transition: background-color 600ms ease-in-out;
+  @include for-mobile {
+    width: 50%;
+  }
+}
+
+.btnItem:hover,
+.btnItem:focus {
+  background-color: $accent-color;
+}
+
+.btnItem:hover .btn,
+.btnItem:focus .btn {
+  color: $white-color;
+}
+
+.btn {
+  text-decoration: none;
+  font-family: $main-font;
+  color: $black-color;
+  text-transform: uppercase;
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 4;
+  letter-spacing: 0.02em;
+  transition: color 600ms ease-in-out;
+}

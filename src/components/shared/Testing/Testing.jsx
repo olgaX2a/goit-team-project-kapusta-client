@@ -19,12 +19,14 @@ import { TRANS_TYPES } from '../../../utils/transTypes';
 import MainPageMarkUp from '../../../pages/MainPage/MainPage';
 import HomePageMarkUp from '../../../pages/HomePage/HomePage';
 import Container from '../Container/Container';
+import ArrowToGoBack from '../ArrowToGoBack/ArrowToGoBack';
 
 // function Testing() {
 //   return (
 //     <div className={styles.testingContainer}>
 //       {/* <MainPageMarkUp /> */}
-//       <HomePageMarkUp />
+//       <ArrowToGoBack />
+//       {/* <HomePageMarkUp /> */}
 //     </div>
 //   );
 // }

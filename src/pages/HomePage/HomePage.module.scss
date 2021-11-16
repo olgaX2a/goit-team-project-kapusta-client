@@ -19,11 +19,12 @@
 .homePageMenu {
   width: 248px;
   margin: 0 auto;
-  padding-top: 40px;
+  padding-top: 10px;
   @include for-tablet {
     margin-left: 130px;
   }
   @include for-desktop {
+    padding-top: 35px;
     margin-left: 442px;
   }
 }
@@ -34,7 +35,7 @@
   top: 93px;
   text-decoration: none;
   @include for-tablet {
-    top: 145px;
+    top: 125px;
     left: 75%;
   }
   @include for-desktop {
@@ -44,18 +45,21 @@
 }
 
 .homePageTransactCont {
-  position: absolute;
-  opacity: 0;
+  display: none;
   @include for-tablet {
-    opacity: 1;
-    top: 20%;
-    left: 2%;
-    transform: translate(20% 2%);
+    display: block;
+    width: 95%;
+    margin: auto;
+    position: absolute;
+    top: 25%;
+    left: 0;
+    bottom: 0;
+    right: 0;
   }
   @include for-desktop {
     display: flex;
-    left: 0%;
-    top: 15%;
+    left: 0;
+    top: 20%;
     width: 1060px;
   }
 }
@@ -71,23 +75,24 @@
 .homePageSummary {
   @include for-desktop {
     position: absolute;
-    left: 73%;
-    top: 24%;
+    left: 80%;
+    top: 33%;
   }
 }
 
 .homePageFooter {
-  height: 172px;
+  height: 53px;
+  padding-top: 172px;
   @include for-tablet {
-    height: 757px;
+    height: 637px;
     background-image: url('../../assets/kapusta-double.svg');
     background-repeat: no-repeat;
     background-size: 190px;
-    background-position-y: 570px;
+    background-position-y: 620px;
     background-position-x: 410px;
   }
   @include for-desktop {
-    height: 600px;
+    height: 450px;
     background-image: url('../../assets/kapusta-bg.svg');
     background-repeat: no-repeat;
     background-size: 100% auto;
@@ -103,30 +108,31 @@
 //     padding: 0
 //   }
 // }
-// .tabCont {
-//   position: absolute;
-//   opacity: 0;
-//   // padding: 0;
-//   display: flex;
-//   @include for-tablet {
-//     opacity: 1;
-//     height: 705px;
-//     width: 626px;
-//     background-color: $white-color;
-//   }
-// }
+.btnCont {
+  // position: absolute;
+  // opacity: 0;
+  // padding: 0;
+  display: flex;
+  @include for-tablet {
+    opacity: 1;
+    height: 705px;
+    width: 626px;
+    background-color: $white-color;
+  }
+}
 
-// .tab {
-//   list-style: none;
-//   background-color: $tab-color;
-//   height: 40px;
-//   align-items: center;
-// }
+.btnItem {
+  list-style: none;
+  background-color: $tab-color;
+  height: 40px;
+  align-items: center;
+}
 
 //from other page styles
 
 .mainPageFooter {
   height: 600px;
+  padding-top: 172px;
   background-color: $white-color;
   background-image: url('../../assets/kapusta.svg');
   background-repeat: no-repeat;
