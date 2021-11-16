@@ -24,6 +24,7 @@
     "react-ellipsis-text": "^1.2.1",
     "react-google-login": "^5.2.2",
     "react-is": "^17.0.2",
+    "react-loader-spinner": "^4.0.0",
     "react-number-format": "^4.8.0",
     "react-redux": "^7.2.6",
     "react-router-dom": "^5.2.0",

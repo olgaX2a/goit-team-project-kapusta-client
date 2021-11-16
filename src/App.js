@@ -8,6 +8,7 @@ import './App.css';
 import Container from './components/shared/Container/Container';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import PublicRoute from './components/PublicRoute/PublicRoute';
+import Loader from './components/Loader/Loader';
 
 const HomePage = lazy(() =>
   import('./pages/HomePage/HomePage' /* webpackChunkName: "home-page" */),
@@ -34,7 +35,7 @@ function App() {
 
   return (
     <Container>
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loader />}>
         <Switch>
           <PrivateRoute exact path="/">
             <HomePage />
