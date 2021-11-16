@@ -15,7 +15,7 @@ PublicRoute.defaultProps = {
 };
 
 PublicRoute.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   path: PropTypes.string.isRequired,
   restricted: PropTypes.bool,
 };

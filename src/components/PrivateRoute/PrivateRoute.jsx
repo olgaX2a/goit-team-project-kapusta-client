@@ -14,7 +14,7 @@ export default function PrivateRoute({ children, exact, path }) {
 }
 
 PrivateRoute.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   exact: PropTypes.bool.isRequired,
   path: PropTypes.string.isRequired,
 };
