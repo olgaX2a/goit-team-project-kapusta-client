@@ -14,31 +14,6 @@ const fetchTransactionsList = createAsyncThunk(
   },
 );
 
-const fetchIncomesList = createAsyncThunk(
-  'transactions/getIncomes',
-  async (_, { rejectWithValue }) => {
-    try {
-      const incomes = await TransactionAPI.fetchIncomesList();
-
-      return incomes;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  },
-);
-const fetchExpensesList = createAsyncThunk(
-  'transactions/getExpenses',
-  async (_, { rejectWithValue }) => {
-    try {
-      const expenses = await TransactionAPI.fetchExpensesList();
-
-      return expenses;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  },
-);
-
 const createTransaction = createAsyncThunk(
   'transactions/createTransaction',
   async (transaction, { rejectWithValue }) => {
@@ -51,31 +26,6 @@ const createTransaction = createAsyncThunk(
     }
   },
 );
-// export const createIncome = createAsyncThunk(
-//   'transactions/createIncome',
-//   async (income, { rejectWithValue }) => {
-//     try {
-//       const data = await TransactionAPI.createTransaction(income);
-
-//       return data;
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   },
-// );
-// export const createExpense = createAsyncThunk(
-//   'transactions/createExpense',
-//   async (expense, { rejectWithValue }) => {
-//     try {
-//       const data = await TransactionAPI.createTransaction(expense);
-
-//       return data;
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   },
-// );
-
 const deleteTransaction = createAsyncThunk(
   'transaction/deleteTransaction',
   async (id, { rejectWithValue }) => {
@@ -92,8 +42,6 @@ const transactionOperations = {
   fetchTransactionsList,
   createTransaction,
   deleteTransaction,
-  fetchExpensesList,
-  fetchIncomesList,
 };
 
 export default transactionOperations;

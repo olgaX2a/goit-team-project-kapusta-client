@@ -106,7 +106,7 @@ const FormInfo = ({ categories, text, transactionType }) => {
           <div className={s.containerSum}>
             <input
               placeholder="00.00 UAH"
-              className={s.amount}
+              className={s.sum}
               type="number"
               name="amount"
               value={amount}

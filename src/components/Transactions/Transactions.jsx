@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { transactionOperations, transactionSelectors } from '../../redux/transactions';
 import { categoryGoods, categoryIncomes } from '../FormInfo/categoryForSelect';
 import FormInfo from '../FormInfo/FormInfo';
 import TableTransactions from '../TableTransactions/TableTransactions';
-import data from './data.json';
+import TableEmpty from '../TableTransactions/TableEmpty';
 import s from './Transactions.module.scss';
 
 const Transactions = () => {
-  const expenses = data;
+  const allTransactions = useSelector(transactionSelectors.getTransactions);
+  const expenses = allTransactions.filter(transaction => transaction.transactionType === 'expense');
+  const incomes = allTransactions.filter(transaction => transaction.transactionType === 'income');
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(transactionOperations.fetchTransactionsList());
+  }, [dispatch]);
 
   return (
     <div className={s.tabsContainer}>
@@ -20,13 +30,14 @@ const Transactions = () => {
 
         <TabPanel>
           <FormInfo categories={categoryGoods} text="Категория товара" transactionType="expense" />
-          <TableTransactions transactions={expenses} />
+          {expenses.length < 0 && <TableEmpty />}
+          {expenses && <TableTransactions transactions={expenses} />}
         </TabPanel>
 
         <TabPanel>
           <FormInfo categories={categoryIncomes} text="Категория дохода" transactionType="income" />
-          {/* позже здесь будут доходы, а пока просто для вида */}
-          <TableTransactions transactions={expenses} />
+          {incomes.length < 0 && <TableEmpty />}
+          {incomes && <TableTransactions transactions={incomes} />}
         </TabPanel>
       </Tabs>
     </div>

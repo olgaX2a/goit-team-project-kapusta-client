@@ -1,14 +1,18 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import EllipsisText from 'react-ellipsis-text';
 import { ReactComponent as Delete } from '../../assets/delete.svg';
 import { INCOME } from '../../utils/transTypes';
+import { transactionOperations } from '../../redux/transactions';
 import EmptyRow from './emptyRow';
 
 import s from './TableTransactions.module.scss';
 
 // eslint-disable-next-line arrow-body-style
 const TableTransactions = ({ transactions }) => {
+  const dispatch = useDispatch();
+  const onDeleteTransaction = id => dispatch(transactionOperations.deleteTransaction(id));
   return (
     <table className={s.table}>
       <thead>
@@ -21,29 +25,33 @@ const TableTransactions = ({ transactions }) => {
       </thead>
 
       <tbody className={s.tableBody}>
-        {transactions.map(({ description, amount, category, date, id, transactionType }) => (
-          <tr key={id} className={s.row}>
-            <td className={s.date}>{date}</td>
-            <td className={s.description}>
-              <EllipsisText text={description} length={25} />
-            </td>
-            <td className={s.category}>{category}</td>
-            <td className={s.sumContainer}>
-              {transactionType === INCOME ? (
-                <span className={s.income}> {amount.toLocaleString('ru')} грн.</span>
-              ) : (
-                <span className={s.expense}>-{amount.toLocaleString('ru')} грн.</span>
-              )}
-              <button
-                type="button"
-                className={s.buttonDelete}
-                onClick={() => console.log('need delete transaction')}
-              >
-                <Delete width="18px" height="18px" className={s.buttonIcon} />
-              </button>
-            </td>
-          </tr>
-        ))}
+        {transactions.map(
+          ({ description, amount, category, day, month, year, _id, transactionType }) => (
+            <tr key={_id} className={s.row}>
+              <td className={s.date}>
+                {day}.{month}.{year}
+              </td>
+              <td className={s.description}>
+                <EllipsisText text={description} length={25} />
+              </td>
+              <td className={s.category}>{category}</td>
+              <td className={s.sumContainer}>
+                {transactionType === INCOME ? (
+                  <span className={s.income}> {amount.toLocaleString('ru')} грн.</span>
+                ) : (
+                  <span className={s.expense}>-{amount.toLocaleString('ru')} грн.</span>
+                )}
+                <button
+                  type="button"
+                  className={s.buttonDelete}
+                  onClick={() => onDeleteTransaction(_id)}
+                >
+                  <Delete width="18px" height="18px" className={s.buttonIcon} />
+                </button>
+              </td>
+            </tr>
+          ),
+        )}
         {transactions.length < 9 && <EmptyRow />}
       </tbody>
     </table>
