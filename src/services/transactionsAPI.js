@@ -21,6 +21,7 @@ export const fetchExpensesList = async expense => {
 };
 
 export const createTransaction = async (transactionType, transaction) => {
+  console.log(transactionType);
   const { data } = await axios.post(`/transactions/${transactionType}`, transaction);
 
   return data;

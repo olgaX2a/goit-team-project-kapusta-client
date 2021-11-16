@@ -21,7 +21,7 @@ const TableTransactions = ({ transactions }) => {
       </thead>
 
       <tbody className={s.tableBody}>
-        {transactions.map(({ description, sum, category, date, id, transactionType }) => (
+        {transactions.map(({ description, amount, category, date, id, transactionType }) => (
           <tr key={id} className={s.row}>
             <td className={s.date}>{date}</td>
             <td className={s.description}>
@@ -30,9 +30,9 @@ const TableTransactions = ({ transactions }) => {
             <td className={s.category}>{category}</td>
             <td className={s.sumContainer}>
               {transactionType === INCOME ? (
-                <span className={s.income}> {sum.toLocaleString('ru')} грн.</span>
+                <span className={s.income}> {amount.toLocaleString('ru')} грн.</span>
               ) : (
-                <span className={s.expense}>-{sum.toLocaleString('ru')} грн.</span>
+                <span className={s.expense}>-{amount.toLocaleString('ru')} грн.</span>
               )}
               <button
                 type="button"

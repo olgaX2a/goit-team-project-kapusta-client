@@ -43,7 +43,7 @@ const createTransaction = createAsyncThunk(
   'transactions/createTransaction',
   async (transaction, { rejectWithValue }) => {
     try {
-      const data = await TransactionAPI.createTransaction(transaction);
+      const data = await TransactionAPI.createTransaction(transaction.transactionType, transaction);
 
       return data;
     } catch (error) {

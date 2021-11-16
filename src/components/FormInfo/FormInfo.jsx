@@ -10,11 +10,11 @@ import { ReactComponent as Calendar } from '../../assets/calendar.svg';
 import s from './FormInfo.module.scss';
 
 // eslint-disable-next-line react/prop-types
-const FormInfo = ({ category, text, transactionType }) => {
+const FormInfo = ({ categories, text, transactionType }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [description, setDescription] = useState('');
-  const [sum, setSum] = useState('');
-  const [categories, setCategories] = useState('');
+  const [amount, setAmount] = useState('');
+  const [category, setCategory] = useState('');
 
   const dispatch = useDispatch();
 
@@ -31,12 +31,12 @@ const FormInfo = ({ category, text, transactionType }) => {
         setDescription(value);
         break;
 
-      case 'categories':
-        setCategories(value);
+      case 'category':
+        setCategory(value);
         break;
 
-      case 'sum':
-        setSum(value);
+      case 'amount':
+        setAmount(value);
         break;
 
       default:
@@ -45,8 +45,8 @@ const FormInfo = ({ category, text, transactionType }) => {
   };
   const reset = () => {
     setDescription('');
-    setSum('');
-    setCategories('');
+    setAmount('');
+    setCategory('');
   };
   const handleSubmit = e => {
     e.preventDefault();
@@ -54,8 +54,8 @@ const FormInfo = ({ category, text, transactionType }) => {
     dispatch(
       transactionOperations.createTransaction({
         description,
-        sum,
-        categories,
+        amount,
+        category,
         month,
         day,
         year,
@@ -91,12 +91,12 @@ const FormInfo = ({ category, text, transactionType }) => {
           />
           <select
             className={s.selectCategory}
-            name="categories"
+            name="category"
             onChange={handleChange}
-            value={categories}
+            value={category}
           >
             <option>{text}</option>
-            {category.map(({ name, id }) => (
+            {categories.map(({ name, id }) => (
               <option key={id} value={name}>
                 {name}
               </option>
@@ -106,10 +106,10 @@ const FormInfo = ({ category, text, transactionType }) => {
           <div className={s.containerSum}>
             <input
               placeholder="00.00 UAH"
-              className={s.sum}
+              className={s.amount}
               type="number"
-              name="sum"
-              value={sum}
+              name="amount"
+              value={amount}
               onChange={handleChange}
             />
             <span className={s.separator} />
