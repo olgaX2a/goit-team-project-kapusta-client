@@ -1,0 +1,14 @@
+@use '../../components/shared/mixins' as *;
+@use '../../components/shared/variables' as *;
+
+.block {
+  padding-top: 20px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carouselWrapper {
+  margin-bottom: 20px;
+}
