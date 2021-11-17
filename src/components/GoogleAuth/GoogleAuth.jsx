@@ -5,7 +5,7 @@ import styles from './GoogleAuth.module.scss';
 function GoogleAuth() {
   return (
     <a
-      href="https://goit-kapusta.herokuapp.com/api/users-google/google"
+      href="http://goit-kapusta.herokuapp.com/api/users/google"
       rel="noreferrer"
       target="_blank"
       className={styles.googleBtn}
