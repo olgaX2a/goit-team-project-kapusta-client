@@ -16,7 +16,7 @@ import Paper from '../Paper/Paper';
 import MobileTable from '../../MobileTable/MobileTable';
 import transactions from '../../MobileTable/data.json';
 import { TRANS_TYPES } from '../../../utils/transTypes';
-import MainPageMarkUp from '../../../pages/MainPage/MainPage';
+import MainPageMarkUp from '../../../pages/LoginPage/LoginPage';
 import HomePageMarkUp from '../../../pages/HomePage/HomePage';
 import Container from '../Container/Container';
 import ArrowToGoBack from '../ArrowToGoBack/ArrowToGoBack';

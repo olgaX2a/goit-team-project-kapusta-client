@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import EllipsisText from 'react-ellipsis-text';
 import { ReactComponent as Delete } from '../../assets/delete.svg';
 import { INCOME } from '../../utils/transTypes';
+
 import { transactionOperations } from '../../redux/transactions';
 import EmptyRow from './emptyRow';
 
@@ -37,9 +38,13 @@ const TableTransactions = ({ transactions }) => {
               <td className={s.category}>{category}</td>
               <td className={s.sumContainer}>
                 {transactionType === INCOME ? (
-                  <span className={s.income}> {amount.toLocaleString('ru')} грн.</span>
+                  <span className={s.income}>
+                    {amount.toLocaleString('ru-RU', { minimumFractionDigits: 2 })} грн.
+                  </span>
                 ) : (
-                  <span className={s.expense}>-{amount.toLocaleString('ru')} грн.</span>
+                  <span className={s.expense}>
+                    -{amount.toLocaleString('ru-RU', { minimumFractionDigits: 2 })} грн.
+                  </span>
                 )}
                 <button
                   type="button"

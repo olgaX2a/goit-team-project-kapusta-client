@@ -1,50 +1,65 @@
-/* eslint-disable react/jsx-filename-extension */
-// import React from 'react';
-// import './App.css';
-// import Testing from './components/shared/Testing/Testing';
-
-// function App() {
-//   return <Testing />;
-// }
-
-// export default App;
-
-// ===TO TEST Register and Login Routes use this code ===///
-// ===If it's not needed just remove it ===//
-// Tо test Toastify notifications
-// To test fetchCurrentUser
-
-// eslint-disable-next-line no-unused-vars
-import React, { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React, { lazy, useEffect, Suspense } from 'react';
+import { Switch } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
-import { useDispatch } from 'react-redux';
-import { authOperations } from './redux/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { authOperations, authSelectors } from './redux/auth';
 import './App.css';
-import Testing from './components/shared/Testing/Testing';
 import Container from './components/shared/Container/Container';
-import Header from './components/Header/Header';
-import RegisterForm from './components/RegisterForm/RegisterForm';
-import LoginForm from './components/LoginForm/LoginForm';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import PublicRoute from './components/PublicRoute/PublicRoute';
+import Loader from './components/Loader/Loader';
+
+const HomePage = lazy(() =>
+  import('./pages/HomePage/HomePage' /* webpackChunkName: "home-page" */),
+);
+const RegisterPage = lazy(() =>
+  import('./pages/RegisterPage/RegisterPage' /* webpackChunkName: "register-page" */),
+);
+const LoginPage = lazy(() =>
+  import('./pages/LoginPage/LoginPage' /* webpackChunkName: "login-page" */),
+);
+// const ReportsPage = lazy(() =>
+//   import('./pages/ReportsPage/ReportsPage' /* webpackChunkName: "reports-page" */),
+// );
+const Testing = lazy(() =>
+  import('./components/shared/Testing/Testing' /* webpackChunkName: "testing-page" */),
+);
 
 function App() {
   const dispatch = useDispatch();
+  const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrentUser);
+  console.log(isFetchingCurrentUser);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
 
   return (
-    <Container>
-      <Header />
-      <Routes>
-        <Route exact path="/" element={<Testing />} />
-        <Route path="/register" element={<RegisterForm />} />
-        <Route path="/login" element={<LoginForm />} />
-      </Routes>
-      <ToastContainer autoClose={3000} position="top-right" />
-    </Container>
+    !isFetchingCurrentUser && (
+      <Container>
+        <Suspense fallback={<Loader />}>
+          <Switch>
+            <PrivateRoute exact path="/">
+              <HomePage />
+            </PrivateRoute>
+            <PublicRoute path="/register" restricted>
+              <RegisterPage />
+            </PublicRoute>
+            <PublicRoute path="/login" restricted>
+              <LoginPage />
+            </PublicRoute>
+            {/* <PrivateRoute path="/reports">
+            <ReportsPage />
+          </PrivateRoute> */}
+            <PublicRoute path="/testing">
+              <Testing />
+            </PublicRoute>
+          </Switch>
+        </Suspense>
+        <ToastContainer autoClose={3000} position="top-right" />
+      </Container>
+    )
   );
 }
 
