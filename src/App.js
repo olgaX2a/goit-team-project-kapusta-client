@@ -5,7 +5,6 @@ import { ToastContainer } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from './redux/auth';
 import './App.css';
-import Container from './components/shared/Container/Container';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import PublicRoute from './components/PublicRoute/PublicRoute';
 import Loader from './components/Loader/Loader';
@@ -22,6 +21,11 @@ const LoginPage = lazy(() =>
 // const ReportsPage = lazy(() =>
 //   import('./pages/ReportsPage/ReportsPage' /* webpackChunkName: "reports-page" */),
 // );
+
+const NotFoundPage = lazy(() =>
+  import('./pages/NotFoundPage/NotFoundPage' /* webpackChunkName: "not-found-page" */),
+);
+
 const Testing = lazy(() =>
   import('./components/shared/Testing/Testing' /* webpackChunkName: "testing-page" */),
 );
@@ -29,7 +33,6 @@ const Testing = lazy(() =>
 function App() {
   const dispatch = useDispatch();
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrentUser);
-  console.log(isFetchingCurrentUser);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
@@ -37,7 +40,7 @@ function App() {
 
   return (
     !isFetchingCurrentUser && (
-      <Container>
+      <>
         <Suspense fallback={<Loader />}>
           <Switch>
             <PrivateRoute exact path="/">
@@ -55,10 +58,13 @@ function App() {
             <PublicRoute path="/testing">
               <Testing />
             </PublicRoute>
+            <PublicRoute>
+              <NotFoundPage />
+            </PublicRoute>
           </Switch>
         </Suspense>
         <ToastContainer autoClose={3000} position="top-right" />
-      </Container>
+      </>
     )
   );
 }
