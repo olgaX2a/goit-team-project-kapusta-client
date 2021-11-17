@@ -5,7 +5,6 @@ import { ToastContainer } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from './redux/auth';
 import './App.css';
-import Container from './components/shared/Container/Container';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import PublicRoute from './components/PublicRoute/PublicRoute';
 import Loader from './components/Loader/Loader';
@@ -37,7 +36,7 @@ function App() {
 
   return (
     !isFetchingCurrentUser && (
-      <Container>
+      <>
         <Suspense fallback={<Loader />}>
           <Switch>
             <PrivateRoute exact path="/">
@@ -58,7 +57,7 @@ function App() {
           </Switch>
         </Suspense>
         <ToastContainer autoClose={3000} position="top-right" />
-      </Container>
+      </>
     )
   );
 }
