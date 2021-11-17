@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,6 +10,7 @@ import TableEmpty from '../TableTransactions/TableEmpty';
 import s from './Transactions.module.scss';
 
 const Transactions = () => {
+  const [tabIndex, setTabIndex] = useState(0);
   const expenses = useSelector(transactionSelectors.getExpenses);
   const incomes = useSelector(transactionSelectors.getIncomes);
 
@@ -21,7 +22,7 @@ const Transactions = () => {
 
   return (
     <div className={s.tabsContainer}>
-      <Tabs>
+      <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
         <TabList>
           <Tab>Расход</Tab>
           <Tab>Доход</Tab>
