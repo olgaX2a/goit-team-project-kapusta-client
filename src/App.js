@@ -21,6 +21,11 @@ const LoginPage = lazy(() =>
 // const ReportsPage = lazy(() =>
 //   import('./pages/ReportsPage/ReportsPage' /* webpackChunkName: "reports-page" */),
 // );
+
+const NotFoundPage = lazy(() =>
+  import('./pages/NotFoundPage/NotFoundPage' /* webpackChunkName: "not-found-page" */),
+);
+
 const Testing = lazy(() =>
   import('./components/shared/Testing/Testing' /* webpackChunkName: "testing-page" */),
 );
@@ -53,6 +58,9 @@ function App() {
           </PrivateRoute> */}
             <PublicRoute path="/testing">
               <Testing />
+            </PublicRoute>
+            <PublicRoute>
+              <NotFoundPage />
             </PublicRoute>
           </Switch>
         </Suspense>
