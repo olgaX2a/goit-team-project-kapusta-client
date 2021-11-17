@@ -5,7 +5,7 @@ import styles from './Category.module.scss';
 import expense from '../../utils/expenseTypes';
 import { normalizeSum } from '../../utils/normalize';
 
-function CategoryCard({ category, sum, onSelect }) {
+function CategoryCard({ category, amount, onSelect }) {
   const handleKeyDown = event => {
     if (event.keyCode === 13 || event.keyCode === 32) {
       onSelect(category);
@@ -25,7 +25,7 @@ function CategoryCard({ category, sum, onSelect }) {
       onClick={handleClick}
       onKeyDown={handleKeyDown}
     >
-      <p className={styles.sum}>{normalizeSum(sum)}</p>
+      <p className={styles.sum}>{normalizeSum(amount)}</p>
 
       <CategoryIcon category={category} />
 
@@ -43,6 +43,6 @@ function CategoryCard({ category, sum, onSelect }) {
 export default CategoryCard;
 CategoryCard.propTypes = {
   category: PropTypes.string.isRequired,
-  sum: PropTypes.number.isRequired,
+  amount: PropTypes.number.isRequired,
   onSelect: PropTypes.func.isRequired,
 };

@@ -26,15 +26,8 @@ const Chart = ({ arrData }) => {
   const isMatches = useMediaQuery('(min-width: 768px)');
 
   useEffect(() => {
-    if (!arrData) {
-      setData(dataSchema);
-      // eslint-disable-next-line react/prop-types
-    } else if (arrData.length === 0) {
-      setData(dataSchema);
-    } else {
-      setData(arrData);
-    }
-  }, {});
+    setData(arrData);
+  });
 
   const sortBy = field => (a, b) => a[field] < b[field] ? 1 : -1;
 

@@ -19,9 +19,9 @@ const RegisterPage = lazy(() =>
 const LoginPage = lazy(() =>
   import('./pages/LoginPage/LoginPage' /* webpackChunkName: "login-page" */),
 );
-// const ReportsPage = lazy(() =>
-//   import('./pages/ReportsPage/ReportsPage' /* webpackChunkName: "reports-page" */),
-// );
+const ReportsPage = lazy(() =>
+  import('./pages/ReportsPage/ReportsPage' /* webpackChunkName: "reports-page" */),
+);
 const Testing = lazy(() =>
   import('./components/shared/Testing/Testing' /* webpackChunkName: "testing-page" */),
 );
@@ -49,9 +49,9 @@ function App() {
             <PublicRoute path="/login" restricted>
               <LoginPage />
             </PublicRoute>
-            {/* <PrivateRoute path="/reports">
-            <ReportsPage />
-          </PrivateRoute> */}
+            <PublicRoute path="/reports">
+              <ReportsPage />
+            </PublicRoute>
             <PublicRoute path="/testing">
               <Testing />
             </PublicRoute>

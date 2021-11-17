@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/auth-slice';
+import reportReducer from './reports/slice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -14,6 +15,7 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
+    reports: reportReducer,
   },
   middleware: [thunk, logger],
   devTools: process.env.NODE_ENV === 'development',

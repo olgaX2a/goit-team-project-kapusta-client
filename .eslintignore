@@ -15,5 +15,7 @@ src/components/shared/Modal/*.jsx
 src/components/Chart/*.jsx
 
 src/components/shared/Testing/*.jsx
+src/App.js
+
 
 
