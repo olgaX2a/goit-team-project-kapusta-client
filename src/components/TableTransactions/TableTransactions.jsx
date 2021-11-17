@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import EllipsisText from 'react-ellipsis-text';
 import { ReactComponent as Delete } from '../../assets/delete.svg';
 import { INCOME } from '../../utils/transTypes';
-
 import { transactionOperations } from '../../redux/transactions';
 import EmptyRow from './emptyRow';
 
