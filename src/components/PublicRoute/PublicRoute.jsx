@@ -12,10 +12,11 @@ export default function PublicRoute({ children, path, restricted = false }) {
 
 PublicRoute.defaultProps = {
   restricted: false,
+  path: '/',
 };
 
 PublicRoute.propTypes = {
   children: PropTypes.node.isRequired,
-  path: PropTypes.string.isRequired,
+  path: PropTypes.string,
   restricted: PropTypes.bool,
 };
