@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { ReactComponent as Delete } from '../../assets/delete.svg';
 import Container from '../shared/Container/Container';
 import { INCOME } from '../../utils/transTypes';
+import { normalizeSum } from '../../utils/normalize';
 import { transactionOperations } from '../../redux/transactions';
 import s from './MobileTable.module.scss';
 
@@ -32,13 +33,9 @@ const MobileTable = ({ transactions }) => {
 
               <p className={s.sumContainer}>
                 {transactionType === INCOME ? (
-                  <span className={s.income}>
-                    {amount.toLocaleString('ru-RU', { minimumFractionDigits: 2 })} грн.
-                  </span>
+                  <span className={s.income}>{normalizeSum(amount)} грн.</span>
                 ) : (
-                  <span className={s.expense}>
-                    -{amount.toLocaleString('ru-RU', { minimumFractionDigits: 2 })} грн.
-                  </span>
+                  <span className={s.expense}>-{normalizeSum(amount)} грн.</span>
                 )}
 
                 <button

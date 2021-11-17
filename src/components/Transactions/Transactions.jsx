@@ -19,7 +19,7 @@ const Transactions = () => {
 
   useEffect(() => {
     dispatch(transactionOperations.fetchTransactionsList());
-  }, [dispatch, allTransactions]);
+  }, [dispatch]);
   // если оставить в зависимостях allTransactions,идет постоянный запрос за трансакциями (посмотри в консоль)
   return (
     <div className={s.tabsContainer}>

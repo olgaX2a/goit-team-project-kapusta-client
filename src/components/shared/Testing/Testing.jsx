@@ -14,7 +14,7 @@ import { expenseCategory } from '../../../utils/expenseCategories';
 import Transactions from '../../Transactions/Transactions';
 import Paper from '../Paper/Paper';
 import MobileTable from '../../MobileTable/MobileTable';
-import transactions from '../../MobileTable/data.json';
+
 import { TRANS_TYPES } from '../../../utils/transTypes';
 import MainPageMarkUp from '../../../pages/LoginPage/LoginPage';
 import HomePageMarkUp from '../../../pages/HomePage/HomePage';
@@ -50,7 +50,7 @@ function Testing() {
         <div className={styles.personalBlock}>
           <p>Tatyana Tupalo </p>
           <Transactions />
-          <MobileTable transactions={transactions} />
+          <MobileTable />
         </div>
         <div className={styles.personalBlock}>
           <p>Olga Sekretaryova</p>
