@@ -4,23 +4,21 @@ import 'react-tabs/style/react-tabs.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { transactionOperations, transactionSelectors } from '../../redux/transactions';
 import { categoryGoods, categoryIncomes } from '../FormInfo/categoryForSelect';
-import { INCOME, EXPENSE } from '../../utils/transTypes';
 import FormInfo from '../FormInfo/FormInfo';
 import TableTransactions from '../TableTransactions/TableTransactions';
 import TableEmpty from '../TableTransactions/TableEmpty';
 import s from './Transactions.module.scss';
 
 const Transactions = () => {
-  const allTransactions = useSelector(transactionSelectors.getTransactions);
-  const expenses = allTransactions.filter(transaction => transaction.transactionType === EXPENSE);
-  const incomes = allTransactions.filter(transaction => transaction.transactionType === INCOME);
+  const expenses = useSelector(transactionSelectors.getExpenses);
+  const incomes = useSelector(transactionSelectors.getIncomes);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(transactionOperations.fetchTransactionsList());
   }, [dispatch]);
-  // если оставить в зависимостях allTransactions,идет постоянный запрос за трансакциями (посмотри в консоль)
+
   return (
     <div className={s.tabsContainer}>
       <Tabs>

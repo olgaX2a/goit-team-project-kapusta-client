@@ -9,7 +9,6 @@ const transactionsSlice = createSlice({
     isLoading: false,
     error: null,
   },
-
   extraReducers: {
     [transactionOperations.fetchTransactionsList.fulfilled]: (state, action) => {
       state.items = action.payload;
