@@ -1,0 +1,49 @@
+@use '../../components/shared/mixins' as *;
+@use '../../components/shared/variables' as *;
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: inline-block;
+  fill: $dark-grey-color;
+}
+
+.containerDate {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date {
+  border: none;
+  font: $main-font;
+  width: 80px;
+  margin-left: 10px;
+  background-color: transparent;
+}
+
+.mobileStatCont {
+  padding-top: 80px;
+  background-color: $main-bg-color;
+  border-radius: 0px 0px 0px 100px;
+  height: 216px;
+}
+
+.mobStatMenu {
+  width: 254px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  // justify-content: center;
+}
+//как выровнять по центру?????
+
+.mobStatTable {
+  max-width: 310px;
+}
+
+.mobileStatFooter {
+  height: 53px;
+  padding-top: 250px;
+}

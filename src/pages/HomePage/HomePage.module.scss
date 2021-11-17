@@ -48,10 +48,10 @@
   display: none;
   @include for-tablet {
     display: block;
-    width: 95%;
+    width: 85%;
     margin: auto;
     position: absolute;
-    top: 25%;
+    top: 15%;
     left: 0;
     bottom: 0;
     right: 0;
@@ -59,7 +59,7 @@
   @include for-desktop {
     display: flex;
     left: 0;
-    top: 20%;
+    top: 12%;
     width: 1060px;
   }
 }
@@ -76,7 +76,7 @@
   @include for-desktop {
     position: absolute;
     left: 80%;
-    top: 33%;
+    top: 18%;
   }
 }
 
