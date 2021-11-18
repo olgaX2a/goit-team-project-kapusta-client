@@ -1,9 +1,25 @@
 import React, { useState, useEffect } from 'react';
+import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import NumberFormat from 'react-number-format';
 import { fetchTransaction } from '../../services/summaryApi';
 
 import styles from './Summary.module.scss';
+
+const allMonth = {
+  January: 'Январь',
+  February: 'Февраль',
+  March: 'Март',
+  April: 'Апрель',
+  May: 'Май',
+  June: 'Июнь',
+  July: 'Июль',
+  August: 'Август',
+  September: 'Сентябрь',
+  October: 'Октябрь',
+  November: 'Ноябрь',
+  December: 'Декабрь',
+};
 
 export default function Summary({ summaryData }) {
   const [summaryArr, setSummaryArr] = useState(null);
@@ -20,7 +36,7 @@ export default function Summary({ summaryData }) {
       <ul className={styles.summaryList}>
         {summaryArr &&
           summaryArr.map(el => (
-            <li className={styles.summaryItem} key={el.key}>
+            <li className={styles.summaryItem} key={nanoid()}>
               <span className={styles.summaryMonth}>{el.reportMonth}</span>
               <span className={styles.summarySum}>
                 <NumberFormat

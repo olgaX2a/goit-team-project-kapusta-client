@@ -4,7 +4,6 @@ import thunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/auth-slice';
-import { summaryReducer } from './transactionSummary';
 import transactionsSlice from './transactions/transactions-slice';
 
 const authPersistConfig = {
@@ -16,7 +15,6 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    summary: summaryReducer,
     transactions: transactionsSlice,
   },
   middleware: [thunk],
