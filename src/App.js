@@ -26,6 +26,12 @@ const NotFoundPage = lazy(() =>
   import('./pages/NotFoundPage/NotFoundPage' /* webpackChunkName: "not-found-page" */),
 );
 
+const GoogleRedirectPage = lazy(() =>
+  import(
+    './pages/GoogleRedirectPage/GoogleRedirectPage' /* webpackChunkName: "google-redirect-page" */
+  ),
+);
+
 const Testing = lazy(() =>
   import('./components/shared/Testing/Testing' /* webpackChunkName: "testing-page" */),
 );
@@ -55,6 +61,9 @@ function App() {
             {/* <PrivateRoute path="/reports">
             <ReportsPage />
           </PrivateRoute> */}
+            <PublicRoute path="/google-redirect">
+              <GoogleRedirectPage />
+            </PublicRoute>
             <PublicRoute path="/testing">
               <Testing />
             </PublicRoute>
