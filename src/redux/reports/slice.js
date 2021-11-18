@@ -14,6 +14,7 @@ const chatFilter = (state, payload) => {
 
 const initialState = {
   data: [],
+  groupedByCategory: [],
   isLoading: false,
   error: false,
   chart: [],
@@ -33,7 +34,8 @@ const reportSlice = createSlice({
   },
   extraReducers: {
     [getPeriodReports.fulfilled](state, { payload }) {
-      state.data = groupBy(payload.allTransactionsByTypeForMonth, 'category');
+      state.data = payload.allTransactionsByTypeForMonth;
+      state.groupedByCategory = groupBy(payload.allTransactionsByTypeForMonth, 'category');
       state.income = payload.totalAmountTransactionsByReportMonth.totalIncome;
       state.expense = payload.totalAmountTransactionsByReportMonth.totalExpense;
       state.period = getPeriod(payload.allTransactionsByUser);

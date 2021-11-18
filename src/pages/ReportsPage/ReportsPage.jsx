@@ -13,6 +13,9 @@ import styles from './ReportsPage.module.scss';
 import Container from '../../components/shared/Container';
 import { reportsOperations, reportsSelectors } from '../../redux/reports';
 import { filter } from '../../redux/reports/slice';
+import TransactionTotal from '../../components/TransactionTotal/TransactionTotal';
+import Balance from '../../components/Balance/Balance';
+import ArrowToGoBack from '../../components/shared/ArrowToGoBack/ArrowToGoBack';
 
 function ReportsPage() {
   const [currentType, setCurrentType] = useState(EXPENSE);
@@ -21,7 +24,8 @@ function ReportsPage() {
   const reports = useSelector(reportsSelectors.getReports);
   const chart = useSelector(reportsSelectors.getChart);
   const period = useSelector(reportsSelectors.getPeriod);
-  const isLoading = useSelector(reportsSelectors.isLoading);
+  const income = useSelector(reportsSelectors.getIncome);
+  const expense = useSelector(reportsSelectors.getExpense);
 
   const handleTypeChange = transType => {
     const type = getKeyByValue(TRANS_MAP, transType);
@@ -46,24 +50,29 @@ function ReportsPage() {
     <>
       <Header />
       <main className={pages.pages}>
-        <Container>
-          <Carousel
-            title="Текущий период:"
-            data={period}
-            onShow={handlePeriodChange}
-            neverending={false}
-            reverse
-          />
-        </Container>
-        <Container>
+        <Container extraStyles={styles.report}>
+          <div className={styles.firstRow}>
+            <ArrowToGoBack />
+            <Balance />
+            <Carousel
+              title="Текущий период:"
+              data={period}
+              onShow={handlePeriodChange}
+              neverending={false}
+              reverse
+            />
+          </div>
+          <div className={styles.row}>
+            <TransactionTotal income={income} expense={expense} />
+          </div>
+
           <Paper extraStyles={styles.block}>
             <div className={styles.carouselWrapper}>
               <Carousel data={TRANS_NAMES} onShow={handleTypeChange} />
             </div>
             <CategoryCollection collection={reports} onSelection={handleCategorySelection} />
           </Paper>
-        </Container>
-        <Container>
+
           <Chart arrData={chart} />
         </Container>
       </main>
@@ -73,4 +82,4 @@ function ReportsPage() {
 
 export default ReportsPage;
 
-// TODO: date carousel, markup
+// TODO: markup

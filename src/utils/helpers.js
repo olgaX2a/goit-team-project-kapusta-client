@@ -48,11 +48,14 @@ export const stringifyDate = dateObj => {
 
 export const groupBy = (array, field) =>
   array.reduce((acc, element) => {
-    if (acc.some(el => el[field] === element[field])) {
-      // eslint-disable-next-line no-param-reassign
-      acc.amount += element.amount;
+    const accumulated = acc.find(el => el[field] === element[field]);
+    if (accumulated) {
+      console.log(`accumulated`, accumulated);
+      accumulated.amount += element.amount;
     } else {
-      acc.push(element);
+      const newEl = { [field]: element[field], amount: element.amount };
+      console.log(`newEl`, newEl);
+      acc.push(newEl);
     }
     return acc;
   }, []);

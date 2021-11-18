@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { BASE_URL } from '../utils/url';
+import { groupBy } from '../utils/helpers';
 
 axios.defaults.baseURL = BASE_URL;
 
@@ -19,6 +20,13 @@ export const fetchByPeriodReports = async (month, year, transactionType) => {
       year,
       transactionType,
     },
+    // transformResponse: [
+    //   function (data) {
+    //     /const
+
+    //     return data;
+    //   },
+    // ],
   });
   return response;
 };
