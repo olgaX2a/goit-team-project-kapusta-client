@@ -3,7 +3,7 @@
 
 @media screen and (min-width: $tablet) {
   .table {
-    width: 690px;
+    width: 645px;
     font-family: $main-font;
     margin-top: 48px;
     background-color: $white-color;
@@ -65,7 +65,7 @@
   .buttonDelete {
     border: none;
     background-color: $white-color;
-    margin-left: 40px;
+    margin-left: auto;
     padding: 0;
   }
   .buttonIcon {
@@ -80,11 +80,10 @@
 }
 @media screen and (min-width: $desktop) {
   .table {
-    width: 810px;
+    width: 730px;
   }
   .buttonDelete {
     border: none;
-    margin-left: 60px;
     border-radius: 50%;
     width: 32px;
     height: 32px;

@@ -1,17 +1,22 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { transactionOperations } from '../../redux/transactions';
 import { ReactComponent as Calculator } from '../../assets/calculator.svg';
 import { ReactComponent as Calendar } from '../../assets/calendar.svg';
 import s from './FormInfo.module.scss';
 
 // eslint-disable-next-line react/prop-types
-const FormInfo = ({ category, onSubmit, text, transactionType }) => {
+const FormInfo = ({ categories, text, transactionType }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [description, setDescription] = useState('');
-  const [sum, setSum] = useState('');
-  const [categories, setCategories] = useState('');
+  const [amount, setAmount] = useState('');
+  const [category, setCategory] = useState('');
+
+  const dispatch = useDispatch();
 
   const day = startDate.getDate();
   const month = startDate.getMonth() + 1;
@@ -26,12 +31,12 @@ const FormInfo = ({ category, onSubmit, text, transactionType }) => {
         setDescription(value);
         break;
 
-      case 'categories':
-        setCategories(value);
+      case 'category':
+        setCategory(value);
         break;
 
-      case 'sum':
-        setSum(value);
+      case 'amount':
+        setAmount(value);
         break;
 
       default:
@@ -40,12 +45,24 @@ const FormInfo = ({ category, onSubmit, text, transactionType }) => {
   };
   const reset = () => {
     setDescription('');
-    setSum('');
-    setCategories('');
+    setAmount('');
+    setCategory('');
   };
   const handleSubmit = e => {
     e.preventDefault();
-    onSubmit({ description, sum, categories, month, day, year, transactionType });
+
+    dispatch(
+      transactionOperations.createTransaction({
+        description,
+        amount,
+        category,
+        month,
+        day,
+        year,
+        transactionType,
+      }),
+    );
+
     reset();
   };
 
@@ -74,12 +91,12 @@ const FormInfo = ({ category, onSubmit, text, transactionType }) => {
           />
           <select
             className={s.selectCategory}
-            name="categories"
+            name="category"
             onChange={handleChange}
-            value={categories}
+            value={category}
           >
             <option>{text}</option>
-            {category.map(({ name, id }) => (
+            {categories.map(({ name, id }) => (
               <option key={id} value={name}>
                 {name}
               </option>
@@ -91,8 +108,8 @@ const FormInfo = ({ category, onSubmit, text, transactionType }) => {
               placeholder="00.00 UAH"
               className={s.sum}
               type="number"
-              name="sum"
-              value={sum}
+              name="amount"
+              value={amount}
               onChange={handleChange}
             />
             <span className={s.separator} />
@@ -115,7 +132,6 @@ const FormInfo = ({ category, onSubmit, text, transactionType }) => {
 };
 
 FormInfo.propType = {
-  onSubmit: PropTypes.func.isRequired,
   category: PropTypes.arrayOf(PropTypes.object).isRequired,
   text: PropTypes.string.isRequired,
 };

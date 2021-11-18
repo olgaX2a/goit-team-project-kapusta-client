@@ -8,7 +8,7 @@ import Header from '../../components/Header/Header';
 import ToReports from '../../components/ToReports/ToReports';
 import Balance from '../../components/Balance/Balance';
 import MobileTable from '../../components/MobileTable/MobileTable';
-import data from '../../components/Transactions/data.json';
+// import data from '../../components/Transactions/data.json';
 import MobileBtnCont from '../../components/shared/MobileBtnCont/MobileBtnCont';
 
 function MobileStatMarkUp() {
@@ -19,7 +19,7 @@ function MobileStatMarkUp() {
   const year = startDate.getFullYear();
   const formatDate = `${day}.${month}.${year}`;
 
-  const expenses = data;
+  // const expenses = data;
 
   return (
     <>
@@ -41,7 +41,7 @@ function MobileStatMarkUp() {
           </div>
         </section>
         <section className={styles.mobStatTable}>
-          <MobileTable transactions={expenses} />
+          {/* <MobileTable transactions={expenses} /> */}
         </section>
       </main>
       <footer className={styles.mobileStatFooter}>
