@@ -1,6 +1,51 @@
 @use '../shared/variables' as *;
 @use '../shared/mixins' as *;
 
+.report {
+  display: none;
+  @include for-desktop {
+    display: flex;
+    margin-left: 15px;
+
+    width: 125px;
+    height: 44px;
+    border: 2px solid $white-color;
+    background-color: transparent;
+    border-radius: 22px;
+    color: rgba(82, 85, 95, 0.7);
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.balanceInputReport {
+  width: 183px;
+  height: 30px;
+  background-color: transparent;
+  border: solid 2px $white-color;
+  border-radius: 22px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: $black-color;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 10px;
+  @include for-tablet {
+    margin-left: 21px;
+    width: 125px;
+    height: 27px;
+    padding-top: 13px;
+  }
+}
+
 .balanceForm {
   display: table-footer-group;
   width: 100%;

@@ -6,25 +6,18 @@
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+  border: none;
+  background-color: transparent;
+  margin-left: 22px;
 }
 
-.link {
-  display: flex;
+.arrowText {
   font-family: $main-font;
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
-  text-decoration: none;
   color: $dark-grey-color;
-  align-items: center;
-}
-@media screen and (max-width: 1279px) {
-  .toGoBack {
-    margin-right: auto;
-  }
-}
 
-.arrowText {
   margin-left: 18px;
   opacity: 0;
   @include for-tablet {
