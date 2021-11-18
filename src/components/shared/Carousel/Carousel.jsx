@@ -25,7 +25,7 @@ function NextArrow({ onClick }) {
     </button>
   );
 }
-function Carousel({ data, startFrom, title, neverending, onShow }) {
+function Carousel({ data, startFrom, title, neverending, onShow, reverse }) {
   const startIdx = startFrom ? data.indexOf(startFrom) : 0;
   const slickClass = styles.carousel;
 
@@ -37,6 +37,7 @@ function Carousel({ data, startFrom, title, neverending, onShow }) {
     slidesToShow: 1,
     slidesToScroll: 1,
     swipeToSlide: true,
+    rtl: reverse,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     afterChange(index) {
@@ -67,6 +68,7 @@ Carousel.defaultProps = {
   startFrom: '',
   title: '',
   neverending: true,
+  reverse: false,
 };
 
 PrevArrow.propTypes = {
@@ -82,4 +84,5 @@ Carousel.propTypes = {
   title: PropTypes.string,
   neverending: PropTypes.bool,
   onShow: PropTypes.func.isRequired,
+  reverse: PropTypes.bool,
 };

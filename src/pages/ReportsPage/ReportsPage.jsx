@@ -21,6 +21,7 @@ function ReportsPage() {
   const reports = useSelector(reportsSelectors.getReports);
   const chart = useSelector(reportsSelectors.getChart);
   const period = useSelector(reportsSelectors.getPeriod);
+  const isLoading = useSelector(reportsSelectors.isLoading);
 
   const handleTypeChange = transType => {
     const type = getKeyByValue(TRANS_MAP, transType);
@@ -49,9 +50,9 @@ function ReportsPage() {
           <Carousel
             title="Текущий период:"
             data={period}
-            // startFrom={period.length - 1}
             onShow={handlePeriodChange}
             neverending={false}
+            reverse
           />
         </Container>
         <Container>

@@ -27,15 +27,16 @@ const months = [
 
 export const parseDate = text => {
   const arr = text.split(' ');
-  const month = months.indexOf(arr[0]);
-  const year = arr[2];
+  const month = months.indexOf(arr[0]) + 1;
+  const year = Number(arr[1]);
   return { month, year };
 };
 
 export const getCurrentPeriod = () => {
   const today = new Date();
-  const month = today.getMonth;
-  const year = today.getFullYear;
+  const month = today.getMonth() + 1;
+  const year = today.getFullYear();
+  console.log(`month`, month);
   return { month, year };
 };
 
@@ -59,7 +60,6 @@ export const groupBy = (array, field) =>
 export const getPeriod = data => {
   const periods = data.map(({ year, month }) => {
     const date = new Date(`${year}-${month}-01`);
-    console.log(`date`, date);
     return date.valueOf();
   });
   const end = new Date();
@@ -74,6 +74,5 @@ export const getPeriod = data => {
   const intervalForCarousel = interval.map(el =>
     el.toLocaleDateString('ru', options).replace(' г.', ''),
   );
-  console.log(`intervalForCarousel`, intervalForCarousel);
-  return intervalForCarousel;
+  return intervalForCarousel.reverse();
 };

@@ -58,9 +58,9 @@ function App() {
             <PublicRoute path="/login" restricted>
               <LoginPage />
             </PublicRoute>
-            {/* <PrivateRoute path="/reports">
-            <ReportsPage />
-          </PrivateRoute> */}
+            <PublicRoute path="/reports">
+              <ReportsPage />
+            </PublicRoute>
             <PublicRoute path="/google-redirect">
               <GoogleRedirectPage />
             </PublicRoute>
