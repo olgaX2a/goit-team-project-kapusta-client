@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+// eslint-disable-next-line import/named
 import { authOperations } from '.';
 
 const initialState = {
@@ -43,6 +44,9 @@ const authSlice = createSlice({
       state.token = null;
       state.isLoggedIn = false;
       state.balance = 0;
+    },
+    [authOperations.fetchCurrentUser.pending](state) {
+      state.isFetchingCurrentUser = true;
     },
     [authOperations.fetchCurrentUser.pending](state) {
       state.isFetchingCurrentUser = true;

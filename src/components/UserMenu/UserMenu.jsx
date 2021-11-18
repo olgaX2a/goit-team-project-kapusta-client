@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Avatar from 'react-avatar';
 import { useDispatch, useSelector } from 'react-redux';
+// eslint-disable-next-line import/named
 import { authSelectors, authOperations } from '../../redux/auth';
 import { ReactComponent as LogOutIcon } from '../../assets/logout.svg';
 import Modal from '../shared/Modal/Modal';

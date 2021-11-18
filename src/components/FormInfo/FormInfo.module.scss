@@ -1,6 +1,8 @@
 @use '../shared/mixins' as *;
 @use '../shared/variables' as *;
-
+input {
+  padding: 0;
+}
 .form {
   font: $main-font;
   display: flex;
@@ -21,7 +23,6 @@
 .sum {
   border: none;
   height: 44px;
-  width: 125px;
   border-radius: 22px 0px 0px 22px;
 }
 .containerSum {
@@ -34,12 +35,12 @@
   padding-left: 15px;
   height: 44px;
   border-radius: 16px;
+  background-color: #fff;
 }
 .icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  display: inline-block;
   fill: $dark-grey-color;
 }
 
@@ -88,7 +89,6 @@
 
 @media screen and (min-width: $mobile) and (max-width: 767px) {
   .description {
-    width: 254px;
     height: 44px;
   }
   .inputFild {
@@ -96,12 +96,11 @@
     flex-direction: column;
   }
   .selectCategory {
-    width: 280px;
     height: 44px;
   }
 
   .containerSum {
-    width: 183px;
+    width: 170px;
   }
   .separator {
     width: 3px;
@@ -112,6 +111,10 @@
 }
 
 @media screen and (min-width: $tablet) {
+  .form {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
   .inputFild {
     display: flex;
     margin-bottom: 30px;
@@ -121,23 +124,18 @@
   }
   .containerDate {
     margin-bottom: 70px;
-    margin-right: 35px;
   }
   .description {
-    width: 187px;
     border-radius: 16px 0px 0px 0px;
     margin: 0;
   }
   .selectCategory {
-    width: 168px;
     margin: 0;
     border-radius: 0px 0px 0px 0px;
   }
   .containerSum {
-    margin: auto;
+    margin-left: 0;
     border: 2px solid #f5f6fb;
-    padding-right: 20px;
-    padding-left: 30px;
     border-radius: 16px;
     border-radius: 0px 16px 16px 0px;
   }
@@ -146,8 +144,8 @@
     margin: auto;
   }
   .sum {
-    width: 80px;
     border-radius: 0px 16px 16px 0px;
+    width: 120px;
   }
   .separator {
     display: none;
@@ -156,7 +154,7 @@
 
 @media screen and (min-width: $desktop) {
   .form {
-    flex-direction: row;
+    flex-wrap: nowrap;
   }
   .formButton {
     margin-left: 30px;
@@ -172,12 +170,9 @@
     margin-right: 25px;
   }
   .description {
-    width: 287px;
+    width: 240px;
   }
-  .selectCategory {
-    width: 186px;
-  }
-  .containerSum {
-    width: 120px;
+  .sum {
+    width: 100px;
   }
 }

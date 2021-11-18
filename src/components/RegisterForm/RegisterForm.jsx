@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+// eslint-disable-next-line import/named
 import { authOperations, authSelectors } from '../../redux/auth';
 import GoogleAuth from '../GoogleAuth/GoogleAuth';
 import RegisterModal from '../RegisterModal/RegisterModal';

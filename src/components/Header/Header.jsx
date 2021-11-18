@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { AppBar } from '@mui/material';
 import Logo from '../Logo/Logo';
 import UserMenu from '../UserMenu/UserMenu';
+// eslint-disable-next-line import/named
 import { authSelectors } from '../../redux/auth';
 import styles from './Header.module.scss';
 
