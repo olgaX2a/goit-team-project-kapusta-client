@@ -55,7 +55,7 @@ export const logout = createAsyncThunk('auth/logout', async (_, { rejectWithValu
   }
 });
 
-export const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
+export const fetchCurrentUser = createAsyncThunk('auth/fetchCurrentUser', async (_, thunkAPI) => {
   const state = thunkAPI.getState();
   const persistedToken = state.auth.token;
 
@@ -74,7 +74,7 @@ export const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunk
 });
 
 export const fetchGoogleUser = createAsyncThunk(
-  'auth/fetchGoogle',
+  'auth/fetchGoogleUser',
   async (googleToken, { rejectWithValue }) => {
     token.set(googleToken);
     try {

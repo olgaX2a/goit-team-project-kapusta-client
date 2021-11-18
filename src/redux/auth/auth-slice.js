@@ -52,12 +52,30 @@ const authSlice = createSlice({
       state.isFetchingCurrentUser = true;
     },
     [authOperations.fetchCurrentUser.fulfilled](state, { payload }) {
-      state.name = payload.data.name;
-      state.email = payload.data.email;
+      state.name = payload.data.userName;
+      state.email = payload.data.userEmail;
+      state.token = payload.data.token;
       state.isLoggedIn = true;
+      state.isRegistered = true;
+      state.balance = payload.data.balance;
       state.isFetchingCurrentUser = false;
     },
     [authOperations.fetchCurrentUser.rejected](state) {
+      state.isFetchingCurrentUser = false;
+    },
+    [authOperations.fetchGoogleUser.pending](state) {
+      state.isFetchingCurrentUser = true;
+    },
+    [authOperations.fetchGoogleUser.fulfilled](state, { payload }) {
+      state.name = payload.data.userName;
+      state.email = payload.data.userEmail;
+      state.token = payload.data.token;
+      state.isLoggedIn = true;
+      state.isRegistered = true;
+      state.balance = payload.data.balance;
+      state.isFetchingCurrentUser = false;
+    },
+    [authOperations.fetchGoogleUser.rejected](state) {
       state.isFetchingCurrentUser = false;
     },
   },
