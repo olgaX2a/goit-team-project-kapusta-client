@@ -1,0 +1,104 @@
+@use '../../components/shared/mixins' as *;
+@use '../../components/shared/variables' as *;
+
+.mobileInputCont {
+  padding-top: 80px;
+  background-color: $main-bg-color;
+  border-radius: 0px 0px 0px 100px;
+  width: 100%;
+  height: 286px;
+}
+
+.modalInputBtnCont {
+  list-style: none;
+  display: flex;
+  width: 265px;
+  margin: 0 auto;
+}
+
+.modalInputBtnCont > li:first-child {
+  margin-right: 15px;
+}
+
+.homePageMenu {
+  width: 248px;
+  margin: 0 auto;
+  padding-top: 10px;
+  @include for-tablet {
+    margin-left: 130px;
+  }
+  @include for-desktop {
+    padding-top: 35px;
+    margin-left: 442px;
+  }
+}
+
+.homePageToReports {
+  position: absolute;
+  left: 30%;
+  top: 93px;
+  text-decoration: none;
+  @include for-tablet {
+    top: 125px;
+    left: 75%;
+  }
+  @include for-desktop {
+    top: 110px;
+    left: 75%;
+  }
+}
+
+.homePageTransactCont {
+  display: none;
+  @include for-tablet {
+    display: block;
+    width: 85%;
+    margin: auto;
+    position: absolute;
+    top: 15%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  @include for-desktop {
+    display: flex;
+    left: 0;
+    top: 12%;
+    width: 1060px;
+  }
+}
+
+.homePageTransactCont > div {
+  margin-bottom: 40px;
+  @include for-desktop {
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+}
+
+.homePageSummary {
+  @include for-desktop {
+    position: absolute;
+    left: 80%;
+    top: 18%;
+  }
+}
+
+.mobileInputFooter {
+  height: 53px;
+  padding-top: 172px;
+}
+
+.btnCont {
+  // position: absolute;
+  // opacity: 0;
+  // padding: 0;
+  display: flex;
+}
+
+.btnItem {
+  list-style: none;
+  background-color: $tab-color;
+  height: 40px;
+  align-items: center;
+}

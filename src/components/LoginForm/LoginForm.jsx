@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 // eslint-disable-next-line import/named
 import { authOperations } from '../../redux/auth';
-import { ReactComponent as GoogleIcon } from '../../assets/google-icon.svg';
+import GoogleAuth from '../GoogleAuth/GoogleAuth';
 import styles from './LoginForm.module.scss';
 
 function LoginForm() {
@@ -32,14 +32,7 @@ function LoginForm() {
   return (
     <div className={styles.formContainer}>
       <p className={styles.formText}>Вы можете авторизоваться с помощью Google Account:</p>
-      <button
-        type="button"
-        className={styles.googleBtn}
-        onClick={() => console.log('googleLogin function')}
-      >
-        <GoogleIcon />
-        <span className={styles.googleBtnText}>Google</span>
-      </button>
+      <GoogleAuth />
       <p className={styles.formUsualLoginText}>
         Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
       </p>

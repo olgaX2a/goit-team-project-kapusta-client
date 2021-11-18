@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
-// eslint-disable-next-line import/named
 import { authSelectors } from '../../redux/auth';
 
 export default function PublicRoute({ children, path, restricted = false }) {
@@ -13,10 +12,11 @@ export default function PublicRoute({ children, path, restricted = false }) {
 
 PublicRoute.defaultProps = {
   restricted: false,
+  path: '/',
 };
 
 PublicRoute.propTypes = {
   children: PropTypes.node.isRequired,
-  path: PropTypes.string.isRequired,
+  path: PropTypes.string,
   restricted: PropTypes.bool,
 };
