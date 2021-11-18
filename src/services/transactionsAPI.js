@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://goit-kapusta.herokuapp.com/api';
+axios.defaults.baseURL = 'https://goit-kapusta.herokuapp.com/api';
 
 export const fetchTransactionsList = async () => {
   const transactions = await axios.get('/transactions');
