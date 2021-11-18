@@ -81,7 +81,7 @@ export const fetchGoogleUser = createAsyncThunk(
       const { data } = await authAPI.fetchCurrentUser();
       return data;
     } catch (error) {
-      return rejectWthValue(error.message);
+      return rejectWithValue(error.message);
     }
   },
 );
