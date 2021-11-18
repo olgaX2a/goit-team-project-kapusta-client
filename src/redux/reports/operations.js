@@ -24,8 +24,7 @@ export const getPeriodReports = createAsyncThunk(
     try {
       const { data } = await reportsAPI.fetchByPeriodReports(month, year, transactionType);
       console.log(`data 🚀`, data);
-      const collection = data.allTransactionsByTypeForMonth;
-      return collection;
+      return data;
     } catch (error) {
       toast.error('Ой, что-то пошло не так.');
       return rejectWithValue(error.message);

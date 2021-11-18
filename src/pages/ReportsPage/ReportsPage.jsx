@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { defaultColumn } from 'react-table';
 import CategoryCollection from '../../components/Category/CategoryCollection';
 import Chart from '../../components/Chart/Chart';
 import Carousel from '../../components/shared/Carousel/Carousel';
 import Paper from '../../components/shared/Paper/Paper';
-import { TRANS_NAMES, TRANS_MAP, EXPENSE, INCOME } from '../../utils/transTypes';
-import { expenseCategory } from '../../utils/expenseCategories';
-import { getKeyByValue } from '../../utils/helpers';
+import { TRANS_NAMES, TRANS_MAP, EXPENSE, INCOME, TRANS_TYPES } from '../../utils/transTypes';
+import { getCurrentPeriod, getKeyByValue, getPeriod, parseDate } from '../../utils/helpers';
 import Header from '../../components/Header/Header';
-import { normalizePeriod } from '../../utils/normalize';
 import pages from '../styles/Pages.module.scss';
 import styles from './ReportsPage.module.scss';
 import Container from '../../components/shared/Container';
@@ -17,13 +16,20 @@ import { filter } from '../../redux/reports/slice';
 
 function ReportsPage() {
   const [currentType, setCurrentType] = useState(EXPENSE);
+  const [periodToShow, setPeriodToShow] = useState(getCurrentPeriod());
   const dispatch = useDispatch();
   const reports = useSelector(reportsSelectors.getReports);
   const chart = useSelector(reportsSelectors.getChart);
+  const period = useSelector(reportsSelectors.getPeriod);
 
   const handleTypeChange = transType => {
     const type = getKeyByValue(TRANS_MAP, transType);
     setCurrentType(type);
+  };
+
+  const handlePeriodChange = carousel => {
+    const query = parseDate(carousel);
+    setPeriodToShow(query);
   };
 
   const handleCategorySelection = async category => {
@@ -31,17 +37,22 @@ function ReportsPage() {
   };
 
   useEffect(() => {
-    dispatch(
-      reportsOperations.getPeriodReports({ month: 11, year: 2021, transactionType: currentType }),
-    );
-  }, [currentType]);
+    const { month, year } = periodToShow;
+    dispatch(reportsOperations.getPeriodReports({ month, year, transactionType: currentType }));
+  }, [periodToShow, currentType]);
 
   return (
     <>
       <Header />
       <main className={pages.pages}>
         <Container>
-          <Carousel title="Текущий период:" data={TRANS_NAMES} onShow={handleTypeChange} />
+          <Carousel
+            title="Текущий период:"
+            data={period}
+            // startFrom={period.length - 1}
+            onShow={handlePeriodChange}
+            neverending={false}
+          />
         </Container>
         <Container>
           <Paper extraStyles={styles.block}>

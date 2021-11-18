@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getPeriodReports } from './operations';
-import { groupBy } from '../../utils/helpers';
+import { groupBy, getPeriod } from '../../utils/helpers';
+import { INCOME, EXPENSE } from '../../utils/transTypes';
 
 const chatFilter = (state, payload) => {
   const filteredByCat = state.data.filter(el => el.category === payload);
@@ -16,6 +17,10 @@ const initialState = {
   isLoading: false,
   error: false,
   chart: [],
+  income: 0,
+  expense: 0,
+  period: [],
+  type: EXPENSE,
 };
 
 const reportSlice = createSlice({
@@ -28,7 +33,10 @@ const reportSlice = createSlice({
   },
   extraReducers: {
     [getPeriodReports.fulfilled](state, { payload }) {
-      state.data = groupBy(payload, 'category');
+      state.data = groupBy(payload.allTransactionsByTypeForMonth, 'category');
+      state.income = payload.totalAmountTransactionsByReportMonth.totalIncome;
+      state.expense = payload.totalAmountTransactionsByReportMonth.totalExpense;
+      state.period = getPeriod(payload.allTransactionsByUser);
       state.isLoading = false;
       state.error = false;
     },
