@@ -72,3 +72,16 @@ export const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunk
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const fetchGoogleUser = createAsyncThunk(
+  'auth/fetchGoogle',
+  async (googleToken, { rejectWithValue }) => {
+    token.set(googleToken);
+    try {
+      const { data } = await authAPI.fetchCurrentUser();
+      return data;
+    } catch (error) {
+      return rejectWthValue(error.message);
+    }
+  },
+);
