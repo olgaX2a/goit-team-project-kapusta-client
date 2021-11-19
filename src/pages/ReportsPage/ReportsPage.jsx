@@ -32,9 +32,7 @@ function ReportsPage() {
   };
 
   const handlePeriodChange = carousel => {
-    console.log('carousel 🎡 ', carousel);
     const query = parseDate(carousel);
-    console.log('query ❓ ', query);
     setPeriodToShow(query);
   };
 
@@ -44,6 +42,7 @@ function ReportsPage() {
 
   useEffect(() => {
     const { month, year } = periodToShow;
+    dispatch(filter(''));
     dispatch(reportsOperations.getPeriodReports({ month, year, transactionType: currentType }));
   }, [periodToShow, currentType]);
 

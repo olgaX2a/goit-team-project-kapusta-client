@@ -45,6 +45,11 @@ export const stringifyDate = dateObj => {
   return `${monthString} ${year}`;
 };
 
+export const sortBy = field => (a, b) => {
+  const result = a[field] < b[field] ? 1 : -1;
+  return result;
+};
+
 export const groupBy = (array, field) =>
   array.reduce((acc, element) => {
     const accumulated = acc.find(el => el[field] === element[field]);

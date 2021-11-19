@@ -1,15 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getPeriodReports } from './operations';
-import { groupBy, getPeriod } from '../../utils/helpers';
+import { groupBy, getPeriod, sortBy } from '../../utils/helpers';
 import { INCOME, EXPENSE } from '../../utils/transTypes';
 
 const chatFilter = (state, payload) => {
   const filteredByCat = state.data.filter(el => el.category === payload);
   const grouped = groupBy(filteredByCat, 'description');
-  return grouped.map(el => ({
-    description: el.description,
-    total: el.amount,
-  }));
+  return grouped
+    .map(el => ({
+      description: el.description,
+      total: el.amount,
+    }))
+    .sort(sortBy('total'));
 };
 
 const initialState = {
@@ -39,6 +41,7 @@ const reportSlice = createSlice({
       state.income = payload.totalAmountTransactionsByReportMonth.totalIncome;
       state.expense = payload.totalAmountTransactionsByReportMonth.totalExpense;
       state.period = getPeriod(payload.allTransactionsByUser);
+      state.chart = [];
       state.isLoading = false;
       state.error = false;
     },
@@ -49,6 +52,7 @@ const reportSlice = createSlice({
     },
     [getPeriodReports.rejected](state) {
       state.isLoading = false;
+      state.chart = [];
       state.error = true;
     },
   },

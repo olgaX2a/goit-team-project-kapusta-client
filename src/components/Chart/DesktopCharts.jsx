@@ -10,9 +10,13 @@ const DesktopCharts = ({ data }) => {
   const renderCustomizedLabel = props => {
     const { x, y, width, value } = props;
     return (
-      <text x={x + width / 2} y={y} dy={-10} textAnchor="middle" fontSize={12}>{`${normalizeSum(
-        value,
-      )} грн`}</text>
+      <text
+        x={x + width / 2}
+        y={y}
+        dy={-10}
+        textAnchor="middle"
+        fontSize={12}
+      >{`${value} грн`}</text>
     );
   };
 
