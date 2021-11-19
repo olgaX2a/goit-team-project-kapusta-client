@@ -32,7 +32,9 @@ function ReportsPage() {
   };
 
   const handlePeriodChange = carousel => {
+    console.log('carousel 🎡 ', carousel);
     const query = parseDate(carousel);
+    console.log('query ❓ ', query);
     setPeriodToShow(query);
   };
 

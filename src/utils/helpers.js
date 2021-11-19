@@ -36,7 +36,6 @@ export const getCurrentPeriod = () => {
   const today = new Date();
   const month = today.getMonth() + 1;
   const year = today.getFullYear();
-  console.log(`month`, month);
   return { month, year };
 };
 
@@ -50,11 +49,9 @@ export const groupBy = (array, field) =>
   array.reduce((acc, element) => {
     const accumulated = acc.find(el => el[field] === element[field]);
     if (accumulated) {
-      console.log(`accumulated`, accumulated);
       accumulated.amount += element.amount;
     } else {
       const newEl = { [field]: element[field], amount: element.amount };
-      console.log(`newEl`, newEl);
       acc.push(newEl);
     }
     return acc;
@@ -77,5 +74,5 @@ export const getPeriod = data => {
   const intervalForCarousel = interval.map(el =>
     el.toLocaleDateString('ru', options).replace(' г.', ''),
   );
-  return intervalForCarousel.reverse();
+  return intervalForCarousel;
 };
