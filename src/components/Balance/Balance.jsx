@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 import styles from './Balance.module.scss';
 import Notification from '../shared/Notification/Notification';
 import { authSelectors } from '../../redux/auth';
+import balanceOperations from '../../redux/balance/balance-operations';
 
 const Balance = () => {
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(authOperations.fetchCurrentUser());
+  // }, [dispatch]);
+
   const balance = useSelector(authSelectors.getUserBalance);
 
   const location = useLocation();
@@ -14,9 +21,11 @@ const Balance = () => {
 
   const [notificationOpen, setNotificationOpen] = useState(true);
 
-  const onSubmit = e => {
+  const updateBalance = e => {
     e.preventDefault();
-    console.log('Дописать функцию обновления баланса');
+    const newBalance = e.target.balance.value;
+    dispatch(balanceOperations.setBalanceOperation(newBalance));
+    // console.log(newBalance);
   };
 
   const removeNotification = () => {
@@ -25,7 +34,7 @@ const Balance = () => {
 
   return (
     // <div className={!isReportPage ? styles.cont : styles.contReport} />
-    <form className={styles.balanceForm}>
+    <form className={styles.balanceForm} onSubmit={updateBalance}>
       <label htmlFor="balance" className={styles.balanceLabel}>
         Баланс:
         <div className={styles.buttonsGroup}>
@@ -35,7 +44,7 @@ const Balance = () => {
               <input
                 type="number"
                 step="0.01"
-                name="name"
+                name="balance"
                 maxLength="10"
                 placeholder="00.00"
                 onChange={removeNotification}
@@ -45,7 +54,7 @@ const Balance = () => {
               <button
                 className={!isReportPage ? styles.balanceButton : styles.report}
                 type="submit"
-                onClick={onSubmit}
+                // onClick={onSubmit}
               >
                 подтвердить
               </button>
