@@ -9,7 +9,7 @@ export const fetchTransactionsList = async () => {
 
 export const fetchTransactionsTypesList = async transactionType => {
   const transactionsTypesList = await axios.get(`/transactions/${transactionType}`);
-  return transactionsTypesList.data.data.data;
+  return transactionsTypesList.data.data;
 };
 export const createTransaction = async (transactionType, transaction) => {
   const { data } = await axios.post(`/transactions/${transactionType}`, transaction);

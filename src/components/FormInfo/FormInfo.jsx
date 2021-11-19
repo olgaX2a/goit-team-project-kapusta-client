@@ -70,14 +70,16 @@ const FormInfo = ({ categories, text, transactionType }) => {
     <div className={s.infoData}>
       <div className={s.containerDate}>
         <Calendar className={s.icon} width="20px" height="20px" />
-        <DatePicker
-          dateFormat="dd.MM.yyyy"
-          selected={startDate}
-          onChange={date => setStartDate(date)}
-          name="date"
-          value={formatDate}
-          className={s.date}
-        />
+        <div className={s.calendarColor}>
+          <DatePicker
+            dateFormat="dd.MM.yyyy"
+            selected={startDate}
+            onChange={date => setStartDate(date)}
+            name="date"
+            value={formatDate}
+            className={s.date}
+          />
+        </div>
       </div>
       <form className={s.form} onSubmit={handleSubmit}>
         <div className={s.inputFild}>

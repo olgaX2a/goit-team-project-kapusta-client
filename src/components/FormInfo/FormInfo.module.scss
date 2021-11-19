@@ -1,5 +1,6 @@
 @use '../shared/mixins' as *;
 @use '../shared/variables' as *;
+
 input {
   padding: 0;
 }
@@ -55,6 +56,9 @@ input {
   font: $main-font;
   width: 80px;
   margin-left: 10px;
+}
+.calendarColor :global .react-datepicker__day--selected {
+  background-color: $accent-color;
 }
 .formButton {
   display: flex;

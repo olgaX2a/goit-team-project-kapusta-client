@@ -20,6 +20,15 @@ const Transactions = () => {
     dispatch(transactionOperations.fetchTransactionsList());
   }, [dispatch]);
 
+  // useEffect(() => {
+  //   if (tabIndex === 0) {
+  //     dispatch(transactionOperations.fetchExpensesList());
+  //   }
+  //   if (tabIndex === 1) {
+  //     dispatch(transactionOperations.fetchIncomesList());
+  //   }
+  // }, [expenses, incomes]);
+
   return (
     <div className={s.tabsContainer}>
       <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
