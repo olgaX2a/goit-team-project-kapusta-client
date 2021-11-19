@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { defaultColumn } from 'react-table';
 import CategoryCollection from '../../components/Category/CategoryCollection';
 import Chart from '../../components/Chart/Chart';
 import Carousel from '../../components/shared/Carousel/Carousel';

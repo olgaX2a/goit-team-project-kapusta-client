@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 import styles from './Balance.module.scss';
 import Notification from '../shared/Notification/Notification';
+import { authSelectors } from '../../redux/auth';
 
 const Balance = () => {
-  // поменять значение баланса, когда будет путь суммы с бэка
-  const balance = 10;
+  const balance = useSelector(authSelectors.getUserBalance);
 
-  // определяет, на какой странице находится УТОЧНИТЬ ПУТИ
   const location = useLocation();
-  const isReportPage =
-    location.pathname === '/testing/report' || location.pathname === '/testing/report/income';
+  const isReportPage = location.pathname === '/reports';
 
   const [notificationOpen, setNotificationOpen] = useState(true);
 
@@ -52,7 +51,7 @@ const Balance = () => {
               </button>
             </>
           ) : (
-            <>
+            <div className={!isReportPage ? styles.balanceButton : styles.reportForm}>
               <p className={!isReportPage ? styles.balanceInput : styles.balanceInputReport}>
                 {`${balance.toLocaleString('ru')}.00`} UAH
               </p>
@@ -63,7 +62,7 @@ const Balance = () => {
               >
                 подтвердить
               </button>
-            </>
+            </div>
           )}
         </div>
       </label>
