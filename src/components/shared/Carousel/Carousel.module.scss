@@ -10,7 +10,6 @@
   flex-direction: column;
   justify-content: space-between;
   width: 154px;
-  // height: 39px;
   p {
     display: flex;
     justify-content: center;
@@ -38,12 +37,11 @@
   align-items: center;
   height: 100%;
   border: none;
-  color: $accent-color;
-
+  fill: $accent-color;
+  cursor: pointer;
   svg {
     width: 4px;
     height: 10px;
-    fill: $accent-color;
   }
 }
 
