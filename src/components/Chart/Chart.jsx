@@ -4,6 +4,7 @@ import { useMediaQuery } from '../hooks/useMediaQuery';
 
 import DesktopCharts from './DesktopCharts';
 import MobileCharts from './MobileCharts';
+import Paper from '../shared/Paper/Paper';
 
 import styles from './Chart.module.scss';
 
@@ -12,14 +13,18 @@ const Chart = ({ arrData }) => {
 
   const dataChart = arrData.length ? arrData : [0];
 
-  return isMatches ? (
-    <div className={`${styles.container} ${styles.charts}`}>
-      <DesktopCharts data={dataChart} />
-    </div>
-  ) : (
-    <div className={styles.mobileContainer}>
-      <MobileCharts data={dataChart} />
-    </div>
+  return (
+    <Paper extraStyles={styles.chartPaper}>
+      {isMatches ? (
+        <div className={`${styles.container}`}>
+          <DesktopCharts data={dataChart} />
+        </div>
+      ) : (
+        <div className={styles.mobileContainer}>
+          <MobileCharts data={dataChart} />
+        </div>
+      )}
+    </Paper>
   );
 };
 
