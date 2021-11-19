@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getPeriodReports } from './operations';
 import { groupBy, getPeriod, sortBy } from '../../utils/helpers';
-import { INCOME, EXPENSE } from '../../utils/transTypes';
+import { EXPENSE } from '../../utils/transTypes';
 
 const chatFilter = (state, payload) => {
   const filteredByCat = state.data.filter(el => el.category === payload);
