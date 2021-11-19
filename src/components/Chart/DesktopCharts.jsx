@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { BarChart, Bar, Cell, XAxis } from 'recharts';
+import { normalizeSum } from '../../utils/normalize';
 
 import styles from './Chart.module.scss';
 
@@ -9,13 +10,9 @@ const DesktopCharts = ({ data }) => {
   const renderCustomizedLabel = props => {
     const { x, y, width, value } = props;
     return (
-      <text
-        x={x + width / 2}
-        y={y}
-        dy={-10}
-        textAnchor="middle"
-        fontSize={12}
-      >{`${value} грн`}</text>
+      <text x={x + width / 2} y={y} dy={-10} textAnchor="middle" fontSize={12}>{`${normalizeSum(
+        value,
+      )} грн`}</text>
     );
   };
 

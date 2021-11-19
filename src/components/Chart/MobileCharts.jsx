@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { BarChart, Bar, Cell, XAxis, YAxis, ResponsiveContainer, LabelList } from 'recharts';
 import styles from './Chart.module.scss';
+import { normalizeSum } from '../../utils/normalize';
 
 const MobileCharts = ({ data }) => {
   const MobileBarLabel = ({ x, y, width, value }) => (
     <text x={x + width / 1.1} y={y} textAnchor="middle" fontSize={10} dy={-10}>
-      {value ? `${value} грн` : ''}
+      {value ? `${normalizeSum(value)} грн` : ''}
     </text>
   );
   MobileBarLabel.propTypes = {

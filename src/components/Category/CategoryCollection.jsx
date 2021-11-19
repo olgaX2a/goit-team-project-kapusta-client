@@ -8,10 +8,15 @@ function CategoryCollection({ collection, onSelection }) {
   return (
     <div className={styles.cardContainer}>
       {collection.map(el => {
-        const { category, sum } = el;
-        if (sum !== 0) {
+        const { category, amount } = el;
+        if (amount !== 0) {
           return (
-            <CategoryCard category={category} onSelect={onSelection} sum={sum} key={category} />
+            <CategoryCard
+              category={category}
+              onSelect={onSelection}
+              amount={amount}
+              key={category}
+            />
           );
         }
         return null;

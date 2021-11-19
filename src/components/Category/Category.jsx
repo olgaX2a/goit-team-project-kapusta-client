@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import CategoryCollection from './CategoryCollection';
 import Carousel from '../shared/Carousel/Carousel';
 import Paper from '../shared/Paper/Paper';
@@ -17,6 +18,7 @@ const testCategories = [
 ];
 
 function Category() {
+  const dispatch = useDispatch();
   const handleTypeChange = transType => {
     const type = getKeyByValue(TRANS_MAP, transType);
     console.log('type :>> ', type);
