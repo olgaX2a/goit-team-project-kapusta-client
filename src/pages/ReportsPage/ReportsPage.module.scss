@@ -20,6 +20,9 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+  @include for-mobile-only {
+    flex-direction: column;
+  }
 }
 
 .row {
