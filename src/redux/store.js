@@ -19,7 +19,7 @@ export const store = configureStore({
     reports: reportReducer,
     transactions: transactionsSlice,
   },
-  middleware: [thunk],
+  middleware: [thunk, logger],
   devTools: process.env.NODE_ENV === 'development',
 });
 
