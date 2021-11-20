@@ -4,11 +4,11 @@ import { Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { authSelectors } from '../../redux/auth';
 
-export default function PrivateRoute({ children, exact, path }) {
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+export default function PrivateRoute({ children, exact = false, path }) {
+  const hasToken = useSelector(authSelectors.getUserToken);
   return (
     <Route exact={exact} path={path}>
-      {isLoggedIn ? children : <Redirect to="/login" />}
+      {hasToken ? children : <Redirect exact to="/login" />}
     </Route>
   );
 }
