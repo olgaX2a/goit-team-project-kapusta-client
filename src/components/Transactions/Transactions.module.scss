@@ -11,6 +11,7 @@
   }
 
   .tabsContainer :global .react-tabs__tab-list {
+    position: relative;
     margin-bottom: 0;
     border-bottom: none;
   }
@@ -47,7 +48,7 @@
 .homePageSummary {
   @include for-desktop {
     position: absolute;
-    left: 80%;
-    top: 18%;
+    right: 8vh;
+    top: 20vh;
   }
 }

@@ -39,11 +39,11 @@
   color: $black-color;
   font: $main-font;
   font-weight: 900;
-  font-size: 55px;
+  font-size: 49px;
   line-height: 1.177;
   margin-left: 20px;
   margin-bottom: 5px;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.03em;
   @include for-tablet {
     font-size: 70px;
     margin-left: 100px;
