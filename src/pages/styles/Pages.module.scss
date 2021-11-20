@@ -23,7 +23,17 @@
   @include for-tablet {
     height: 583px;
   }
+  &.register {
+    background-image: url('../../assets/kapusta-bg.svg');
+    background-repeat: no-repeat;
+    background-size: auto 232px;
+    background-position: top 85px left 10px;
+    @include for-mobile-only {
+      background-position: top 85px left 270px;
+    }
+  }
 }
+
 .kapusta {
   @include for-tablet-only {
     height: 576px;
