@@ -23,7 +23,17 @@
   @include for-tablet {
     height: 583px;
   }
+  &.register {
+    background-image: url('../../assets/kapusta-bg.svg');
+    background-repeat: no-repeat;
+    background-size: auto 232px;
+    background-position: top 85px left 10px;
+    @include for-mobile-only {
+      background-position: top 85px left 270px;
+    }
+  }
 }
+
 .kapusta {
   @include for-tablet-only {
     height: 576px;
@@ -33,6 +43,10 @@
     background-position: bottom 0 right 88px;
     &.report {
       height: 592px;
+    }
+    &.register {
+      height: 366px;
+      background-position: bottom 0 left 103px;
     }
   }
   @include for-desktop {
@@ -46,5 +60,49 @@
       background-size: 220px 220px;
       background-position: top 321px left 10px;
     }
+    &.register {
+      background-image: url('../../assets/kapusta-double-with-fill.svg');
+      height: 220px;
+      background-repeat: no-repeat;
+      background-position: bottom 0 left 230px;
+    }
+  }
+}
+
+.main {
+  box-sizing: border-box;
+  padding-top: 142px;
+  @include for-tablet {
+    padding-top: 147px;
+  }
+  @include for-desktop {
+    padding-top: 174px;
+  }
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  max-width: 320px;
+  @include for-desktop {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 768px;
+  }
+  @include for-desktop {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+  }
+}
+
+.logo {
+  margin-bottom: 50px;
+  @include for-desktop {
+    margin-bottom: 0;
   }
 }
