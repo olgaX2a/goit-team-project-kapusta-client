@@ -17,6 +17,8 @@ src/redux/auth/index.js
 src/components/Chart/*.jsx
 
 src/components/shared/Testing/*.jsx
+src/App.js
+
 
 
 src/App.js

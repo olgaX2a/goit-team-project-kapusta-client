@@ -55,7 +55,7 @@ export const logout = createAsyncThunk('auth/logout', async (_, { rejectWithValu
   }
 });
 
-export const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
+export const fetchCurrentUser = createAsyncThunk('auth/fetchCurrentUser', async (_, thunkAPI) => {
   const state = thunkAPI.getState();
   const persistedToken = state.auth.token;
 
@@ -72,3 +72,16 @@ export const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunk
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const fetchGoogleUser = createAsyncThunk(
+  'auth/fetchGoogleUser',
+  async (googleToken, { rejectWithValue }) => {
+    token.set(googleToken);
+    try {
+      const { data } = await authAPI.fetchCurrentUser();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);

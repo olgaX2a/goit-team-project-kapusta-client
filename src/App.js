@@ -18,12 +18,18 @@ const RegisterPage = lazy(() =>
 const LoginPage = lazy(() =>
   import('./pages/LoginPage/LoginPage' /* webpackChunkName: "login-page" */),
 );
-// const ReportsPage = lazy(() =>
-//   import('./pages/ReportsPage/ReportsPage' /* webpackChunkName: "reports-page" */),
-// );
+const ReportsPage = lazy(() =>
+  import('./pages/ReportsPage/ReportsPage' /* webpackChunkName: "reports-page" */),
+);
 
 const NotFoundPage = lazy(() =>
   import('./pages/NotFoundPage/NotFoundPage' /* webpackChunkName: "not-found-page" */),
+);
+
+const GoogleRedirectPage = lazy(() =>
+  import(
+    './pages/GoogleRedirectPage/GoogleRedirectPage' /* webpackChunkName: "google-redirect-page" */
+  ),
 );
 
 const Testing = lazy(() =>
@@ -52,9 +58,12 @@ function App() {
             <PublicRoute path="/login" restricted>
               <LoginPage />
             </PublicRoute>
-            {/* <PrivateRoute path="/reports">
-            <ReportsPage />
-          </PrivateRoute> */}
+            <PublicRoute path="/reports">
+              <ReportsPage />
+            </PublicRoute>
+            <PublicRoute path="/google-redirect">
+              <GoogleRedirectPage />
+            </PublicRoute>
             <PublicRoute path="/testing">
               <Testing />
             </PublicRoute>
