@@ -1,5 +1,6 @@
 @use '../shared/mixins' as *;
 @use '../shared/variables' as *;
+
 input {
   padding: 0;
 }
@@ -20,6 +21,7 @@ input {
   padding-left: 20px;
   border: 2px solid #f5f6fb;
 }
+
 .sum {
   border: none;
   height: 44px;
@@ -55,6 +57,9 @@ input {
   font: $main-font;
   width: 80px;
   margin-left: 10px;
+}
+.calendarColor :global .react-datepicker__day--selected {
+  background-color: $accent-color;
 }
 .formButton {
   display: flex;
@@ -124,6 +129,7 @@ input {
   }
   .containerDate {
     margin-bottom: 70px;
+    margin-right: 15px;
   }
   .description {
     border-radius: 16px 0px 0px 0px;
@@ -145,7 +151,7 @@ input {
   }
   .sum {
     border-radius: 0px 16px 16px 0px;
-    width: 120px;
+    width: 90px;
   }
   .separator {
     display: none;

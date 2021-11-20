@@ -13,6 +13,31 @@ const fetchTransactionsList = createAsyncThunk(
     }
   },
 );
+const fetchExpensesList = createAsyncThunk(
+  'transactions/getExpenses',
+  async (_, { rejectWithValue }) => {
+    try {
+      const expenses = await TransactionAPI.fetchTransactionsTypesList('expense');
+
+      return expenses.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
+
+const fetchIncomesList = createAsyncThunk(
+  'transactions/getIncomes',
+  async (_, { rejectWithValue }) => {
+    try {
+      const incomes = await TransactionAPI.fetchTransactionsTypesList('income');
+
+      return incomes.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
 
 const createTransaction = createAsyncThunk(
   'transactions/createTransaction',
@@ -42,6 +67,8 @@ const transactionOperations = {
   fetchTransactionsList,
   createTransaction,
   deleteTransaction,
+  fetchExpensesList,
+  fetchIncomesList,
 };
 
 export default transactionOperations;

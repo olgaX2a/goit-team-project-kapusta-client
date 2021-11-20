@@ -7,6 +7,10 @@ export const fetchTransactionsList = async () => {
   return transactions.data.data.data;
 };
 
+export const fetchTransactionsTypesList = async transactionType => {
+  const transactionsTypesList = await axios.get(`/transactions/${transactionType}`);
+  return transactionsTypesList.data.data;
+};
 export const createTransaction = async (transactionType, transaction) => {
   const { data } = await axios.post(`/transactions/${transactionType}`, transaction);
 
@@ -16,3 +20,11 @@ export const createTransaction = async (transactionType, transaction) => {
 export const deleteTransaction = async transactionId => {
   await axios.delete(`/transactions/${transactionId}`);
 };
+
+export const setBalanceApi = balance =>
+  axios
+    .patch(`/balance`, { balance })
+    .then(({ data }) => data)
+    .catch(error => {
+      throw error;
+    });
