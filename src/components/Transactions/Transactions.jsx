@@ -8,6 +8,8 @@ import FormInfo from '../FormInfo/FormInfo';
 import TableTransactions from '../TableTransactions/TableTransactions';
 import TableEmpty from '../TableTransactions/TableEmpty';
 import s from './Transactions.module.scss';
+import { deleteTransaction, fetchTransactionsList } from '../../services/transactionsAPI';
+// import { transactionOperations } from '../../redux/transactions';
 
 const Transactions = () => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -15,19 +17,22 @@ const Transactions = () => {
   const incomes = useSelector(transactionSelectors.getIncomes);
 
   const dispatch = useDispatch();
-
+  // const onDeleteTransaction = async id => {
+  //   transactionOperations.fetchTransactionsList();
+  //   await dispatch(deleteTransaction(id));
+  // };
   useEffect(() => {
     dispatch(transactionOperations.fetchTransactionsList());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   if (tabIndex === 0) {
-  //     dispatch(transactionOperations.fetchExpensesList());
-  //   }
-  //   if (tabIndex === 1) {
-  //     dispatch(transactionOperations.fetchIncomesList());
-  //   }
-  // }, [expenses, incomes]);
+  useEffect(() => {
+    if (tabIndex === 0) {
+      dispatch(transactionOperations.fetchExpensesList());
+    }
+    if (tabIndex === 1) {
+      dispatch(transactionOperations.fetchIncomesList());
+    }
+  }, [expenses, incomes]);
 
   return (
     <div className={s.tabsContainer}>
