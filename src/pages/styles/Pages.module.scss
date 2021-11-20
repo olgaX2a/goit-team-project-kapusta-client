@@ -5,22 +5,46 @@
   box-sizing: border-box;
   padding-top: 71px;
   width: 100vw;
-  background-size: 232px 100%;
-  background-position: top 660px left 10px;
-  background-image: url('../../assets/triple-bg.svg');
-  background-repeat: repeat-x;
   @include for-tablet {
     padding-top: 96px;
   }
 }
+
 .bg {
   position: absolute;
   z-index: -1;
   width: 100vw;
+}
+
+.grey {
   height: 342px;
   border-radius: 0px 0px 0px 100px;
   background-color: $main-bg-color;
   @include for-tablet {
     height: 583px;
+  }
+}
+.kapusta {
+  @include for-tablet-only {
+    height: 576px;
+    background-image: url('../../assets/kapusta-double-with-fill.svg');
+    background-repeat: no-repeat;
+    background-size: 183px 142px;
+    background-position: bottom 0 right 88px;
+    &.report {
+      height: 592px;
+    }
+  }
+  @include for-desktop {
+    height: 296px;
+    background-position: top 74px left 10px;
+    background-image: url('../../assets/triple-bg.svg');
+    background-repeat: repeat-x;
+    background-size: 220px 220px;
+    &.report {
+      height: 541px;
+      background-size: 220px 220px;
+      background-position: top 321px left 10px;
+    }
   }
 }

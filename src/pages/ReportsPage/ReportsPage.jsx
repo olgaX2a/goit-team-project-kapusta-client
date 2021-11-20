@@ -15,6 +15,7 @@ import { filter } from '../../redux/reports/slice';
 import TransactionTotal from '../../components/TransactionTotal/TransactionTotal';
 import Balance from '../../components/Balance/Balance';
 import ArrowToGoBack from '../../components/shared/ArrowToGoBack/ArrowToGoBack';
+import PagesBg from '../styles/PagesBg';
 
 function ReportsPage() {
   const [currentType, setCurrentType] = useState(EXPENSE);
@@ -49,7 +50,7 @@ function ReportsPage() {
   return (
     <>
       <Header />
-      <div className={pages.bg} />
+      <PagesBg />
       <main className={pages.pages}>
         <Container extraStyles={styles.report}>
           <div className={styles.firstRow}>

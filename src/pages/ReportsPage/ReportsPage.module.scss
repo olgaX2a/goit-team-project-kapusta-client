@@ -22,9 +22,6 @@
   margin-bottom: 30px;
   @include for-mobile-only {
     flex-direction: column;
-    & :nth-child(2) {
-      order: 1;
-    }
   }
 }
 
