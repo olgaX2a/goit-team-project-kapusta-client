@@ -22,6 +22,31 @@ const transactionsSlice = createSlice({
       state.isLoading = false;
       state.error = 'Error';
     },
+    [transactionOperations.fetchExpensesList.fulfilled]: (state, action) => {
+      state.expenses = action.payload;
+      state.isLoading = false;
+      state.error = null;
+    },
+    [transactionOperations.fetchExpensesList.pending]: (state, action) => {
+      state.isLoading = true;
+    },
+    [transactionOperations.fetchExpensesList.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = 'Error';
+    },
+    [transactionOperations.fetchIncomesList.fulfilled]: (state, action) => {
+      state.incomes = action.payload;
+      state.isLoading = false;
+      state.error = null;
+    },
+    [transactionOperations.fetchIncomesList.pending]: (state, action) => {
+      state.isLoading = true;
+    },
+    [transactionOperations.fetchIncomesList.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = 'Error';
+    },
+
     [transactionOperations.createTransaction.fulfilled]: (state, action) => {
       state.items = [...state.items, action.payload];
       state.isLoading = false;

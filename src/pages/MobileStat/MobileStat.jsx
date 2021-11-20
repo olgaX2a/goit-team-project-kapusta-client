@@ -30,14 +30,16 @@ function MobileStatMarkUp() {
           <Balance />
           <div className={styles.containerDate}>
             <Calendar className={styles.icon} width="20px" height="20px" />
-            <DatePicker
-              dateFormat="dd.MM.yyyy"
-              selected={startDate}
-              onChange={date => setStartDate(date)}
-              name="date"
-              value={formatDate}
-              className={styles.date}
-            />
+            <div className={styles.calendarColor}>
+              <DatePicker
+                dateFormat="dd.MM.yyyy"
+                selected={startDate}
+                onChange={date => setStartDate(date)}
+                name="date"
+                value={formatDate}
+                className={styles.date}
+              />
+            </div>
           </div>
         </section>
         <section className={styles.mobStatTable}>
