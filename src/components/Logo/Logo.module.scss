@@ -4,43 +4,96 @@
 .title {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 183px;
+  height: 80px;
+  margin: 0;
+  padding: 0;
+  @include for-tablet {
+    width: 306px;
+    height: 100px;
+  }
+  @include for-desktop {
+    width: 378px;
+    height: 145px;
+  }
 }
 
-.text {
+.mainText {
+  display: flex;
+  color: $black-color;
+  font: $main-font;
+  font-weight: 900;
+  font-size: 45px;
+  margin: 0;
+  letter-spacing: -0.01em;
+  @include for-tablet {
+    font-size: 60px;
+  }
+  @include for-desktop {
+    font-size: 95px;
+    line-height: 120px;
+  }
+}
+
+.dollar {
+  position: relative;
+}
+
+.dollar::before {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  left: 41%;
+  top: 35%;
+  width: 8px;
+  height: 13px;
+  background-color: $black-color;
+  width: 4px;
+  height: 7px;
+  @include for-tablet {
+    width: 7px;
+    height: 11px;
+  }
+}
+
+.dollar::after {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  left: 41%;
+  bottom: 11%;
+  width: 8px;
+  height: 13px;
+  background-color: $black-color;
+  width: 4px;
+  height: 7px;
+  @include for-tablet {
+    width: 7px;
+    height: 11px;
+  }
+}
+
+.secondaryText {
   text-transform: uppercase;
-  font-family: $main-font;
   color: $dark-grey-color;
-  text-transform: uppercase;
+  font-family: $main-font;
   font-weight: 700;
+  display: flex;
+  margin: 0;
+  margin-left: 10px;
   font-size: 13px;
-  line-height: 15px;
+  line-height: 16px;
   letter-spacing: 0.15em;
-
-  //   font-family: Roboto;
-  // font-size: 13px;
-  // font-style: normal;
-  // font-weight: 700;
-  // line-height: 15px;
-  // letter-spacing: 0.15em;
-  // text-align: left;
+  @include for-tablet {
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.18em;
+    margin-left: 44px;
+  }
+  @include for-desktop {
+    margin-top: 0;
+    margin-left: 72px;
+  }
 }
-
-// .text {
-//   display: flex;
-//   color: $black-color;
-//   font: $main-font;
-//   font-weight: 900;
-//   font-size: 55px;
-//   line-height: 1.177;
-//   margin-left: 20px;
-//   margin-bottom: 5px;
-//   letter-spacing: -0.01em;
-//   @include for-tablet {
-//     font-size: 70px;
-//     margin-left: 100px;
-//   }
-//   @include for-desktop {
-//     font-size: 100px;
-//     margin-top: 0px;
-//   }
-// }

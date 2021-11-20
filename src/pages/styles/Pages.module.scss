@@ -68,3 +68,41 @@
     }
   }
 }
+
+.main {
+  box-sizing: border-box;
+  padding-top: 142px;
+  @include for-tablet {
+    padding-top: 147px;
+  }
+  @include for-desktop {
+    padding-top: 174px;
+  }
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  max-width: 320px;
+  @include for-desktop {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 768px;
+  }
+  @include for-desktop {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+  }
+}
+
+.logo {
+  margin-bottom: 50px;
+  @include for-desktop {
+    margin-bottom: 0;
+  }
+}
