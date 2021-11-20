@@ -20,3 +20,11 @@ export const createTransaction = async (transactionType, transaction) => {
 export const deleteTransaction = async transactionId => {
   await axios.delete(`/transactions/${transactionId}`);
 };
+
+export const setBalanceApi = balance =>
+  axios
+    .patch(`/balance`, { balance })
+    .then(({ data }) => data)
+    .catch(error => {
+      throw error;
+    });
