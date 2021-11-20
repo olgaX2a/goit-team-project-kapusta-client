@@ -64,6 +64,9 @@
     display: flex;
     margin-right: auto;
   }
+  @include for-mobile-only {
+    order: 1;
+  }
 }
 
 .balanceLabel {
