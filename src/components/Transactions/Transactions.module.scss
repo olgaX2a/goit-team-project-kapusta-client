@@ -43,3 +43,11 @@
     padding-top: 33px;
   }
 }
+
+.homePageSummary {
+  @include for-desktop {
+    position: absolute;
+    left: 80%;
+    top: 18%;
+  }
+}
