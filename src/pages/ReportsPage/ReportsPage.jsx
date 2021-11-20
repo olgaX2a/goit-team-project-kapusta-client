@@ -49,6 +49,7 @@ function ReportsPage() {
   return (
     <>
       <Header />
+      <div className={pages.bg} />
       <main className={pages.pages}>
         <Container extraStyles={styles.report}>
           <div className={styles.firstRow}>
