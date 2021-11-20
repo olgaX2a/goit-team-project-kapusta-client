@@ -13,7 +13,7 @@ function PagesBg() {
       {isLoginOrRegister && (
         <>
           <div className={styles.grey} />
-          <div className={`${styles.kapusta} ${styles.report}`} />
+          <div className={`${styles.kapusta} ${styles.register}`} />
         </>
       )}
       {isReport && (
@@ -33,3 +33,5 @@ function PagesBg() {
 }
 
 export default PagesBg;
+
+// TODO: styles for register & login page
