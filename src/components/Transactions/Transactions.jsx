@@ -7,6 +7,7 @@ import { categoryGoods, categoryIncomes } from '../FormInfo/categoryForSelect';
 import FormInfo from '../FormInfo/FormInfo';
 import TableTransactions from '../TableTransactions/TableTransactions';
 import TableEmpty from '../TableTransactions/TableEmpty';
+import Summary from '../Summary/Summary';
 import s from './Transactions.module.scss';
 import { deleteTransaction, fetchTransactionsList } from '../../services/transactionsAPI';
 // import { transactionOperations } from '../../redux/transactions';
@@ -54,6 +55,9 @@ const Transactions = () => {
           {incomes && <TableTransactions transactions={incomes} />}
         </TabPanel>
       </Tabs>
+      <div className={s.homePageSummary}>
+        <Summary handelTab={tabIndex} />
+      </div>
     </div>
   );
 };

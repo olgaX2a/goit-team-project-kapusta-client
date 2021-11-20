@@ -25,8 +25,8 @@ function NextArrow({ onClick }) {
     </button>
   );
 }
-function Carousel({ data, startFrom, title, neverending, onShow, reverse }) {
-  const startIdx = startFrom ? data.indexOf(startFrom) : 0;
+function Carousel({ data, reverse, title, neverending, onShow }) {
+  const startIdx = reverse ? data.length - 1 : 0;
   const slickClass = styles.carousel;
 
   const slickSettings = {
@@ -37,15 +37,15 @@ function Carousel({ data, startFrom, title, neverending, onShow, reverse }) {
     slidesToShow: 1,
     slidesToScroll: 1,
     swipeToSlide: true,
-    rtl: reverse,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    afterChange(index) {
+    afterChange: index => {
+      console.log('data[index] :>> ', data[index]);
       onShow(data[index]);
     },
   };
 
-  if (data.length === 0) {
+  if (data.length <= 0) {
     return null;
   }
 

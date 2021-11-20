@@ -6,13 +6,12 @@
   font-size: 14px;
   line-height: 16px;
   text-align: center;
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   justify-content: space-between;
   width: 154px;
-  // height: 39px;
   p {
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
     margin: 0;
@@ -21,7 +20,7 @@
 
 .carousel {
   height: 20px;
-  display: flex;
+  display: flex !important;
   align-items: center;
   p {
     height: 100%;
@@ -38,12 +37,11 @@
   align-items: center;
   height: 100%;
   border: none;
-  color: $accent-color;
-
+  fill: $accent-color;
+  cursor: pointer;
   svg {
     width: 4px;
     height: 10px;
-    fill: $accent-color;
   }
 }
 
