@@ -34,6 +34,10 @@
     &.report {
       height: 592px;
     }
+    &.register {
+      height: 366px;
+      background-position: bottom 0 left 103px;
+    }
   }
   @include for-desktop {
     height: 296px;
@@ -45,6 +49,12 @@
       height: 541px;
       background-size: 220px 220px;
       background-position: top 321px left 10px;
+    }
+    &.register {
+      background-image: url('../../assets/kapusta-double-with-fill.svg');
+      height: 220px;
+      background-repeat: no-repeat;
+      background-position: bottom 0 left 230px;
     }
   }
 }

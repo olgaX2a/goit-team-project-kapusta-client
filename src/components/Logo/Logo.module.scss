@@ -1,0 +1,46 @@
+@use '../../components/shared/mixins' as *;
+@use '../../components/shared/variables' as *;
+
+.title {
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  text-transform: uppercase;
+  font-family: $main-font;
+  color: $dark-grey-color;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: 0.15em;
+
+  //   font-family: Roboto;
+  // font-size: 13px;
+  // font-style: normal;
+  // font-weight: 700;
+  // line-height: 15px;
+  // letter-spacing: 0.15em;
+  // text-align: left;
+}
+
+// .text {
+//   display: flex;
+//   color: $black-color;
+//   font: $main-font;
+//   font-weight: 900;
+//   font-size: 55px;
+//   line-height: 1.177;
+//   margin-left: 20px;
+//   margin-bottom: 5px;
+//   letter-spacing: -0.01em;
+//   @include for-tablet {
+//     font-size: 70px;
+//     margin-left: 100px;
+//   }
+//   @include for-desktop {
+//     font-size: 100px;
+//     margin-top: 0px;
+//   }
+// }
