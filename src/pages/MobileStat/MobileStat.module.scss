@@ -30,7 +30,9 @@
   border-radius: 0px 0px 0px 100px;
   height: 216px;
 }
-
+.calendarColor :global .react-datepicker__day--selected {
+  background-color: $accent-color;
+}
 .mobStatMenu {
   width: 254px;
   margin: 0 auto;

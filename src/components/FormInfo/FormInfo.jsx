@@ -7,6 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { transactionOperations } from '../../redux/transactions';
 import { ReactComponent as Calculator } from '../../assets/calculator.svg';
 import { ReactComponent as Calendar } from '../../assets/calendar.svg';
+import { createTransaction } from '../../services/transactionsAPI';
 import s from './FormInfo.module.scss';
 
 // eslint-disable-next-line react/prop-types
@@ -24,7 +25,7 @@ const FormInfo = ({ categories, text, transactionType }) => {
   const formatDate = `${day}.${month}.${year}`;
 
   const handleChange = e => {
-    const { name, value } = e.currentTarget;
+    const { name, value } = e.target;
 
     switch (name) {
       case 'description':
@@ -48,21 +49,21 @@ const FormInfo = ({ categories, text, transactionType }) => {
     setAmount('');
     setCategory('');
   };
-  const handleSubmit = e => {
+
+  const handleSubmit = async e => {
     e.preventDefault();
+    const resp = await createTransaction(transactionType, {
+      description,
+      amount,
+      category,
+      month,
+      day,
+      year,
+    });
 
-    dispatch(
-      transactionOperations.createTransaction({
-        description,
-        amount,
-        category,
-        month,
-        day,
-        year,
-        transactionType,
-      }),
-    );
-
+    if (resp) {
+      dispatch(transactionOperations.fetchTransactionsList());
+    }
     reset();
   };
 
@@ -70,14 +71,16 @@ const FormInfo = ({ categories, text, transactionType }) => {
     <div className={s.infoData}>
       <div className={s.containerDate}>
         <Calendar className={s.icon} width="20px" height="20px" />
-        <DatePicker
-          dateFormat="dd.MM.yyyy"
-          selected={startDate}
-          onChange={date => setStartDate(date)}
-          name="date"
-          value={formatDate}
-          className={s.date}
-        />
+        <div className={s.calendarColor}>
+          <DatePicker
+            dateFormat="dd.MM.yyyy"
+            selected={startDate}
+            onChange={date => setStartDate(date)}
+            name="date"
+            value={formatDate}
+            className={s.date}
+          />
+        </div>
       </div>
       <form className={s.form} onSubmit={handleSubmit}>
         <div className={s.inputFild}>
@@ -89,6 +92,7 @@ const FormInfo = ({ categories, text, transactionType }) => {
             value={description}
             onChange={handleChange}
           />
+
           <select
             className={s.selectCategory}
             name="category"
@@ -137,3 +141,32 @@ FormInfo.propType = {
 };
 
 export default FormInfo;
+
+// import Select from '@mui/material/Select';
+// import FormControl from '@mui/material/FormControl';
+// import InputLabel from '@mui/material/InputLabel';
+// import MenuItem from '@mui/material/MenuItem';
+// import Box from '@mui/material/Box';
+/* <Box sx={{ minWidth: 120 }}>
+  <FormControl fullWidth>
+    <InputLabel className={s.inputSelect} id="select-label">
+      {text}
+    </InputLabel>
+    <Select
+      className={s.Select}
+      autoWidth
+      // className={s.selectCategory}
+      labelId="select-label"
+      id="select-label"
+      value={category}
+      label={text}
+      onChange={handleChange}
+    >
+      {categories.map(({ name, id }) => (
+        <MenuItem key={id} value={name}>
+          {name}
+        </MenuItem>
+      ))}
+    </Select>
+  </FormControl>
+</Box>; */
