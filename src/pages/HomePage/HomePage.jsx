@@ -6,11 +6,8 @@ import Header from '../../components/Header/Header';
 import ToReports from '../../components/ToReports/ToReports';
 import Balance from '../../components/Balance/Balance';
 import Transactions from '../../components/Transactions/Transactions';
-import Summary from '../../components/Summary/Summary';
 import MobileBtnCont from '../../components/shared/MobileBtnCont/MobileBtnCont';
 // import Container from '../../components/shared/Container/Container';
-
-const testSummary = 'expense';
 
 function HomePageMarkUp() {
   return (
@@ -25,9 +22,6 @@ function HomePageMarkUp() {
         </div>
         <section className={styles.homePageTransactCont}>
           <Transactions />
-          <div className={styles.homePageSummary}>
-            <Summary typeTransaction={testSummary} />
-          </div>
         </section>
       </main>
       <footer className={styles.homePageFooter}>

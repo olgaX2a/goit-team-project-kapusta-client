@@ -18,6 +18,10 @@ export const getFormattedMonth = data => {
   }
   // eslint-disable-next-line array-callback-return
   data.map(({ totalResultAmount, reportMonth, reportYear }) => {
+    const currentYear = new Date().getFullYear();
+    if (reportYear !== currentYear) {
+      return;
+    }
     const date = new Date(reportYear, reportMonth - 1);
     obj = {
       id: nanoid(),
@@ -26,5 +30,18 @@ export const getFormattedMonth = data => {
     };
     result.push(obj);
   });
+  if (result.length <= 6) {
+    for (let i = result.length; i <= 5; i += 1) {
+      obj = {
+        id: nanoid(),
+        month: '',
+        total: '',
+      };
+      result.push(obj);
+    }
+  }
+  if (result.length > 6) {
+    result.splice(6);
+  }
   return result;
 };

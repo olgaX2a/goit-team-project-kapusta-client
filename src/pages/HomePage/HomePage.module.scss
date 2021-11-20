@@ -72,14 +72,6 @@
   }
 }
 
-.homePageSummary {
-  @include for-desktop {
-    position: absolute;
-    left: 80%;
-    top: 18%;
-  }
-}
-
 .homePageFooter {
   height: 53px;
   padding-top: 172px;
