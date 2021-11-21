@@ -2,6 +2,7 @@
 @use '../variables' as *;
 
 .container {
+  margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
   @include for-tablet {
