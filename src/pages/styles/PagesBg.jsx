@@ -12,7 +12,7 @@ function PagesBg() {
     <div className={styles.bg}>
       {isLoginOrRegister && (
         <>
-          <div className={styles.grey} />
+          <div className={`${styles.grey} ${styles.register}`} />
           <div className={`${styles.kapusta} ${styles.register}`} />
         </>
       )}
