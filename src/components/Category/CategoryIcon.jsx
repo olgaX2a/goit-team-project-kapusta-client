@@ -62,6 +62,9 @@ function CategoryIcon({ category }) {
           case expense.UTILITY_BILLS:
             return <UtilityBillsIcon />;
 
+          case 'Дополнительный доход':
+            return <ExtraIcon />;
+
           default:
             return null;
         }
