@@ -80,6 +80,7 @@
   }
 }
 .wrapper {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -87,10 +88,12 @@
   margin: 0 auto;
   margin-bottom: 40px;
   max-width: 320px;
-  @include for-desktop {
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 768px;
+  @include for-mobile-only {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  @include for-tablet {
+    max-width: 536px;
   }
   @include for-desktop {
     flex-direction: row;

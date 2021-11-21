@@ -33,5 +33,3 @@ function PagesBg() {
 }
 
 export default PagesBg;
-
-// TODO: styles for register & login page
