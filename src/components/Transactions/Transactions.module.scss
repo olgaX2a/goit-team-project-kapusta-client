@@ -7,6 +7,7 @@
 
 @media screen and (min-width: $tablet) {
   .tabsContainer {
+    position: relative;
     display: block;
   }
 
@@ -47,7 +48,7 @@
 .homePageSummary {
   @include for-desktop {
     position: absolute;
-    left: 80%;
-    top: 18%;
+    right: 17vh;
+    top: 20vh;
   }
 }

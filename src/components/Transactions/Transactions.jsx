@@ -54,10 +54,10 @@ const Transactions = () => {
           {incomes.length < 0 && <TableEmpty />}
           {incomes && <TableTransactions transactions={incomes} />}
         </TabPanel>
+        <div className={s.homePageSummary}>
+          <Summary handelTab={tabIndex} />
+        </div>
       </Tabs>
-      <div className={s.homePageSummary}>
-        <Summary handelTab={tabIndex} />
-      </div>
     </div>
   );
 };

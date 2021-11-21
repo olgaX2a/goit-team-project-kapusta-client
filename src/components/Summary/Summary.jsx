@@ -8,7 +8,7 @@ import styles from './Summary.module.scss';
 const fetchTransactionType = ['expense', 'income'];
 export default function Summary({ handelTab }) {
   const [summaryArr, setSummaryArr] = useState([]);
-  //  можно уличшить если будет время
+
   useEffect(() => {
     switch (handelTab) {
       case 0:

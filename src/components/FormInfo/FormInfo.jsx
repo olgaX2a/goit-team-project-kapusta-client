@@ -82,6 +82,7 @@ const FormInfo = ({ categories, text, transactionType }) => {
             name="date"
             value={formatDate}
             className={s.date}
+            maxDate={new Date()}
           />
         </div>
       </div>
