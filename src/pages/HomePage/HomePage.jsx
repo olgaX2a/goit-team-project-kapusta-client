@@ -1,5 +1,5 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from './HomePage.module.scss';
 import PagesBg from '../styles/PagesBg';
@@ -10,40 +10,70 @@ import Transactions from '../../components/Transactions/Transactions';
 import MobileBtnCont from '../../components/shared/MobileBtnCont/MobileBtnCont';
 import Container from '../../components/shared/Container/Container';
 import MobileTable from '../../components/MobileTable/MobileTable';
-import transactionSelectors from '../../redux/transactions/transactions-selector';
+import FormInfo from '../../components/FormInfo/FormInfo';
+import { categoryGoods, categoryIncomes } from '../../components/FormInfo/categoryForSelect';
+import { transactionSelectors } from '../../redux/transactions';
 import { useMediaQuery } from '../../components/hooks/useMediaQuery';
-import Summary from '../../components/Summary/Summary';
 
 function HomePageMarkUp() {
-  // eslint-disable-next-line no-undef
+  const [clickOn, setClickOn] = useState('');
+  const [toggleBtn, setToggleBtn] = useState(false);
   const transactions = useSelector(transactionSelectors.getTransactions);
   const isMatches = useMediaQuery('(min-width: 768px)');
+
+  useEffect(() => {
+    switch (clickOn) {
+      case 'expense':
+        setToggleBtn(true);
+        break;
+      case 'income':
+        setToggleBtn(true);
+        break;
+      default:
+        setToggleBtn(false);
+        break;
+    }
+  }, [clickOn]);
+  const handelBtn = e => {
+    setClickOn(e.target.dataset.type);
+    setToggleBtn(state => !state);
+  };
+
   return (
     <>
       <Header />
       <PagesBg />
       <main className={styles.main}>
-        <Container>
-          <div className={styles.homePageMenu}>
-            <Link to="/" className={styles.homePageToReports}>
-              <ToReports />
-            </Link>
-            <Balance />
-          </div>
-          {isMatches && (
-            <section className={styles.homePageTransactCont}>
-              <Transactions />
-            </section>
-          )}
-          {!isMatches && (
-            <div className={styles.mobileTableWrapper}>
-              <MobileTable transactions={transactions} />
+        {!toggleBtn && (
+          <Container>
+            <div className={styles.homePageMenu}>
+              <Link to="/" className={styles.homePageToReports}>
+                <ToReports />
+              </Link>
+              <Balance />
             </div>
-          )}
-        </Container>
+            {isMatches && (
+              <section className={styles.homePageTransactCont}>
+                <Transactions />
+              </section>
+            )}
+            {!isMatches && (
+              <div className={styles.mobileTableWrapper}>
+                <MobileTable transactions={transactions} />
+              </div>
+            )}
+          </Container>
+        )}
       </main>
+      {toggleBtn && (
+        <FormInfo
+          categories={clickOn === 'expense' ? categoryGoods : categoryIncomes}
+          text={clickOn === 'expense' ? 'Категория товара' : 'Категория дохода'}
+          transactionType={clickOn}
+        />
+      )}
       <div className={styles.mobileBtn}>
-        <MobileBtnCont />
+        <MobileBtnCont handelBtn={handelBtn} />
       </div>
     </>
   );
