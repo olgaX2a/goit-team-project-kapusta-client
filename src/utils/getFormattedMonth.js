@@ -32,7 +32,7 @@ export const getFormattedMonth = data => {
     result.push(obj);
   });
   if (result.length <= 6) {
-    for (let i = result.length; i <= 7; i += 1) {
+    for (let i = result.length; i <= 5; i += 1) {
       obj = {
         id: nanoid(),
         month: '',
