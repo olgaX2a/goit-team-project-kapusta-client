@@ -3,6 +3,7 @@
 
 @media screen and (min-width: $tablet) {
   .scrollTable {
+    display: inline-block;
     width: 605px;
     overflow: hidden;
     background-color: $white-color;
