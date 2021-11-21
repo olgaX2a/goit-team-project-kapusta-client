@@ -9,6 +9,7 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import { transactionOperations } from '../../redux/transactions';
+import { authOperations } from '../../redux/auth';
 import { ReactComponent as Calculator } from '../../assets/calculator.svg';
 import { ReactComponent as Calendar } from '../../assets/calendar.svg';
 import { createTransaction } from '../../services/transactionsAPI';
@@ -67,6 +68,7 @@ const FormInfo = ({ categories, text, transactionType }) => {
 
     if (resp) {
       dispatch(transactionOperations.fetchTransactionsList());
+      dispatch(authOperations.getBalance());
     }
     reset();
   };

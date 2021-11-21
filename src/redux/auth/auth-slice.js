@@ -56,7 +56,6 @@ const authSlice = createSlice({
       state.email = payload.data.userEmail;
       state.token = payload.data.token;
       state.isLoggedIn = true;
-      state.isRegistered = true;
       state.balance = payload.data.balance;
       state.isFetchingCurrentUser = false;
     },
@@ -71,12 +70,17 @@ const authSlice = createSlice({
       state.email = payload.data.userEmail;
       state.token = payload.data.token;
       state.isLoggedIn = true;
-      state.isRegistered = true;
       state.balance = payload.data.balance;
       state.isFetchingCurrentUser = false;
     },
     [authOperations.fetchGoogleUser.rejected](state) {
       state.isFetchingCurrentUser = false;
+    },
+    [authOperations.setBalance.fulfilled](state, { payload }) {
+      state.balance = payload.balance;
+    },
+    [authOperations.getBalance.fulfilled](state, { payload }) {
+      state.balance = payload.balance;
     },
   },
 });

@@ -8,7 +8,9 @@
   cursor: pointer;
   border: none;
   background-color: transparent;
-  margin-left: 22px;
+  @include for-mobile-only {
+    width: 100%;
+  }
 }
 
 .arrowText {
@@ -17,7 +19,6 @@
   line-height: 1.17;
   letter-spacing: 0.04em;
   color: $dark-grey-color;
-
   margin-left: 18px;
   opacity: 0;
   @include for-tablet {

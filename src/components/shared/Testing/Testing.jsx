@@ -19,13 +19,10 @@ import { TRANS_TYPES } from '../../../utils/transTypes';
 import LoginPageMarkUp from '../../../pages/LoginPage/LoginPage';
 import HomePageMarkUp from '../../../pages/HomePage/HomePage';
 // import Balance from '../../Balance/Balance';
-import Report from '../../../pages/report/Report';
 import Container from '../Container/Container';
 import ArrowToGoBack from '../ArrowToGoBack/ArrowToGoBack';
 import MobileBtnCont from '../MobileBtnCont/MobileBtnCont';
 import MobileInputMarkUp from '../../../pages/MobileInput/MobileInput';
-import MobileStatMarkUp from '../../../pages/MobileStat/MobileStat';
-import FormInfo from '../../FormInfo/FormInfo';
 
 function Testing() {
   return (

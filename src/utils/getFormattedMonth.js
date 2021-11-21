@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 const formatter = Intl.DateTimeFormat('ru', { month: 'long' });
 
 export const getFormattedMonth = data => {
+  console.log(data);
   let obj = {};
   const result = [];
   if (data.length === 0) {
@@ -39,9 +40,6 @@ export const getFormattedMonth = data => {
       };
       result.push(obj);
     }
-  }
-  if (result.length > 6) {
-    result.splice(6);
   }
   return result;
 };

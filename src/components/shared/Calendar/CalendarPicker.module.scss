@@ -1,5 +1,5 @@
-@use '../../components/shared/mixins' as *;
-@use '../../components/shared/variables' as *;
+@use '../mixins' as *;
+@use '../variables' as *;
 
 .icon {
   display: flex;
@@ -10,7 +10,6 @@
 }
 
 .containerDate {
-  margin-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,13 +32,15 @@
 .calendarColor :global .react-datepicker__day--selected {
   background-color: $accent-color;
 }
+.calendarColor :global .react-datepicker__day--keyboard-selected {
+  background-color: $accent-color;
+}
 .mobStatMenu {
   width: 254px;
   margin: 0 auto;
   padding-bottom: 20px;
   // justify-content: center;
 }
-//как выровнять по центру?????
 
 .mobStatTable {
   max-width: 310px;
@@ -48,4 +49,18 @@
 .mobileStatFooter {
   height: 53px;
   padding-top: 250px;
+}
+
+.calendarColor {
+  & input {
+    font-family: $main-font;
+    color: $dark-grey-color;
+    font-weight: 900;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
 }

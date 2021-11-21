@@ -2,26 +2,31 @@
 @use '../shared/mixins' as *;
 
 .report {
+  box-sizing: border-box;
   display: none;
   @include for-desktop {
     display: flex;
     margin-left: 15px;
-
     width: 125px;
     height: 44px;
     border: 2px solid $white-color;
     background-color: transparent;
-    border-radius: 22px;
+    border-radius: 16px;
     color: rgba(82, 85, 95, 0.7);
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     cursor: pointer;
-
     text-align: center;
     align-items: center;
     justify-content: center;
+    &:hover,
+    &:focus {
+      background-color: $accent-color;
+      color: $main-bg-color;
+      transition: 0.5s linear;
+    }
   }
 }
 
@@ -31,28 +36,29 @@
 }
 
 .balanceInputReport {
-  width: 183px;
-  height: 30px;
-  background-color: transparent;
-  border: solid 2px $white-color;
-  border-radius: 22px;
+  box-sizing: border-box;
+  display: flex;
+  margin-top: 0;
+  margin-bottom: 0;
   text-align: center;
   align-items: center;
   justify-content: center;
   color: $black-color;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-top: 10px;
+  width: 180px;
+  height: 44px;
+  border: 2px solid $white-color;
+  background-color: transparent;
+  border-radius: 22px;
+  font-weight: 700;
+  outline: none;
   @include for-tablet {
-    margin-left: 21px;
+    border-radius: 16px;
     width: 125px;
-    height: 27px;
-    padding-top: 13px;
   }
 }
 
 .balanceForm {
-  display: table-footer-group;
+  display: flex;
   width: 100%;
   font-size: 12px;
   font-weight: 500;
@@ -61,7 +67,6 @@
   letter-spacing: 0.02em;
   color: rgba(82, 85, 95, 0.7);
   @include for-tablet {
-    display: flex;
     margin-right: auto;
   }
   @include for-mobile-only {
@@ -70,6 +75,15 @@
 }
 
 .balanceLabel {
+  color: $dark-grey-color;
+  font-family: $main-font;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
   position: relative;
   display: block;
   text-align: center;
@@ -77,7 +91,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 30px;
-  padding-top: 30px;
+  padding-top: 40px;
   @include for-tablet {
     display: flex;
     align-items: baseline;
@@ -142,12 +156,12 @@
   @include for-desktop {
     margin-left: 0px;
   }
-}
-
-.balanceButton:hover {
-  background-color: #cfd1d4;
-  color: $main-bg-color;
-  transition: 0.5s linear;
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    color: $main-bg-color;
+    transition: 0.5s linear;
+  }
 }
 
 .buttonsGroup {
@@ -155,6 +169,7 @@
   margin-top: 12px;
   @include for-tablet {
     margin-top: 0px;
+    margin-left: 20px;
   }
 }
 
@@ -162,4 +177,14 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.balanceFormReport {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include for-mobile-only {
+    order: 1;
+  }
 }

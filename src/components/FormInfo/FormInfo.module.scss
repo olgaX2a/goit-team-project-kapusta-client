@@ -29,7 +29,7 @@ input {
 
 .sum {
   border: none;
-  height: 44px;
+  // height: 44px;
   border-radius: 22px 0px 0px 22px;
   font-weight: 400;
   font-size: 12px;
@@ -106,15 +106,15 @@ input {
 
 @media screen and (min-width: $mobile) and (max-width: 767px) {
   .description {
-    height: 44px;
+    // height: 44px;
   }
   .inputFild {
     display: flex;
     flex-direction: column;
   }
-  .selectCategory {
-    height: 44px;
-  }
+  // .selectCategory {
+  //   height: 44px;
+  // }
 
   .containerSum {
     // width: 170px;
@@ -190,7 +190,7 @@ input {
   .sum {
     border-radius: 0px 16px 16px 0px;
     width: 90px;
-    height: 44px;
+    // height: 44px;
   }
   .separator {
     display: none;
