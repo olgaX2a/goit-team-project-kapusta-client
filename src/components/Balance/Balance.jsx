@@ -2,32 +2,27 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import NumberFormat from 'react-number-format';
-import styles from './Balance.module.scss';
+import { authSelectors, authOperations } from '../../redux/auth';
 import Notification from '../shared/Notification/Notification';
-import { authSelectors } from '../../redux/auth';
-import balanceOperations from '../../redux/balance/balance-operations';
+import styles from './Balance.module.scss';
 
 const Balance = () => {
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(authOperations.fetchCurrentUser());
-  // }, [dispatch]);
-
   const balance = useSelector(authSelectors.getUserBalance);
   const [newBalance, setNewBalance] = useState(balance);
 
   const location = useLocation();
   const isReportPage = location.pathname === '/reports';
-
   const [notificationOpen, setNotificationOpen] = useState(true);
+
+  // useEffect(() => {
+  //   dispatch(authOperations.fetchCurrentUser());
+  // }, [dispatch]);
 
   const updateBalance = e => {
     e.preventDefault();
     console.log('newBalance :>> ', newBalance);
-    // const newBalance = e.target.balance.value;
-    // dispatch(balanceOperations.setBalanceOperation(newBalance));
-    // console.log(newBalance);
+    dispatch(authOperations.setBalance({ balance: Number(newBalance) }));
   };
 
   const removeNotification = () => {

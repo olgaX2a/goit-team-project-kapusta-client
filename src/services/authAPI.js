@@ -20,3 +20,8 @@ export const fetchCurrentUser = async () => {
   const response = axios.get('/users/current');
   return response;
 };
+
+export const setBalance = async balance => {
+  const response = await axios.patch('/users/balance', balance);
+  return response;
+};
