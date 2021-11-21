@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-
+import NumberFormat from 'react-number-format';
 import styles from './Balance.module.scss';
 import Notification from '../shared/Notification/Notification';
 import { authSelectors } from '../../redux/auth';
@@ -15,6 +15,7 @@ const Balance = () => {
   // }, [dispatch]);
 
   const balance = useSelector(authSelectors.getUserBalance);
+  const [newBalance, setNewBalance] = useState(balance);
 
   const location = useLocation();
   const isReportPage = location.pathname === '/reports';
@@ -23,8 +24,9 @@ const Balance = () => {
 
   const updateBalance = e => {
     e.preventDefault();
-    const newBalance = e.target.balance.value;
-    dispatch(balanceOperations.setBalanceOperation(newBalance));
+    console.log('newBalance :>> ', newBalance);
+    // const newBalance = e.target.balance.value;
+    // dispatch(balanceOperations.setBalanceOperation(newBalance));
     // console.log(newBalance);
   };
 
@@ -32,8 +34,11 @@ const Balance = () => {
     setNotificationOpen(false);
   };
 
+  const handleChange = e => {
+    setNewBalance(e.value);
+  };
+
   return (
-    // <div className={!isReportPage ? styles.cont : styles.contReport} />
     <form
       className={!isReportPage ? styles.balanceForm : styles.balanceFormReport}
       onSubmit={updateBalance}
@@ -41,17 +46,17 @@ const Balance = () => {
       <label htmlFor="balance" className={styles.balanceLabel}>
         Баланс:
         <div className={styles.buttonsGroup}>
-          {balance === 0 && <Notification onClick={removeNotification} />}
-          <input
-            type="number"
-            step="0.01"
-            name="balance"
-            maxLength="10"
-            placeholder="00.00"
-            value={balance}
-            onChange={removeNotification}
+          {newBalance === 0 && <Notification onClick={removeNotification} />}
+          <NumberFormat
+            value={newBalance}
+            thousandSeparator={' '}
+            decimalSeparator="."
+            decimalScale={2}
+            fixedDecimalScale
+            suffix=" UAH"
+            displayType="input"
+            onValueChange={handleChange}
             className={!isReportPage ? styles.balanceInput : styles.balanceInputReport}
-            autoComplete="off"
           />
           <button className={!isReportPage ? styles.balanceButton : styles.report} type="submit">
             подтвердить
