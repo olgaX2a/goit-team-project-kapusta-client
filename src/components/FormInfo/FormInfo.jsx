@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-boolean-value */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -99,16 +100,13 @@ const FormInfo = ({ categories, text, transactionType }) => {
             value={description}
             onChange={handleChange}
           />
-          {/* <div> */}
-
-          <FormControl>
-            <InputLabel className={s.inputSelect} id="select-label">
+          <FormControl className={s.formControl}>
+            <InputLabel className={s.InputSelect} id="select-label">
               {text}
             </InputLabel>
             <Select
               className={s.select}
               autoWidth
-              // className={s.selectCategory}
               labelId="select-label"
               id="select"
               value={category}
@@ -121,21 +119,6 @@ const FormInfo = ({ categories, text, transactionType }) => {
               ))}
             </Select>
           </FormControl>
-
-          {/* <select
-            name="category"
-            onChange={handleChange}
-            value={category}
-            className={s.selectCategory}
-          >
-            <option>{text}</option>
-            {categories.map(({ name, id }) => (
-              <option key={id} value={name}>
-                {name}
-              </option>
-            ))}
-          </select> */}
-          {/* </div> */}
 
           <div className={s.containerSum}>
             <input
