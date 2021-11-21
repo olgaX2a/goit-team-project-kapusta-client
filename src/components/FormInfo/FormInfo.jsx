@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { transactionOperations } from '../../redux/transactions';
-import { authOperations } from '../../redux/auth';
+import { authOperations, authSelectors } from '../../redux/auth';
 import { ReactComponent as Calculator } from '../../assets/calculator.svg';
 import { ReactComponent as Calendar } from '../../assets/calendar.svg';
 import { createTransaction } from '../../services/transactionsAPI';
@@ -64,8 +64,7 @@ const FormInfo = ({ categories, text, transactionType }) => {
 
     if (resp) {
       dispatch(transactionOperations.fetchTransactionsList());
-      // BETTER WOULD BE TO CREATE A NEW OPERATION getBalance - WE NEED SOME HELP FROM BACK
-      dispatch(authOperations.fetchCurrentUser());
+      dispatch(authOperations.getBalance());
     }
     reset();
   };

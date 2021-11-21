@@ -25,3 +25,8 @@ export const setBalance = async balance => {
   const response = await axios.patch('/users/balance', balance);
   return response;
 };
+
+export const getBalance = async () => {
+  const response = await axios.get('/users/balance');
+  return response;
+};
