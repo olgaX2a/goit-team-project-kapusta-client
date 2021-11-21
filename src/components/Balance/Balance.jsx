@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import NumberFormat from 'react-number-format';
 import { authSelectors, authOperations } from '../../redux/auth';
@@ -15,9 +15,9 @@ const Balance = () => {
   const isReportPage = location.pathname === '/reports';
   const [notificationOpen, setNotificationOpen] = useState(true);
 
-  // useEffect(() => {
-  //   dispatch(authOperations.fetchCurrentUser());
-  // }, [dispatch]);
+  useEffect(() => {
+    setNewBalance(balance);
+  }, [balance]);
 
   const updateBalance = e => {
     e.preventDefault();
