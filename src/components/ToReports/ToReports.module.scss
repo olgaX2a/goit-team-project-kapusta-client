@@ -2,12 +2,13 @@
 
 .container {
   display: flex;
+  box-sizing: border-box;
   flex-direction: row;
   align-items: center;
-  padding: 5px 5px 5px 0;
+  padding: 5px;
   align-items: flex-end;
-  width: fit-content;
-  text-decoration: none;
+  width: 160px;
+  text-decoration: none !important;
   color: $dark-grey-color;
   fill: $dark-grey-color;
   &:hover,
