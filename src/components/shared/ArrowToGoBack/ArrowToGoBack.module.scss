@@ -8,6 +8,9 @@
   cursor: pointer;
   border: none;
   background-color: transparent;
+  @include for-mobile-only {
+    width: 100%;
+  }
 }
 
 .arrowText {

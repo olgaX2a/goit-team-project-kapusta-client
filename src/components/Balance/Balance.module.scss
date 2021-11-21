@@ -184,4 +184,7 @@ input::-webkit-inner-spin-button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @include for-mobile-only {
+    order: 1;
+  }
 }
