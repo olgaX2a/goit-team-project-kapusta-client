@@ -64,9 +64,6 @@ function App() {
             <PublicRoute path="/google-redirect">
               <GoogleRedirectPage />
             </PublicRoute>
-            <PublicRoute path="/testing">
-              <Testing />
-            </PublicRoute>
             <PublicRoute>
               <NotFoundPage />
             </PublicRoute>
