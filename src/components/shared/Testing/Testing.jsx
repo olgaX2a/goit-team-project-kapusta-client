@@ -25,6 +25,7 @@ import ArrowToGoBack from '../ArrowToGoBack/ArrowToGoBack';
 import MobileBtnCont from '../MobileBtnCont/MobileBtnCont';
 import MobileInputMarkUp from '../../../pages/MobileInput/MobileInput';
 import MobileStatMarkUp from '../../../pages/MobileStat/MobileStat';
+import FormInfo from '../../FormInfo/FormInfo';
 
 function Testing() {
   return (
@@ -36,6 +37,7 @@ function Testing() {
       {/* <Report /> */}
       {/* <MobileBtnCont /> */}
       <MobileInputMarkUp />
+
       {/* <MobileStatMarkUp /> */}
     </div>
   );
