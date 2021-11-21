@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from './HomePage.module.scss';
@@ -13,11 +13,17 @@ import MobileTable from '../../components/MobileTable/MobileTable';
 import transactionSelectors from '../../redux/transactions/transactions-selector';
 import { useMediaQuery } from '../../components/hooks/useMediaQuery';
 import Summary from '../../components/Summary/Summary';
+import CalendarPicker from '../../components/shared/Calendar/CalendarPicker';
 
 function HomePageMarkUp() {
-  // eslint-disable-next-line no-undef
+  const [date, setDate] = useState(new Date());
   const transactions = useSelector(transactionSelectors.getTransactions);
   const isMatches = useMediaQuery('(min-width: 768px)');
+
+  const handleDateSelection = day => {
+    setDate(day);
+  };
+
   return (
     <>
       <Header />
@@ -29,6 +35,11 @@ function HomePageMarkUp() {
               <ToReports />
             </Link>
             <Balance />
+            {!isMatches && (
+              <div className={styles.calendar}>
+                <CalendarPicker onSelect={handleDateSelection} />
+              </div>
+            )}
           </div>
           {isMatches && (
             <section className={styles.homePageTransactCont}>
