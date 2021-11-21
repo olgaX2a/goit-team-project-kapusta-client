@@ -98,3 +98,14 @@ export const setBalance = createAsyncThunk(
     }
   },
 );
+
+export const getBalance = createAsyncThunk('auth/getBalance', async (_, { rejectWithValue }) => {
+  try {
+    const { data } = await authAPI.getBalance();
+    console.log('operation balance:', data);
+    return data;
+  } catch (error) {
+    console.log(error.response.data.message);
+    return rejectWithValue(error.message);
+  }
+});
