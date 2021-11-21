@@ -85,3 +85,16 @@ export const fetchGoogleUser = createAsyncThunk(
     }
   },
 );
+
+export const setBalance = createAsyncThunk(
+  'auth/setBalance',
+  async (balance, { rejectWithValue }) => {
+    try {
+      const { data } = await authAPI.setBalance(balance);
+      return data;
+    } catch (error) {
+      console.log(error.response.data.message);
+      return rejectWithValue(error.message);
+    }
+  },
+);

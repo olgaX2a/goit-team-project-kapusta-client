@@ -78,6 +78,9 @@ const authSlice = createSlice({
     [authOperations.fetchGoogleUser.rejected](state) {
       state.isFetchingCurrentUser = false;
     },
+    [authOperations.setBalance.fulfilled](state, { payload }) {
+      state.balance = payload.balance;
+    },
   },
 });
 
