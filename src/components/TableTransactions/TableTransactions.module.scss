@@ -14,6 +14,9 @@
     font-family: $main-font;
     border: 2px solid #f5f6fb;
     border-top: none;
+    @include for-desktop {
+      width: 760px;
+    }
   }
   .scrollTable table {
     width: 100%;
@@ -24,7 +27,7 @@
     text-transform: uppercase;
     background: $main-bg-color;
     font-size: 14px;
-    padding: 10px 15px;
+    padding: 10px 10px;
     outline: 1px solid #f5f6fb;
   }
 
@@ -44,23 +47,51 @@
 
   .date {
     width: 84px;
+    @include for-desktop {
+      width: 100px;
+    }
   }
   .description {
     width: 168px;
+    @include for-desktop {
+      width: 220px;
+    }
   }
   .category {
     width: 130px;
-    text-align: center;
+    text-align: center !important;
   }
   .sum {
-    width: 104px;
+    width: 130px;
+    text-align: center !important;
+    @include for-desktop {
+      width: 207px;
+    }
   }
+
+  .transactionDate {
+    width: 84px;
+    @include for-desktop {
+      width: 105px;
+    }
+  }
+  .transactionDescription {
+    width: 168px;
+    @include for-desktop {
+      width: 220px;
+    }
+  }
+  .transactionCategory {
+    width: 130px;
+    text-align: center;
+  }
+
   .sumContainer {
     font-weight: 700;
     font-size: 12px;
     line-height: 14px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin-right: 10px;
   }
@@ -73,7 +104,6 @@
   .buttonDelete {
     border: none;
     background-color: $white-color;
-    margin-left: auto;
     padding: 0;
   }
   .buttonIcon {
@@ -109,7 +139,7 @@
 
 @media screen and (min-width: $desktop) {
   .table {
-    width: 730px;
+    width: 760px;
   }
   .buttonDelete {
     border: none;

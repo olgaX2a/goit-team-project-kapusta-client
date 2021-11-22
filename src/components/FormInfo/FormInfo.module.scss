@@ -61,6 +61,9 @@ input {
   line-height: 1.166;
   letter-spacing: 0.02em;
   color: $dark-grey-color;
+  &:focus {
+    outline: none;
+  }
   &::placeholder {
     font-weight: 400;
     color: #c7ccdc;
@@ -80,6 +83,9 @@ input {
   letter-spacing: 0.02em;
   text-align: center;
   color: $dark-grey-color;
+  &:focus {
+    outline: none;
+  }
   &::placeholder {
     color: #c7ccdc;
   }
