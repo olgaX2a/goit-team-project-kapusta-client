@@ -1,5 +1,5 @@
 const SALARY = 'ЗП';
-const EXTRA = 'Доп.доход';
+const EXTRA = 'Доп. доход';
 
 export default {
   SALARY,
