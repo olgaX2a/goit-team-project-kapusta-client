@@ -32,10 +32,6 @@ const GoogleRedirectPage = lazy(() =>
   ),
 );
 
-const Testing = lazy(() =>
-  import('./components/shared/Testing/Testing' /* webpackChunkName: "testing-page" */),
-);
-
 function App() {
   const dispatch = useDispatch();
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrentUser);

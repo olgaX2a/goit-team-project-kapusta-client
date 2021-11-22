@@ -37,13 +37,13 @@ const TableTransactions = ({ transactions }) => {
             {transactions.map(
               ({ description, amount, category, day, month, year, _id, transactionType }) => (
                 <tr key={_id} className={s.row}>
-                  <td className={s.date}>
+                  <td className={s.transactionDate}>
                     {day}.{month}.{year}
                   </td>
-                  <td className={s.description}>
+                  <td className={s.transactionDescription}>
                     <EllipsisText tooltip="true" text={description} length={25} />
                   </td>
-                  <td className={s.category}>{category}</td>
+                  <td className={s.transactionCategory}>{category}</td>
                   <td className={s.sumContainer}>
                     {transactionType === INCOME ? (
                       <span className={s.income}>

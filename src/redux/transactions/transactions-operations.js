@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 import * as TransactionAPI from '../../services/transactionsAPI';
 
 const fetchTransactionsList = createAsyncThunk(
@@ -9,6 +10,7 @@ const fetchTransactionsList = createAsyncThunk(
 
       return transactions;
     } catch (error) {
+      toast.error('Что-то пошло не так. Попробуйте еще раз.');
       return rejectWithValue(error.message);
     }
   },
@@ -18,9 +20,9 @@ const fetchExpensesList = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const expenses = await TransactionAPI.fetchTransactionsTypesList('expense');
-
       return expenses.data;
     } catch (error) {
+      toast.error('Что-то пошло не так. Попробуйте еще раз.');
       return rejectWithValue(error.message);
     }
   },
@@ -34,6 +36,7 @@ const fetchIncomesList = createAsyncThunk(
 
       return incomes.data;
     } catch (error) {
+      toast.error('Что-то пошло не так. Попробуйте еще раз.');
       return rejectWithValue(error.message);
     }
   },
@@ -44,9 +47,9 @@ const createTransaction = createAsyncThunk(
   async (transaction, { rejectWithValue }) => {
     try {
       const data = await TransactionAPI.createTransaction(transaction.transactionType, transaction);
-
       return data;
     } catch (error) {
+      toast.error('Пожалуйста, заполните все поля.');
       return rejectWithValue(error.message);
     }
   },
@@ -56,9 +59,9 @@ const deleteTransaction = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       await TransactionAPI.deleteTransaction(id);
-
       return id;
     } catch (error) {
+      toast.error('Что-то пошло не так. Попробуйте еще раз.');
       return rejectWithValue(error.message);
     }
   },
