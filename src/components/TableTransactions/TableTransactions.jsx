@@ -6,6 +6,7 @@ import { ReactComponent as Delete } from '../../assets/delete.svg';
 import { INCOME } from '../../utils/transTypes';
 import { deleteTransaction } from '../../services/transactionsAPI';
 import { transactionOperations } from '../../redux/transactions';
+import { authOperations, authSelectors } from '../../redux/auth';
 import EmptyRow from './emptyRow';
 
 import s from './TableTransactions.module.scss';
@@ -15,6 +16,7 @@ const TableTransactions = ({ transactions }) => {
   const onDeleteTransaction = async id => {
     await deleteTransaction(id);
     dispatch(transactionOperations.fetchTransactionsList());
+    dispatch(authOperations.getBalance());
   };
 
   return (

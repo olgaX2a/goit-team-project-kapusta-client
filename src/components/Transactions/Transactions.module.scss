@@ -27,10 +27,14 @@
     letter-spacing: 0.02em;
     text-transform: uppercase;
     padding: 10px 20px 10px 20px;
+    width: 138px;
+    border: transparent;
+    background-color: #fafbfd;
   }
 
   .tabsContainer :global .react-tabs__tab--selected {
     color: $accent-color;
+    background-color: #fefefe;
   }
   .tabsContainer :global .react-tabs__tab-panel {
     background-color: $active-tab-color;

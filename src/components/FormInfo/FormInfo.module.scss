@@ -5,27 +5,46 @@ input {
   padding: 0;
 }
 .form {
-  font: $main-font;
+  font-family: $main-font;
   display: flex;
   flex-direction: column;
+}
+
+.menuItem {
+  font-family: $main-font !important;
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  line-height: 1, 7 !important;
+  text-align: center !important;
+  letter-spacing: 0.02em !important;
+  color: #505568 !important;
+}
+.InputSelect {
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  line-height: 1, 7 !important;
+  letter-spacing: 0.02em !important;
+  text-align: center;
 }
 
 .description {
   border-radius: 16px 16px 0px 0px;
   padding-left: 20px;
   border: 2px solid #f5f6fb;
-}
-.selectCategory {
-  border-radius: 0px 0px 16px 16px;
-  margin-bottom: 30px;
-  padding-left: 20px;
-  border: 2px solid #f5f6fb;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1, 7;
+  letter-spacing: 0.02em;
 }
 
 .sum {
   border: none;
-  height: 44px;
   border-radius: 22px 0px 0px 22px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1, 7;
+  letter-spacing: 0.02em;
+  text-align: center;
 }
 .containerSum {
   margin-left: 30px;
@@ -35,7 +54,6 @@ input {
   align-items: center;
   padding-right: 12px;
   padding-left: 15px;
-  height: 44px;
   border-radius: 16px;
   background-color: #fff;
 }
@@ -59,6 +77,9 @@ input {
   margin-left: 10px;
 }
 .calendarColor :global .react-datepicker__day--selected {
+  background-color: $accent-color;
+}
+.calendarColor :global .react-datepicker__day--keyboard-selected {
   background-color: $accent-color;
 }
 .formButton {
@@ -93,17 +114,30 @@ input {
 }
 
 @media screen and (min-width: $mobile) and (max-width: 767px) {
+  .form {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .formControl {
+    width: 282px !important;
+  }
   .description {
+    width: 260px;
     height: 44px;
   }
   .inputFild {
     display: flex;
     flex-direction: column;
   }
-  .selectCategory {
-    height: 44px;
+  .select {
+    margin-top: 0;
+    margin-bottom: 30px;
+    background-color: #ffffff;
+    border-radius: 0px 0px 16px 0px;
   }
-
+  .menuItem {
+    width: 180px !important;
+  }
   .containerSum {
     width: 170px;
   }
@@ -113,13 +147,38 @@ input {
     background-color: #f5f6fb;
     margin-right: 15px;
   }
+  .sum {
+    height: 44px;
+    text-align: center;
+    width: 120px;
+  }
+  .containerSum {
+    width: 170px;
+    margin-bottom: 83px;
+  }
 }
 
 @media screen and (min-width: $tablet) {
-  .form {
-    flex-direction: row;
-    flex-wrap: wrap;
+  .select {
+    width: 150px !important;
   }
+  .menuItem {
+    width: 180px !important;
+    font-family: $main-font !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    line-height: 1, 7 !important;
+    text-align: center !important;
+    letter-spacing: 0.02em !important;
+    color: #505568 !important;
+  }
+  .InputSelect {
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    line-height: 1, 7 !important;
+    letter-spacing: 0.02em !important;
+  }
+
   .inputFild {
     display: flex;
     margin-bottom: 30px;
@@ -135,9 +194,8 @@ input {
     border-radius: 16px 0px 0px 0px;
     margin: 0;
   }
-  .selectCategory {
-    margin: 0;
-    border-radius: 0px 0px 0px 0px;
+  .sum {
+    height: 44px;
   }
   .containerSum {
     margin-left: 0;
@@ -160,7 +218,8 @@ input {
 
 @media screen and (min-width: $desktop) {
   .form {
-    flex-wrap: nowrap;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
   .formButton {
     margin-left: 30px;
@@ -175,10 +234,9 @@ input {
     margin-bottom: 25px;
     margin-right: 25px;
   }
-  .description {
-    width: 240px;
-  }
+
   .sum {
-    width: 100px;
+    width: 80px;
+    height: 44px;
   }
 }

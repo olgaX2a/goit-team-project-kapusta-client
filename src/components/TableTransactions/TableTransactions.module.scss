@@ -12,6 +12,7 @@
     border-bottom: 3px solid $main-bg-color;
     font-family: $main-font;
     border: 2px solid #f5f6fb;
+    border-top: none;
   }
   .scrollTable table {
     width: 100%;
@@ -48,6 +49,7 @@
   }
   .category {
     width: 130px;
+    text-align: center;
   }
   .sum {
     width: 104px;

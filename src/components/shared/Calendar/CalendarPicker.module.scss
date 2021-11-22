@@ -32,6 +32,9 @@
 .calendarColor :global .react-datepicker__day--selected {
   background-color: $accent-color;
 }
+.calendarColor :global .react-datepicker__day--keyboard-selected {
+  background-color: $accent-color;
+}
 .mobStatMenu {
   width: 254px;
   margin: 0 auto;

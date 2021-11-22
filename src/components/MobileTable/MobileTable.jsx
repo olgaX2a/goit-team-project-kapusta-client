@@ -5,13 +5,17 @@ import PropTypes from 'prop-types';
 import { ReactComponent as Delete } from '../../assets/delete.svg';
 import { INCOME } from '../../utils/transTypes';
 import { normalizeSum } from '../../utils/normalize';
+import { deleteTransaction } from '../../services/transactionsAPI';
 import { transactionOperations } from '../../redux/transactions';
 import s from './MobileTable.module.scss';
 
 // eslint-disable-next-line arrow-body-style
 const MobileTable = ({ transactions }) => {
   const dispatch = useDispatch();
-  const onDeleteTransaction = id => dispatch(transactionOperations.deleteTransaction(id));
+  const onDeleteTransaction = async id => {
+    await deleteTransaction(id);
+    dispatch(transactionOperations.fetchTransactionsList());
+  };
   return (
     <ul className={s.list}>
       {transactions.map(

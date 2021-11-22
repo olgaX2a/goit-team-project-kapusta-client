@@ -1,11 +1,16 @@
+/* eslint-disable react/jsx-boolean-value */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import Select from '@mui/material/Select';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
 import { transactionOperations } from '../../redux/transactions';
-import { authOperations, authSelectors } from '../../redux/auth';
+import { authOperations } from '../../redux/auth';
 import { ReactComponent as Calculator } from '../../assets/calculator.svg';
 import { ReactComponent as Calendar } from '../../assets/calendar.svg';
 import { createTransaction } from '../../services/transactionsAPI';
@@ -21,20 +26,20 @@ const FormInfo = ({ categories, text, transactionType }) => {
   const dispatch = useDispatch();
 
   const day = startDate.getDate();
+
   const month = startDate.getMonth() + 1;
   const year = startDate.getFullYear();
   const formatDate = `${day}.${month}.${year}`;
 
+  const selectChange = e => {
+    setCategory(e.target.value);
+  };
   const handleChange = e => {
     const { name, value } = e.target;
 
     switch (name) {
       case 'description':
         setDescription(value);
-        break;
-
-      case 'category':
-        setCategory(value);
         break;
 
       case 'amount':
@@ -95,20 +100,25 @@ const FormInfo = ({ categories, text, transactionType }) => {
             value={description}
             onChange={handleChange}
           />
-
-          <select
-            className={s.selectCategory}
-            name="category"
-            onChange={handleChange}
-            value={category}
-          >
-            <option>{text}</option>
-            {categories.map(({ name, id }) => (
-              <option key={id} value={name}>
-                {name}
-              </option>
-            ))}
-          </select>
+          <FormControl className={s.formControl}>
+            <InputLabel className={s.InputSelect} id="select-label">
+              {text}
+            </InputLabel>
+            <Select
+              className={s.select}
+              autoWidth
+              labelId="select-label"
+              id="select"
+              value={category}
+              onChange={selectChange}
+            >
+              {categories.map(({ name, id }) => (
+                <MenuItem key={id} value={name} className={s.menuItem}>
+                  {name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
 
           <div className={s.containerSum}>
             <input

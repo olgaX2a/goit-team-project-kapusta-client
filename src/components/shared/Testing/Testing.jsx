@@ -34,6 +34,7 @@ function Testing() {
       {/* <Report /> */}
       {/* <MobileBtnCont /> */}
       <MobileInputMarkUp />
+
       {/* <MobileStatMarkUp /> */}
     </div>
   );
