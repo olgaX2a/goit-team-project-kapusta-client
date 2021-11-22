@@ -9,6 +9,7 @@ import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
+import { makeStyles } from '@mui/styles';
 import { transactionOperations } from '../../redux/transactions';
 import { authOperations } from '../../redux/auth';
 import { ReactComponent as Calculator } from '../../assets/calculator.svg';
@@ -16,12 +17,25 @@ import { ReactComponent as Calendar } from '../../assets/calendar.svg';
 import { createTransaction } from '../../services/transactionsAPI';
 import s from './FormInfo.module.scss';
 
+const useStyles = makeStyles({
+  categoryListItem: {
+    width: '150px',
+    fontFamily: 'Roboto',
+    fontWeight: 400,
+    fontSize: '12px',
+    lineHeight: 1.166,
+    letterSpacing: '0.02em',
+    color: '#c7ccdc',
+  },
+});
+
 // eslint-disable-next-line react/prop-types
 const FormInfo = ({ categories, text, transactionType }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [description, setDescription] = useState('');
   const [amount, setAmount] = useState('');
   const [category, setCategory] = useState('');
+  const classes = useStyles();
 
   const dispatch = useDispatch();
 
@@ -114,7 +128,7 @@ const FormInfo = ({ categories, text, transactionType }) => {
               onChange={selectChange}
             >
               {categories.map(({ name, id }) => (
-                <MenuItem key={id} value={name} className={s.menuItem}>
+                <MenuItem key={id} value={name} className={classes.categoryListItem}>
                   {name}
                 </MenuItem>
               ))}

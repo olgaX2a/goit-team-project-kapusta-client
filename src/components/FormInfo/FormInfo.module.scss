@@ -1,6 +1,14 @@
 @use '../shared/mixins' as *;
 @use '../shared/variables' as *;
 
+fieldset {
+  border-radius: 0% !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: 2px solid #f5f6fb !important;
+  border-bottom: 2px solid #f5f6fb !important;
+}
+
 input {
   padding: 0;
 }
@@ -19,26 +27,25 @@ input {
   font-family: $main-font !important;
   font-weight: 400 !important;
   font-size: 12px !important;
-  line-height: 1, 7 !important;
-  text-align: center !important;
+  line-height: 1.166 !important;
   letter-spacing: 0.02em !important;
-  color: #505568 !important;
+  color: #c7ccdc !important;
 }
 .menuItem {
   font-family: $main-font !important;
   font-weight: 400 !important;
   font-size: 12px !important;
-  line-height: 1, 7 !important;
-  text-align: center !important;
+  line-height: 1.166 !important;
   letter-spacing: 0.02em !important;
-  color: #505568 !important;
+  color: #c7ccdc !important;
 }
+
 .InputSelect {
   font-weight: 400 !important;
   font-size: 12px !important;
   line-height: 1, 7 !important;
   letter-spacing: 0.02em !important;
-  text-align: center;
+  text-align: center !important;
 }
 .MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
   transform: none !important;
@@ -48,20 +55,34 @@ input {
   border-radius: 16px 16px 0px 0px;
   padding-left: 20px;
   border: 2px solid #f5f6fb;
-  font-weight: 400;
+  font-family: $main-font;
+  font-weight: 700;
   font-size: 12px;
-  line-height: 1, 7;
+  line-height: 1.166;
   letter-spacing: 0.02em;
+  color: $dark-grey-color;
+  &::placeholder {
+    font-weight: 400;
+    color: #c7ccdc;
+  }
+  @include for-desktop {
+    width: 268px;
+  }
 }
 
 .sum {
   border: none;
   border-radius: 22px 0px 0px 22px;
+  font-family: $main-font;
   font-weight: 400;
   font-size: 12px;
-  line-height: 1, 7;
+  line-height: 1.166;
   letter-spacing: 0.02em;
   text-align: center;
+  color: $dark-grey-color;
+  &::placeholder {
+    color: #c7ccdc;
+  }
 }
 .containerSum {
   margin-left: 30px;
@@ -87,11 +108,14 @@ input {
   align-items: center;
   justify-content: center;
 }
+
 .date {
   border: none;
-  font: $main-font;
+  font: $main-font !important;
+  font-weight: 900 !important;
   width: 80px;
   margin-left: 10px;
+  color: $dark-grey-color !important;
 }
 .calendarColor :global .react-datepicker__day--selected {
   background-color: $accent-color;
@@ -138,6 +162,7 @@ input {
   .formControl {
     width: 282px !important;
   }
+
   .description {
     width: 260px;
     height: 44px;
@@ -153,7 +178,7 @@ input {
     border-radius: 0px 0px 16px 0px;
   }
   .menuItem {
-    width: 180px !important;
+    width: 150px !important;
   }
   .containerSum {
     width: 170px;
@@ -180,20 +205,15 @@ input {
     width: 150px !important;
   }
   .menuItem {
-    width: 180px !important;
+    width: 150px !important;
+  }
+  .InputSelect {
     font-family: $main-font !important;
     font-weight: 400 !important;
     font-size: 12px !important;
-    line-height: 1, 7 !important;
-    text-align: center !important;
+    line-height: 1.166 !important;
     letter-spacing: 0.02em !important;
-    color: #505568 !important;
-  }
-  .InputSelect {
-    font-weight: 400 !important;
-    font-size: 12px !important;
-    line-height: 1, 7 !important;
-    letter-spacing: 0.02em !important;
+    color: #c7ccdc !important;
   }
 
   .inputFild {
