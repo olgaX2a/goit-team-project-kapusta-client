@@ -122,6 +122,9 @@ input {
   width: 80px;
   margin-left: 10px;
   color: $dark-grey-color !important;
+  &:focus{
+    outline: none;
+  }
 }
 .calendarColor :global .react-datepicker__day--selected {
   background-color: $accent-color;
