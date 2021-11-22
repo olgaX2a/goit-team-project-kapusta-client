@@ -104,6 +104,7 @@ const FormInfo = ({ categories, text, transactionType }) => {
             <InputLabel className={s.InputSelect} id="select-label">
               {text}
             </InputLabel>
+
             <Select
               className={s.select}
               autoWidth

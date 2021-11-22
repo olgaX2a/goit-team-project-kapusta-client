@@ -4,12 +4,26 @@
 input {
   padding: 0;
 }
+// .MuiInputBase-root-MuiOutlinedInput-root {
+//   transform: none !important;
+// }
+// .MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+//   border-color: $accent-color !important;
+// }
 .form {
   font-family: $main-font;
   display: flex;
   flex-direction: column;
 }
-
+.select {
+  font-family: $main-font !important;
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  line-height: 1, 7 !important;
+  text-align: center !important;
+  letter-spacing: 0.02em !important;
+  color: #505568 !important;
+}
 .menuItem {
   font-family: $main-font !important;
   font-weight: 400 !important;
@@ -26,7 +40,10 @@ input {
   letter-spacing: 0.02em !important;
   text-align: center;
 }
-
+.MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  transform: none !important;
+  border-color: $accent-color;
+}
 .description {
   border-radius: 16px 16px 0px 0px;
   padding-left: 20px;
